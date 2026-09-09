@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Avighna Specialty Ingredients"
+description = "A premium product-first website for Avighna Speciality Ingredients, helping food, dairy, beverage, pharmaceutical, and nutraceutical manufacturers discover ingredient solutions and request expert guidance."
+version = "1.0.0"
+id = "artifacts/avighna-ingredients"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22809
+
+[services.development]
+run = "pnpm --filter @workspace/avighna-ingredients run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/avighna-ingredients", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/avighna-ingredients/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22809"
+BASE_PATH = "/"

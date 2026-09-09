@@ -1,0 +1,1183 @@
+BUILD / REDESIGN A PREMIUM WEBSITE FOR AVIGHNA SPECIALITY INGREDIENTS PVT. LTD.
+
+PARENT COMPANY:
+AVIGNA
+
+COMPANY:
+AVIGHNA SPECIALITY INGREDIENTS PVT. LTD.
+
+REFERENCE MATERIAL:
+Use the supplied Avighna flyers and Ganesh Inc. brochure as the source of truth for:
+- Product names
+- Product categories
+- Applications
+- Industries
+- Benefits
+- Claims
+- Contact information
+- Company positioning
+
+Do NOT invent certifications, customers, technical specifications, factories, capacities or performance claims.
+
+========================================================
+CORE WEBSITE CONCEPT
+========================================================
+
+The website must NOT feel like a traditional corporate website.
+
+Do NOT create:
+- Huge paragraphs
+- Text-heavy sections
+- Generic corporate stock photos
+- Boring 3-column grids everywhere
+- Generic "About Us" first
+- Excessive bullet points
+- Large walls of text
+
+Instead create an:
+
+IMAGE-FIRST
+PRODUCT-FIRST
+APPLICATION-FIRST
+END-PRODUCT-FIRST
+B2B SPECIALTY INGREDIENT WEBSITE
+
+The visitor should understand the company visually.
+
+The website should communicate:
+
+INGREDIENT
+↓
+APPLICATION
+↓
+END PRODUCT
+↓
+BUSINESS BENEFIT
+
+Example:
+
+FLAVOUR
+→ Beverage
+→ Finished drink
+→ Better taste
+
+COAGULANT
+→ Milk processing
+→ Paneer
+→ Better yield & texture
+
+ANTIOXIDANT
+→ Cooking oil
+→ Fried food
+→ Better oil life
+
+PHARMA INGREDIENT
+→ Formulation
+→ Finished pharma product
+→ Consistent product quality
+
+
+========================================================
+DESIGN DIRECTION
+========================================================
+
+Visual style:
+
+Premium
+Modern
+Scientific
+Clean
+Warm
+Technical
+Trustworthy
+Editorial
+B2B
+
+The website should feel like a combination of:
+
+Premium food ingredient brand
++
+Specialty chemical company
++
+Modern pharmaceutical ingredient company
+
+Use:
+
+- Warm ivory / off-white background
+- White content sections
+- Charcoal typography
+- Avighna orange/coral accent
+- Soft gold secondary accent
+- Very subtle gradients
+- Thin borders
+- Rounded cards
+- Large photography
+- Editorial layouts
+- Premium typography
+- Minimal line icons
+
+Do NOT make every section orange.
+
+Orange should be an accent.
+
+Use large visual images with plenty of whitespace.
+
+
+========================================================
+TYPOGRAPHY
+========================================================
+
+Use a modern premium font.
+
+Preferred:
+
+Manrope
+or
+Inter
+or
+Plus Jakarta Sans
+
+Headings:
+Bold / extra bold
+
+Body:
+Regular / medium
+
+Use large headlines.
+
+Avoid small typography.
+
+
+========================================================
+HEADER
+========================================================
+
+Sticky header.
+
+LEFT:
+
+AVIGHNA LOGO
+
+Small supporting label:
+
+"Speciality Ingredients"
+
+RIGHT:
+
+Home
+Products
+Industries
+Applications
+About
+Contact
+
+CTA:
+
+"Request a Quote"
+
+Small parent-company indicator:
+
+"An Avigna Group Company"
+
+Mobile:
+
+Logo
+Menu
+Enquire
+
+
+========================================================
+HERO SECTION
+========================================================
+
+DO NOT use a generic laboratory image.
+
+The hero should show the relationship between ingredients and finished products.
+
+LEFT:
+
+Eyebrow:
+
+"AVIGHNA SPECIALITY INGREDIENTS"
+
+Headline:
+
+"Ingredients That Make Better Products."
+
+Supporting text:
+
+"Specialty ingredient solutions for food, dairy, beverages, pharmaceuticals and nutraceuticals."
+
+Buttons:
+
+"Explore Products"
+"Talk to an Expert"
+
+
+RIGHT:
+
+Create a premium multi-product visual composition.
+
+Show:
+
+- Crispy fried snacks
+- Cooking oil
+- Paneer / cheese
+- Flavoured beverage
+- Fruit / spices
+- Pharmaceutical capsules
+
+The visual should look like a premium commercial food + pharma campaign.
+
+Use subtle floating ingredient elements.
+
+Add small floating labels:
+
+FOOD
+DAIRY
+FLAVOURS
+BEVERAGES
+PHARMA
+
+
+AI IMAGE GENERATION PROMPT:
+
+"Create a premium photorealistic commercial hero image for a specialty ingredients company. Show a sophisticated composition combining finished food products, dairy products, beverages, natural flavour ingredients and pharmaceutical nutraceutical products. Include crispy golden fried snacks with glossy cooking oil, fresh paneer and cheese, an elegant fruit beverage, spices and natural extracts, and clean pharmaceutical capsules. Arrange everything as a luxurious editorial product composition with controlled studio lighting, soft ivory background, subtle orange and warm gold accents, realistic textures, premium B2B advertising photography, shallow depth of field, clean negative space, sophisticated food ingredient industry aesthetic, ultra realistic, high-end commercial photography, no people, no text, no logos, no watermark."
+
+
+========================================================
+TRUST STRIP
+========================================================
+
+Immediately below hero.
+
+Five compact items:
+
+QUALITY
+Consistent ingredient quality
+
+RELIABILITY
+Consistent supply
+
+APPLICATION
+Product-focused solutions
+
+TECHNICAL
+Technical support
+
+CUSTOM
+Industry-specific solutions
+
+Use icons.
+
+No paragraphs.
+
+
+========================================================
+SECTION: FROM INGREDIENT TO END PRODUCT
+========================================================
+
+Heading:
+
+"From Ingredient to End Product."
+
+Supporting text:
+
+"We help manufacturers improve taste, texture, shelf life, efficiency and product quality."
+
+Create 4 large visual cards.
+
+CARD 1:
+
+FOOD
+
+Image:
+Fried snacks / food processing
+
+CARD 2:
+
+DAIRY
+
+Image:
+Paneer / cheese / yoghurt
+
+CARD 3:
+
+FLAVOURS & BEVERAGES
+
+Image:
+Fruit / spices / beverage
+
+CARD 4:
+
+PHARMA & NUTRACEUTICAL
+
+Image:
+Capsules / pharmaceutical formulation
+
+
+AI IMAGE PROMPT — FOOD:
+
+"Premium photorealistic commercial food photography showing an assortment of Indian and international fried snacks, crispy golden texture, professional food manufacturing aesthetic, subtle cooking oil highlights, clean warm ivory background, sophisticated orange and gold styling, high-end ingredient supplier advertising, dramatic but clean lighting, realistic textures, no people, no text, no logos."
+
+
+AI IMAGE PROMPT — DAIRY:
+
+"Premium photorealistic dairy product advertising image featuring fresh soft paneer cubes, mozzarella cheese stretch, cheddar cheese and creamy yoghurt in one elegant composition. Clean modern dairy processing atmosphere, soft white and ivory tones, subtle warm gold lighting, premium food ingredient company aesthetic, highly realistic textures, no people, no text, no logos."
+
+
+AI IMAGE PROMPT — FLAVOURS:
+
+"Luxury commercial food ingredient photography featuring colorful natural fruits, citrus, spices, herbs, flavour powders, liquid droplets and an elegant finished fruit beverage. Sophisticated composition, ivory background, subtle orange and gold accents, premium flavour house aesthetic, photorealistic, high detail, natural textures, no people, no text, no logos."
+
+
+AI IMAGE PROMPT — PHARMA:
+
+"Premium pharmaceutical ingredient advertising photograph showing clean pharmaceutical capsules, fine ingredient powders, botanical extracts, laboratory glassware and subtle scientific elements. Bright clean clinical environment with soft blue-white and ivory tones, sophisticated lighting, premium pharmaceutical ingredient supplier aesthetic, photorealistic, no people, no text, no logos."
+
+
+========================================================
+PRODUCT SECTION
+========================================================
+
+Heading:
+
+"Specialty Ingredients for Better Formulation."
+
+Create visual product categories.
+
+Categories:
+
+FOOD INGREDIENTS
+FLAVOURS & SEASONINGS
+DAIRY SOLUTIONS
+PHARMA & NUTRACEUTICALS
+
+
+Use product cards.
+
+Each product card:
+
+IMAGE
+Product name
+Category
+Application
+Arrow
+
+Example:
+
+Maltodextrin
+
+[Ingredient image]
+
+Food • Pharma • Nutraceutical
+
+View Solution →
+
+
+PRODUCT IMAGE GENERATION STYLE:
+
+All product images must share the same photography style.
+
+Use:
+
+"Premium commercial ingredient product photography, isolated ingredient material, elegant studio lighting, warm ivory background, subtle shadow, realistic texture, luxury B2B ingredient catalogue aesthetic, clean composition, no text, no packaging, no logo."
+
+
+Generate suitable images for:
+
+Citric Acid
+Maltodextrin
+Sorbitol
+Dextrose
+Liquid Glucose
+Maize Starch
+Paneer Coagulant
+Natural Antioxidant
+Liquid Flavours
+Encapsulated Flavours
+Powder Flavours
+Natural Extracts
+Fruit Preparations
+Fruit Powders
+Fruit & Vegetable Syrups
+
+
+========================================================
+FEATURED PRODUCT — XTENDRA 06
+========================================================
+
+Make this one of the strongest sections.
+
+Headline:
+
+"Improve Oil Life.
+Improve Product Quality.
+Reduce Costs."
+
+Product:
+
+XTENDRA 06
+
+Create large product visual.
+
+Show:
+- Crispy fried food
+- Hot cooking oil
+- Product container
+- Ingredient concept
+
+Use large numbers:
+
+1 gm
+per 1 kg cooking oil
+
+5–15%
+reduced oil absorption
+
+75–100L+
+cooking oil users
+
+1L / 5L / 25L
+packaging
+
+Benefits with icons:
+
+Prevents rancidity
+Enhances shelf life
+Reduces smoke during frying
+Reduces oil absorption
+Helps maintain oil quality
+
+
+AI IMAGE PROMPT:
+
+"Create an ultra-realistic premium commercial advertising image for a natural antioxidant solution used by fried-food manufacturers. Show a close-up of golden crispy fried snacks being cooked in clean hot oil, visible bubbling oil, appetizing texture, subtle steam, professional food manufacturing atmosphere, with a premium white ingredient container positioned elegantly in the foreground without readable branding or text. Warm ivory background, orange and gold accents, dramatic commercial lighting, sophisticated B2B food ingredient campaign, photorealistic, extremely detailed food texture, shallow depth of field, no people, no text, no watermark."
+
+
+IMPORTANT:
+Use the actual approved XTENDRA 06 product packaging image from the supplied company material if available.
+
+Do not generate a fake company logo or fake product label.
+
+
+========================================================
+INDUSTRIES SECTION
+========================================================
+
+Heading:
+
+"Solutions for the Industries That Make What We Use Every Day."
+
+Create a premium image grid.
+
+Industries:
+
+Food Processing
+Beverages
+Dairy
+Bakery & Confectionery
+Pharmaceuticals
+Nutraceuticals
+
+
+Each card should be mostly image.
+
+Overlay:
+
+Industry name
+One short description
+Arrow
+
+
+AI IMAGE PROMPTS:
+
+
+FOOD PROCESSING:
+
+"Premium industrial food product photography showing beautifully finished fried snacks, chips, savouries and processed foods arranged in a sophisticated commercial composition, warm lighting, realistic textures, modern food manufacturing aesthetic, ivory background, high-end B2B advertising photography, no people, no text."
+
+
+BEVERAGES:
+
+"Premium commercial beverage photography featuring elegant fruit beverages, flavored drinks, citrus, berries, herbs and liquid droplets, refreshing composition, sophisticated studio lighting, clean ivory background, orange and gold accents, photorealistic, luxury beverage advertising, no people, no text."
+
+
+DAIRY:
+
+"High-end dairy commercial photography showing paneer cubes, mozzarella cheese stretch, cheddar cheese and creamy yoghurt, clean premium composition, soft natural lighting, realistic food texture, sophisticated white and ivory palette, no people, no text."
+
+
+BAKERY:
+
+"Premium bakery commercial photography featuring fresh bread, pastries, cakes, biscuits and confectionery products, elegant studio composition, warm natural lighting, highly realistic textures, luxury ingredient supplier campaign, no people, no text."
+
+
+PHARMA:
+
+"High-end pharmaceutical commercial photography showing capsules, tablets, ingredient powders, clean glass laboratory vessels and modern pharmaceutical formulation environment, soft blue-white lighting, premium clinical aesthetic, photorealistic, no people, no text."
+
+
+NUTRACEUTICAL:
+
+"Premium nutraceutical commercial photography showing capsules, powdered ingredients, botanical extracts, natural ingredients and clean health formulation products, sophisticated clinical-natural aesthetic, soft ivory and white background, photorealistic, no people, no text."
+
+
+========================================================
+END PRODUCT APPLICATIONS
+========================================================
+
+Heading:
+
+"Where Our Ingredients Become Products."
+
+This section should visually demonstrate the end products.
+
+Create horizontal scrolling cards.
+
+Cards:
+
+FRIED FOODS
+ICE CREAM
+PANEER
+CHEESE
+CURD / YOGHURT
+BEVERAGES
+INSTANT SOUPS
+SNACKS
+MASALAS
+BAKERY
+PHARMA
+NUTRACEUTICALS
+
+
+Every card should use an image.
+
+Example:
+
+PANEER
+
+[Large paneer image]
+
+Coagulants
+↓
+Milk processing
+↓
+Paneer
+
+
+AI IMAGE PROMPT:
+
+"Create a premium photorealistic food product application image showing fresh soft paneer cubes on a clean ceramic surface, subtle milk-processing context in the background, warm natural light, sophisticated dairy advertising style, realistic porous texture, elegant ivory background, high-end commercial photography, no people, no text, no logos."
+
+
+Generate equivalent images for the other end products.
+
+
+========================================================
+DAIRY SOLUTIONS
+========================================================
+
+Heading:
+
+"Higher Yield. Better Texture. Smarter Dairy Production."
+
+Feature:
+
+EZENTIAL 4001 COAGULANT
+
+Visual:
+
+Milk
+↓
+Coagulant
+↓
+Paneer
+↓
+Higher yield
+
+
+Highlight:
+
+0.35%
+dosage
+
+18–20%
+yield improvement
+
+Soft & spongy texture
+
+
+Show applications:
+
+Paneer
+Mozzarella
+Cheddar
+Curd / Yoghurt
+Ghee
+
+
+AI IMAGE PROMPT:
+
+"Create an ultra-premium photorealistic dairy manufacturing advertising scene. Show fresh milk flowing into a clean stainless-steel dairy processing environment transitioning visually into beautifully formed soft paneer cubes, stretchy mozzarella, cheddar cheese and creamy yoghurt. Include subtle scientific ingredient elements but keep the image food-focused. Bright ivory and white palette, warm gold highlights, clean industrial sophistication, high-end B2B dairy campaign, no people, no text, no logos."
+
+
+========================================================
+FLAVOUR SOLUTIONS
+========================================================
+
+Headline:
+
+"Create Better Taste. Build Stronger Products."
+
+Show a large immersive image.
+
+Visual elements:
+
+Fresh fruits
+Citrus
+Spices
+Herbs
+Flavour powders
+Liquid droplets
+Finished beverage
+Finished snack
+
+
+Then show:
+
+Liquid Flavours
+Encapsulated Flavours
+Powder Flavours
+Natural Extracts
+Fruit Preparations
+Fruit Powders
+Syrups
+Oil-Based Flavours
+Water-Based Flavours
+
+
+AI IMAGE PROMPT:
+
+"Ultra-realistic luxury flavour ingredient advertising image showing fresh citrus fruits, berries, mango, herbs, spices, cinnamon, star anise, natural extracts, fine flavour powders and elegant liquid droplets flowing into a premium finished beverage and snack application. Artistic but photorealistic composition, ivory background, subtle orange, coral and warm gold accents, sophisticated flavour house branding aesthetic, cinematic commercial lighting, high detail, no people, no text, no logos."
+
+
+========================================================
+PHARMA & NUTRACEUTICAL
+========================================================
+
+Headline:
+
+"Reliable Ingredients for High-Performance Pharma Products."
+
+Create clean clinical visual.
+
+Show:
+
+Maltodextrin
+Sorbitol
+Dextrose
+Liquid Glucose
+Flavours
+Natural Extracts
+
+
+Use 3 visual categories:
+
+STARCH DERIVATIVES
+
+FLAVOURS & SEASONINGS
+
+NATURAL EXTRACTS
+
+
+AI IMAGE PROMPT:
+
+"Create a sophisticated photorealistic pharmaceutical ingredient campaign image showing fine white ingredient powders, transparent laboratory glassware, clean pharmaceutical capsules, botanical extracts and liquid ingredients suspended in an elegant clinical environment. Soft cool white and pale blue atmosphere combined with subtle warm gold highlights, advanced but approachable pharmaceutical aesthetic, clean scientific composition, premium B2B advertising photography, shallow depth of field, no people, no text, no logos."
+
+
+========================================================
+WHY AVIGHNA
+========================================================
+
+Heading:
+
+"Why Manufacturers Choose Avighna."
+
+Do NOT use paragraphs.
+
+Create 6 visual icon cards:
+
+QUALITY
+RELIABILITY
+TECHNICAL SUPPORT
+CUSTOM SOLUTIONS
+DOCUMENTATION
+RESPONSIVENESS
+
+
+Use minimal premium outline icons.
+
+Icon prompts:
+
+"Minimal premium line icon for ingredient quality assurance, sophisticated B2B pharmaceutical and food ingredient website, thin geometric strokes, elegant, clean, ivory background, no text."
+
+Create matching icons for:
+
+Supply
+Technical Support
+Customization
+Documentation
+Response
+
+
+========================================================
+PARENT COMPANY
+========================================================
+
+Create a subtle section:
+
+"Part of the Avigna Group"
+
+Visual relationship:
+
+AVIGNA
+↓
+AVIGHNA SPECIALITY INGREDIENTS
+
+Do not make this section dominate the website.
+
+Avighna is the primary brand.
+
+
+AI IMAGE PROMPT:
+
+"Create a premium abstract corporate visual representing a parent company and specialized business relationship. Use elegant connected geometric forms, subtle flowing lines, warm orange, gold, ivory and charcoal palette, sophisticated modern corporate identity, minimal luxury B2B aesthetic, lots of negative space, no text, no logos."
+
+
+========================================================
+ABOUT SECTION
+========================================================
+
+Headline:
+
+"Ingredient Expertise. Built Around Your Product."
+
+Use a large image on one side.
+
+Short content on the other:
+
+Application-focused
+Quality-driven
+Reliable
+Technical
+Customer-oriented
+
+
+AI IMAGE PROMPT:
+
+"Premium editorial photograph of a modern food and pharmaceutical ingredient development environment, stainless steel ingredient containers, laboratory glassware, natural food ingredients, powders, fruits and finished food products arranged elegantly, sophisticated professional atmosphere, warm ivory and neutral palette, high-end B2B corporate photography, no visible people, no text."
+
+
+========================================================
+QUALITY / TRUST SECTION
+========================================================
+
+Create a visual quality section.
+
+Heading:
+
+"Quality Isn't Just a Promise. It's the Foundation."
+
+Use:
+
+Shield icon
+Check icon
+Document icon
+Lab icon
+Supply-chain icon
+
+
+Show short statements only.
+
+Do not create long paragraphs.
+
+
+========================================================
+CONTACT CTA
+========================================================
+
+Large visual CTA.
+
+Headline:
+
+"Tell Us What You're Formulating."
+
+Supporting line:
+
+"Let's find the right ingredient solution for your product."
+
+Buttons:
+
+"Request a Quote"
+"Talk to an Expert"
+
+Background should use an elegant ingredient/product image.
+
+
+AI IMAGE PROMPT:
+
+"Create a premium abstract ingredient composition for a B2B specialty ingredients website CTA. Show fine powders, liquid droplets, spices, fruit extracts, dairy ingredients and subtle pharmaceutical elements flowing together in a sophisticated controlled composition. Warm ivory background, orange and gold accents, dramatic soft lighting, luxury commercial photography, clean negative space on the left for website text, no text, no logo, no people."
+
+
+========================================================
+FOOTER
+========================================================
+
+Dark premium footer.
+
+Avighna logo.
+
+"Specialty Ingredients. Better Products."
+
+Navigation.
+
+Products
+Industries
+Applications
+About
+Contact
+
+CTA:
+
+Request a Quote
+
+Show:
+
+Call
+WhatsApp
+Email
+Location
+
+Bottom:
+
+"An Avigna Group Company"
+
+© 2026 Avighna Speciality Ingredients Pvt. Ltd.
+All Rights Reserved.
+
+
+========================================================
+IMAGE SYSTEM
+========================================================
+
+VERY IMPORTANT:
+
+Do not use random AI images throughout the website.
+
+All generated images must look like they belong to the SAME BRAND CAMPAIGN.
+
+Maintain:
+
+Same lighting
+Same color palette
+Same camera quality
+Same background language
+Same premium commercial photography
+Same visual sophistication
+
+Image style:
+
+Photorealistic
+Commercial advertising
+Premium B2B
+Natural textures
+Editorial composition
+Soft cinematic lighting
+Ivory background
+Orange/gold accents
+High dynamic range
+High detail
+No people unless specifically required
+No random text
+No watermark
+No fake logos
+
+
+========================================================
+IMAGE ASPECT RATIOS
+========================================================
+
+Hero:
+16:9
+
+Industry cards:
+4:3
+
+Product cards:
+1:1
+
+Featured product:
+4:5
+
+End-product cards:
+4:3
+
+CTA:
+16:9
+
+Mobile:
+Crop intelligently rather than simply shrinking.
+
+
+========================================================
+IMPORTANT AI IMAGE RULE
+========================================================
+
+Never ask the image generator to render important website text inside images.
+
+Website text must be HTML/CSS.
+
+Images should contain:
+- Products
+- Ingredients
+- Food
+- Dairy
+- Beverage
+- Pharma
+- Natural ingredients
+- Scientific elements
+
+NOT:
+
+headlines
+paragraphs
+prices
+technical specifications
+fake company logos
+fake certifications
+
+
+========================================================
+INTERACTION DESIGN
+========================================================
+
+Use subtle animations.
+
+On scroll:
+
+Images fade/slide in.
+
+Product cards:
+Image zoom on hover.
+
+Industry cards:
+Dark overlay appears on hover.
+
+Product cards:
+Lift slightly on hover.
+
+Numbers:
+Count-up animation.
+
+Application section:
+Horizontal scrolling.
+
+Hero:
+Very subtle floating ingredient animation.
+
+Do NOT over-animate.
+
+The website should feel premium, not like a flashy startup landing page.
+
+
+========================================================
+PRODUCT FILTER
+========================================================
+
+Products page must have:
+
+ALL
+FOOD
+FLAVOURS
+DAIRY
+PHARMA
+NUTRACEUTICAL
+
+Clicking a category filters the products.
+
+
+========================================================
+PRODUCT DETAIL PAGE
+========================================================
+
+Each product page should have:
+
+Product image
+
+Product name
+
+Short positioning
+
+Applications
+
+Benefits
+
+Available packaging
+
+Industries
+
+Technical information accordion
+
+Related products
+
+Request Quote CTA
+
+Contact Technical Team
+
+
+========================================================
+MOBILE UX
+========================================================
+
+Do not simply shrink desktop.
+
+Design mobile separately.
+
+Hero:
+Large image + short headline
+
+Products:
+Horizontal swipe cards
+
+Industries:
+Image cards
+
+Applications:
+Horizontal carousel
+
+Benefits:
+Icon cards
+
+CTA:
+Sticky bottom:
+
+"Request a Quote"
+
+
+Floating:
+
+WhatsApp
+
+
+========================================================
+CONTENT RULE
+========================================================
+
+Follow:
+
+70% VISUAL
+20% SHORT INFORMATION
+10% DETAILED INFORMATION
+
+Every major section must contain at least one strong visual.
+
+Prefer:
+
+IMAGE
++
+ICON
++
+NUMBER
++
+SHORT TEXT
+
+instead of:
+
+HEADING
++
+LONG PARAGRAPH
+
+
+========================================================
+FINAL VISUAL EXPERIENCE
+========================================================
+
+The final website should feel like:
+
+"McKinsey-level B2B clarity"
++
+"Premium food ingredient catalogue"
++
+"Modern pharmaceutical ingredient brand"
++
+"Luxury product photography"
+
+The visitor should be able to scroll through the homepage and understand the company without reading every word.
+
+The visual storytelling sequence should be:
+
+AVIGHNA
+↓
+WHAT WE PROVIDE
+↓
+WHAT IT DOES
+↓
+WHERE IT IS USED
+↓
+WHAT END PRODUCTS IT CREATES
+↓
+WHY IT MATTERS
+↓
+WHY AVIGHNA
+↓
+REQUEST A QUOTE
+
+
+========================================================
+DO NOT DO THESE THINGS
+========================================================
+
+DO NOT:
+
+- Use excessive text
+- Use generic business people shaking hands
+- Use generic office images
+- Use generic factory images as the hero
+- Use random laboratory stock images
+- Invent customer logos
+- Invent certifications
+- Invent statistics
+- Invent product specifications
+- Invent product packaging
+- Generate fake logos
+- Put website copy inside AI-generated images
+- Use inconsistent photography styles
+- Make every section a card grid
+- Make every section orange
+- Make the website look like a chemical commodity supplier
+
+
+========================================================
+FINAL GOAL
+========================================================
+
+Build a visually powerful, premium, modern B2B website where the PRODUCTS and END PRODUCTS are the HERO.
+
+The website should make Avighna look like a specialized ingredient solutions partner rather than a simple raw-material supplier.
+
+PRIMARY MESSAGE:
+
+"Ingredients That Make Better Products."
+
+SECONDARY MESSAGE:
+
+"From specialty ingredients to finished-product applications, Avighna helps manufacturers create better food, dairy, beverage, pharmaceutical and nutraceutical products."
+
+PRIMARY CTA:
+
+"Request a Quote"
+
+SECONDARY CTA:
+
+"Explore Products"
