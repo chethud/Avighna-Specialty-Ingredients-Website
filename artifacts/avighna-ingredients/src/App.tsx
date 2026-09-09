@@ -25,7 +25,7 @@ const industries: Industry[] = [
     label: 'Food & beverage',
     title: 'Taste, texture, consistency.',
     description: 'Flavour and ingredient solutions for instant soups/snacks, chips/masalas, beverages, bakeries and more.',
-    image: '/brand/flavours.jpg',
+    image: '/generated/flavours.jpg',
     accent: 'from-[#fbefe0] to-[#edc27f]',
     icon: Sparkles,
   },
@@ -34,7 +34,7 @@ const industries: Industry[] = [
     label: 'Dairy',
     title: 'Higher yield. Better texture.',
     description: 'Ingredients and solutions for paneer, cheese, curd and ghee production.',
-    image: '/brand/dairy.jpg',
+    image: '/generated/dairy.jpg',
     accent: 'from-[#f4efdd] to-[#d8e3dd]',
     icon: Milk,
   },
@@ -43,7 +43,7 @@ const industries: Industry[] = [
     label: 'Pharma & nutraceuticals',
     title: 'Reliable formulation inputs.',
     description: 'Premium ingredients and flavour systems for pharma & nutraceutical industry applications.',
-    image: '/brand/pharma.jpg',
+    image: '/generated/pharma.jpg',
     accent: 'from-[#e8f4f3] to-[#b8d9dc]',
     icon: FlaskConical,
   },
@@ -163,7 +163,7 @@ function Hero() {
 
         <div className="relative mx-auto h-[570px] w-full max-w-[640px] lg:h-[625px]">
           <div className="absolute right-0 top-0 h-[445px] w-[76%] overflow-hidden rounded-[10rem_1.5rem_1.5rem_1.5rem] border-[7px] border-[#fff4e4] shadow-[0_22px_50px_rgba(87,56,25,0.18)]">
-            <img src="/brand/flavours.jpg" alt="Flavour and seasoning ingredients" className="h-full w-full object-cover object-right" data-testid="img-hero-flavours" />
+            <img src="/generated/hero.jpg" alt="Specialty ingredients and finished product applications" className="h-full w-full object-cover object-right" data-testid="img-hero-ingredients" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#273e36]/35 to-transparent" />
             <div className="absolute bottom-5 left-6 text-[#fff9ee]">
               <p className="eyebrow">Applications</p>
@@ -171,7 +171,7 @@ function Hero() {
             </div>
           </div>
           <div className="absolute bottom-0 left-0 h-[285px] w-[47%] overflow-hidden rounded-[1.5rem_5.5rem_1.5rem_1.5rem] border-[7px] border-[#f4eadb] shadow-[0_17px_35px_rgba(87,56,25,0.2)]">
-            <img src="/brand/fried-food.jpg" alt="Fried food in cooking oil" className="h-full w-full object-cover" data-testid="img-hero-fried-food" />
+            <img src="/generated/food.jpg" alt="Crisp fried food and cooking oil" className="h-full w-full object-cover" data-testid="img-hero-food" />
           </div>
           <div className="absolute bottom-20 right-[9%] flex h-28 w-28 rotate-6 flex-col items-center justify-center rounded-full bg-[#1e3d38] text-center text-[#fff9ee] shadow-lg">
             <span className="font-display text-3xl leading-none">01</span>
@@ -280,7 +280,7 @@ function Catalogue() {
           </div>
           <div className="relative overflow-hidden rounded-2xl bg-[#dbe7df] p-8 sm:p-11">
             <div className="absolute bottom-0 right-0 h-full w-[49%] overflow-hidden rounded-tl-[8rem]">
-              <img src="/brand/pharma.jpg" alt="Pharmaceutical and nutraceutical formulations" className="h-full w-full object-cover object-right" data-testid="img-catalogue-pharma" />
+              <img src="/generated/pharma.jpg" alt="Pharmaceutical and nutraceutical ingredients" className="h-full w-full object-cover object-right" data-testid="img-catalogue-pharma" />
             </div>
             <div className="relative z-10 max-w-[260px]">
               <span className="eyebrow text-[#547064]">Formulation support</span>
@@ -320,7 +320,7 @@ function XtendraFeature() {
         </div>
         <div className="relative z-10">
           <div className="relative overflow-hidden rounded-[1.5rem_8rem_1.5rem_1.5rem] border-[8px] border-[#f7a060] shadow-[0_25px_60px_rgba(90,38,14,.25)]">
-            <img src="/brand/fried-food-flyer.png" alt="XTENDRA 06 natural anti-oxidant blend" className="aspect-[0.72] w-full object-cover object-top" data-testid="img-xtendra-flyer" />
+            <img src="/generated/food.jpg" alt="Crisp fried food and cooking oil for the XTENDRA 06 solution" className="aspect-[0.72] w-full object-cover object-center" data-testid="img-xtendra-food" />
           </div>
           <div className="absolute -bottom-6 -left-6 max-w-[235px] rounded-xl bg-[#fff9ee] p-5 text-[#1e3d38] shadow-xl">
             <div className="eyebrow text-[#e2602c]">Key benefits</div>
@@ -340,7 +340,7 @@ function DairyFeature() {
       <div className="mx-auto grid max-w-[1320px] items-center gap-14 lg:grid-cols-[0.9fr_1fr] lg:gap-24">
         <div className="order-2 lg:order-1">
           <div className="relative mx-auto max-w-[550px] overflow-hidden rounded-[8rem_1.5rem_1.5rem_1.5rem] border-[8px] border-[#fff9ee] shadow-[0_22px_45px_rgba(49,62,54,.14)]">
-            <img src="/brand/dairy-flyer.png" alt="EZENTIAL 4001 COAGULANT for paneer manufacturers" className="aspect-[0.72] w-full object-cover object-top" data-testid="img-dairy-flyer" />
+            <img src="/generated/dairy.jpg" alt="Paneer, cheese, and yoghurt applications for EZENTIAL 4001 COAGULANT" className="aspect-[0.72] w-full object-cover object-center" data-testid="img-dairy-ingredients" />
           </div>
         </div>
         <div className="order-1 lg:order-2">
@@ -374,7 +374,7 @@ function Applications() {
         </div>
         <div className="mt-14 grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           <div className="relative min-h-[530px] overflow-hidden rounded-[1.5rem_8rem_1.5rem_1.5rem] bg-[#dbe7df]">
-            <img src="/brand/flavours-flyer.png" alt="Flavour and seasoning solutions" className="absolute inset-0 h-full w-full object-cover object-top" data-testid="img-flavours-flyer" />
+            <img src="/generated/flavours.jpg" alt="Fruits, spices, extracts, and flavour ingredients" className="absolute inset-0 h-full w-full object-cover object-center" data-testid="img-flavours-ingredients" />
             <div className="absolute bottom-5 left-5 right-5 rounded-xl bg-[#1e3d38]/95 p-5 text-[#fff9ee]">
               <p className="eyebrow text-[#e4c16e]">Our flavour range</p>
               <p className="mt-2 font-display text-2xl leading-none">Liquid. Encapsulated. Powder.</p>
