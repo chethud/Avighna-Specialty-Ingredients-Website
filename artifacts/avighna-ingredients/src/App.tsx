@@ -1,10 +1,15 @@
 import { useState, type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ArrowDownRight, ArrowUpRight, Check, ChevronRight, Factory, FlaskConical, Menu, Milk, Phone, Plus, Sparkles, X } from 'lucide-react';
+import { Apple, ArrowDownRight, ArrowRight, ArrowUpRight, Beaker, Building2, Candy, Check, Cherry, Citrus, Droplets, Factory, FileText, FlaskConical, GlassWater, Leaf, Lock, Mail, MapPin, Milk, Package, Phone, Sparkles, User, Users, Wheat, type LucideIcon } from 'lucide-react';
+import { CategoryCard, type CategoryTheme } from '@/components/catalogue/CategoryCard';
 import { ErrorBoundary } from '@/components/error-boundary';
+import { SiteFooter } from '@/components/site-footer';
+import { SiteHeader } from '@/components/site-header';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
+import About from '@/pages/about';
+import CompanyPage from '@/pages/company';
 import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 
 const queryClient = new QueryClient();
@@ -17,6 +22,11 @@ type Industry = {
   image: string;
   accent: string;
   icon: typeof Factory;
+};
+
+type IngredientItem = {
+  label: string;
+  icon: LucideIcon;
 };
 
 const industries: Industry[] = [
@@ -49,11 +59,92 @@ const industries: Industry[] = [
   },
 ];
 
+const categoryThemes = {
+  core: {
+    cardBg: 'bg-[#f7f0e5]',
+    cardBorder: 'border-[#e5d7c3]',
+    label: 'text-[#d35a2b]',
+    badge: 'border-[#e4a07a] text-[#c24f24] bg-[#fff8f1]/85',
+    row: 'border-[#eadfce] bg-[#fffaf4]/95 hover:border-[#e0a882] hover:bg-white hover:text-[#d35a2b]',
+    icon: 'bg-[#f1e4d1] text-[#1e3d38] group-hover/item:bg-[#edd2b4] group-hover/item:text-[#d35a2b]',
+    blob: 'bg-[#efdcc0]',
+    slogan: 'text-[#8f6236]',
+    blend: '#f7f0e5',
+  },
+  flavour: {
+    cardBg: 'bg-[#eef4ef]',
+    cardBorder: 'border-[#d2dfd5]',
+    label: 'text-[#4f7a5d]',
+    badge: 'border-[#8fb39a] text-[#3f6b51] bg-[#f7fbf8]/85',
+    row: 'border-[#d6e3da] bg-[#fbfefc]/95 hover:border-[#95b8a3] hover:bg-white hover:text-[#3f6b51]',
+    icon: 'bg-[#e0ebe4] text-[#1e3d38] group-hover/item:bg-[#cfe1d5] group-hover/item:text-[#3f6b51]',
+    blob: 'bg-[#d7e7dd]',
+    slogan: 'text-[#3f6b51]',
+    blend: '#eef4ef',
+  },
+  fruit: {
+    cardBg: 'bg-[#fff2e7]',
+    cardBorder: 'border-[#efd5bd]',
+    label: 'text-[#e06a2f]',
+    badge: 'border-[#efb07a] text-[#d35a2b] bg-[#fff8f0]/85',
+    row: 'border-[#efdcc9] bg-[#fffaf5]/95 hover:border-[#ebb07a] hover:bg-white hover:text-[#d35a2b]',
+    icon: 'bg-[#f7e3d0] text-[#1e3d38] group-hover/item:bg-[#f2d1b2] group-hover/item:text-[#d35a2b]',
+    blob: 'bg-[#f6dfc5]',
+    slogan: 'text-[#c24f24]',
+    blend: '#fff2e7',
+  },
+} satisfies Record<string, CategoryTheme>;
+
 const ingredientGroups = [
-  { eyebrow: 'Core ingredients', items: ['Citric Acid', 'Maltodextrin', 'Sorbitol 70% IP Solution', 'Dextrose Anhydrous', 'Dextrose Monohydrate', 'Liquid Glucose', 'Maize Starch'] },
-  { eyebrow: 'Dairy solutions', items: ['Paneer Coagulants'] },
-  { eyebrow: 'Flavour systems', items: ['Natural Antioxidant Blends', 'Liquid Flavours', 'Encapsulated Flavours', 'Powder Flavours', 'Natural Extracts'] },
-  { eyebrow: 'Fruit solutions', items: ['Fruit Preparations', 'Fruit Powders', 'Fruit & Vegetable Syrups'] },
+  {
+    eyebrow: 'Core ingredients',
+    title: 'Core and dairy essentials',
+    description: 'Foundational inputs for sweetness, texture, stability, and dependable dairy processing.',
+    slogan: 'Building the essentials together',
+    image: '/generated/catalogue-core.jpg',
+    imageAlt: 'Milk powder and dairy ingredient textures',
+    theme: categoryThemes.core,
+    items: [
+      { label: 'Citric Acid', icon: Beaker },
+      { label: 'Maltodextrin', icon: Wheat },
+      { label: 'Sorbitol 70% IP Solution', icon: Droplets },
+      { label: 'Dextrose Anhydrous', icon: Candy },
+      { label: 'Dextrose Monohydrate', icon: Candy },
+      { label: 'Liquid Glucose', icon: GlassWater },
+      { label: 'Maize Starch', icon: Wheat },
+      { label: 'Paneer Coagulants', icon: Milk },
+    ] satisfies IngredientItem[],
+  },
+  {
+    eyebrow: 'Flavour systems',
+    title: 'Layered flavour delivery',
+    description: 'Flexible flavour formats for products that need aroma, taste retention, and processing fit.',
+    slogan: 'Flavours that inspire',
+    image: '/generated/catalogue-flavour.jpg',
+    imageAlt: 'Vanilla, botanicals, and natural flavour extracts',
+    theme: categoryThemes.flavour,
+    items: [
+      { label: 'Natural Antioxidant Blends', icon: Leaf },
+      { label: 'Liquid Flavours', icon: Droplets },
+      { label: 'Encapsulated Flavours', icon: Package },
+      { label: 'Powder Flavours', icon: Sparkles },
+      { label: 'Natural Extracts', icon: FlaskConical },
+    ] satisfies IngredientItem[],
+  },
+  {
+    eyebrow: 'Fruit solutions',
+    title: 'Fruit-forward product formats',
+    description: 'Preparation and syrup systems built for colour, mouthfeel, and real-product character.',
+    slogan: 'Real Fruit. Real Possibilities.',
+    image: '/generated/catalogue-fruit.jpg',
+    imageAlt: 'Fresh mango, citrus, and fruit preparations',
+    theme: categoryThemes.fruit,
+    items: [
+      { label: 'Fruit Preparations', icon: Apple },
+      { label: 'Fruit Powders', icon: Cherry },
+      { label: 'Fruit & Vegetable Syrups', icon: Citrus },
+    ] satisfies IngredientItem[],
+  },
 ];
 
 const flavourApplications = [
@@ -73,72 +164,14 @@ function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-function BrandWordmark({ light = false }: { light?: boolean }) {
-  return (
-    <div className="flex items-center gap-3" data-testid="brand-wordmark">
-      <div className={`h-9 w-1.5 rounded-full ${light ? 'bg-[#e4c16e]' : 'bg-[#e2602c]'}`} />
-      <div className="leading-none">
-        <div className={`font-display text-[1.35rem] tracking-[-0.04em] ${light ? 'text-[#fff9ee]' : 'text-[#1d2522]'}`}>Avighna</div>
-        <div className={`mt-1 text-[8px] font-semibold uppercase tracking-[0.13em] ${light ? 'text-[#d7ddd2]' : 'text-[#68706a]'}`}>Speciality Ingredients Pvt Ltd</div>
-      </div>
-    </div>
-  );
-}
-
-function Header() {
-  const [open, setOpen] = useState(false);
-  const links = [
-    { label: 'Solutions', id: 'solutions' },
-    { label: 'Catalogue', id: 'catalogue' },
-    { label: 'Applications', id: 'applications' },
-    { label: 'Contact', id: 'contact' },
-  ];
-  return (
-    <header className="absolute left-0 right-0 top-0 z-30">
-      <div className="mx-auto flex max-w-[1320px] items-center justify-between px-5 py-5 sm:px-8 lg:px-12">
-        <button onClick={() => scrollToId('top')} aria-label="Back to top" data-testid="button-brand-home">
-          <BrandWordmark />
-        </button>
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
-          {links.map((link) => (
-            <button key={link.id} onClick={() => scrollToId(link.id)} className="group relative text-[13px] font-semibold text-[#32413b] transition-colors hover:text-[#e2602c]" data-testid={`button-nav-${link.id}`}>
-              {link.label}
-              <span className="absolute -bottom-2 left-0 h-px w-0 bg-[#e2602c] transition-all duration-300 group-hover:w-full" />
-            </button>
-          ))}
-        </nav>
-        <button onClick={() => scrollToId('contact')} className="hidden items-center gap-2 rounded-full bg-[#1e3d38] px-5 py-3 text-xs font-bold text-[#fff9ee] transition-transform hover:-translate-y-0.5 md:flex" data-testid="button-header-contact">
-          Start a conversation <ArrowUpRight size={14} />
-        </button>
-        <button className="rounded-full bg-[#1e3d38] p-2.5 text-[#fff9ee] md:hidden" onClick={() => setOpen(!open)} aria-label={open ? 'Close navigation' : 'Open navigation'} data-testid="button-mobile-menu">
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </div>
-      {open && (
-        <nav className="mx-4 rounded-2xl border border-[#ddcdb8] bg-[#fff9ee] p-4 shadow-xl md:hidden" aria-label="Mobile navigation">
-          {links.map((link) => (
-            <button key={link.id} onClick={() => { scrollToId(link.id); setOpen(false); }} className="flex w-full items-center justify-between border-b border-[#eadfcf] py-4 text-left text-sm font-semibold text-[#1e3d38]" data-testid={`button-mobile-nav-${link.id}`}>
-              {link.label} <ChevronRight size={16} />
-            </button>
-          ))}
-          <button onClick={() => { scrollToId('contact'); setOpen(false); }} className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-[#e2602c] py-3 text-sm font-bold text-[#fff9ee]" data-testid="button-mobile-contact">
-            Start a conversation <ArrowUpRight size={15} />
-          </button>
-        </nav>
-      )}
-    </header>
-  );
-}
-
 function Hero() {
   return (
     <section id="top" className="noise relative min-h-[760px] overflow-hidden bg-[#f4eadb] pt-32 lg:min-h-[820px] lg:pt-40">
       <div className="absolute -right-36 -top-40 h-[540px] w-[540px] rounded-full bg-[#e8bb68]/25 blur-3xl" />
       <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-5 pb-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-12 lg:pb-28">
         <div className="relative z-10 max-w-[620px]">
-          <div className="reveal mb-7 flex items-center gap-3">
+          <div className="reveal mb-7">
             <span className="eyebrow text-[#e2602c]">Ingredient solutions / Bengaluru</span>
-            <span className="line-grow h-px w-16 bg-[#e2602c]" />
           </div>
           <h1 className="reveal reveal-delay-1 font-display text-[clamp(4rem,8vw,7.7rem)] leading-[0.88] tracking-[-0.065em] text-[#1d2522]" data-testid="heading-hero">
             Ingredients<br />
@@ -153,7 +186,7 @@ function Hero() {
               Explore solutions <ArrowDownRight size={17} className="transition-transform group-hover:translate-y-0.5 group-hover:rotate-[-15deg]" />
             </button>
             <button onClick={() => scrollToId('contact')} className="flex items-center gap-2 rounded-full border border-[#bfab92] px-6 py-4 text-sm font-bold text-[#1e3d38] transition-colors hover:border-[#e2602c] hover:text-[#e2602c]" data-testid="button-hero-contact">
-              Talk to Ashita <Phone size={15} />
+              Start a conversation <Phone size={15} />
             </button>
           </div>
           <div className="mt-12 flex items-center gap-6 border-t border-[#d9c7af] pt-5 text-xs font-semibold text-[#697069]">
@@ -164,26 +197,31 @@ function Hero() {
         <div className="relative mx-auto h-[570px] w-full max-w-[640px] lg:h-[625px]">
           <div className="absolute right-0 top-0 h-[445px] w-[76%] overflow-hidden rounded-[10rem_1.5rem_1.5rem_1.5rem] border-[7px] border-[#fff4e4] shadow-[0_22px_50px_rgba(87,56,25,0.18)]">
             <img src="/generated/hero.jpg" alt="Specialty ingredients and finished product applications" className="h-full w-full object-cover object-right" data-testid="img-hero-ingredients" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#273e36]/35 to-transparent" />
-            <div className="absolute bottom-5 left-6 text-[#fff9ee]">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1a2a24]/90 via-[#1a2a24]/45 to-transparent" />
+            <div className="absolute bottom-[13.5rem] left-[38%] right-5 z-10 text-[#fff9ee] drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] lg:bottom-40">
               <p className="eyebrow">Applications</p>
-              <p className="mt-1 font-display text-2xl">Complete flavour systems</p>
+              <p className="mt-1 font-display text-2xl leading-tight">Complete flavour systems</p>
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 h-[285px] w-[47%] overflow-hidden rounded-[1.5rem_5.5rem_1.5rem_1.5rem] border-[7px] border-[#f4eadb] shadow-[0_17px_35px_rgba(87,56,25,0.2)]">
+          <div className="absolute bottom-0 left-0 z-[1] h-[285px] w-[47%] overflow-hidden rounded-[1.5rem_5.5rem_1.5rem_1.5rem] border-[7px] border-[#f4eadb] shadow-[0_17px_35px_rgba(87,56,25,0.2)]">
             <img src="/generated/food.jpg" alt="Crisp fried food and cooking oil" className="h-full w-full object-cover" data-testid="img-hero-food" />
           </div>
           <div className="absolute bottom-20 right-[9%] flex h-28 w-28 rotate-6 flex-col items-center justify-center rounded-full bg-[#1e3d38] text-center text-[#fff9ee] shadow-lg">
             <span className="font-display text-3xl leading-none">01</span>
             <span className="mt-1 text-[9px] font-bold uppercase tracking-[0.12em]">speciality<br />partner</span>
           </div>
-          <div className="absolute left-3 top-20 h-16 w-16 rounded-full border border-[#e2602c]/50" />
-          <div className="absolute left-0 top-28 h-2 w-2 rounded-full bg-[#e2602c]" />
         </div>
       </div>
       <div className="absolute bottom-0 left-0 right-0 flex h-12 items-center overflow-hidden border-y border-[#dfcdb7] bg-[#e9ddcb]">
-        <div className="flex min-w-max animate-[marquee_26s_linear_infinite] gap-8 whitespace-nowrap px-5 text-[11px] font-bold uppercase tracking-[0.17em] text-[#51645b]">
-          <span>Citric Acid</span><span className="text-[#e2602c]">·</span><span>Maltodextrin</span><span className="text-[#e2602c]">·</span><span>Natural Extracts</span><span className="text-[#e2602c]">·</span><span>Paneer Coagulants</span><span className="text-[#e2602c]">·</span><span>Fruit Preparations</span><span className="text-[#e2602c]">·</span><span>Citric Acid</span><span className="text-[#e2602c]">·</span><span>Maltodextrin</span>
+        <div className="flex w-max animate-[marquee_28s_linear_infinite] whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.17em] text-[#51645b]">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="flex items-center gap-8 px-4" aria-hidden={copy === 1 || undefined}>
+              {['Citric Acid', 'Maltodextrin', 'Natural Extracts', 'Paneer Coagulants', 'Fruit Preparations', 'Liquid Flavours', 'Maize Starch', 'Natural Antioxidant Blends'].flatMap((item) => [
+                <span key={`${copy}-${item}`}>{item}</span>,
+                <span key={`${copy}-${item}-dot`} className="text-[#e2602c]">·</span>,
+              ])}
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -193,13 +231,12 @@ function Hero() {
 function Solutions() {
   const [activeId, setActiveId] = useState('food');
   const active = industries.find((industry) => industry.id === activeId) ?? industries[0];
-  const Icon = active.icon;
   return (
-    <section id="solutions" className="bg-[#1e3d38] px-5 py-24 text-[#fff9ee] sm:px-8 lg:px-12 lg:py-32">
+    <section id="solutions" className="bg-[#1e3d38] px-5 py-16 text-[#fff9ee] sm:px-8 lg:px-12 lg:py-20">
       <div className="mx-auto max-w-[1320px]">
         <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
           <div>
-            <div className="eyebrow flex items-center gap-3 text-[#e4c16e]"><span className="h-px w-8 bg-[#e4c16e]" /> What we solve</div>
+            <div className="eyebrow text-[#e4c16e]">What we solve</div>
             <h2 className="mt-5 max-w-[450px] font-display text-5xl leading-[0.98] tracking-[-0.05em] sm:text-6xl" data-testid="heading-solutions">Ingredients in.<br /><span className="text-[#e4c16e]">Better products</span> out.</h2>
             <p className="mt-7 max-w-[390px] text-[15px] leading-7 text-[#c3d0c5]">The right ingredient changes everything downstream — from process performance to the product on the shelf.</p>
             <div className="mt-10 flex flex-wrap gap-2">
@@ -214,8 +251,7 @@ function Solutions() {
             <div className="relative min-h-[415px] overflow-hidden rounded-[1.5rem_7rem_1.5rem_1.5rem] border border-[#547269]">
               <img src={active.image} alt={active.label} className="absolute inset-0 h-full w-full object-cover transition-opacity duration-500" data-testid={`img-solution-${active.id}`} />
               <div className="absolute inset-0 bg-gradient-to-t from-[#102b28] via-transparent to-transparent" />
-              <div className="absolute bottom-7 left-7 flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#e4c16e] text-[#1e3d38]"><Icon size={20} /></div>
+              <div className="absolute bottom-7 left-7">
                 <span className="text-sm font-semibold">{active.label}</span>
               </div>
             </div>
@@ -241,32 +277,35 @@ function Solutions() {
 
 function Catalogue() {
   return (
-    <section id="catalogue" className="bg-[#f4eadb] px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+    <section id="catalogue" className="bg-[#f7f0e4] px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
       <div className="mx-auto max-w-[1320px]">
-        <div className="mb-14 flex flex-col justify-between gap-7 md:flex-row md:items-end">
+        <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div>
-            <div className="eyebrow flex items-center gap-3 text-[#e2602c]"><span className="h-px w-8 bg-[#e2602c]" /> Product catalogue</div>
+            <div className="eyebrow text-[#e2602c]">Product catalogue</div>
             <h2 className="mt-4 max-w-[560px] font-display text-5xl leading-[0.95] tracking-[-0.05em] text-[#1e3d38] sm:text-6xl" data-testid="heading-catalogue">The building blocks<br /><span className="text-[#e2602c]">of better.</span></h2>
           </div>
           <p className="max-w-[320px] text-sm leading-6 text-[#66716b]">A considered range for formulations that need to perform consistently at scale.</p>
         </div>
-        <div className="grid gap-px overflow-hidden rounded-2xl border border-[#d6c6b2] bg-[#d6c6b2] md:grid-cols-2">
+
+        <div className="grid items-stretch gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-5">
           {ingredientGroups.map((group, groupIndex) => (
-            <div key={group.eyebrow} className={`bg-[#fff9ee] p-7 sm:p-9 ${groupIndex === 0 ? 'md:rounded-tl-2xl' : ''}`} data-testid={`group-ingredients-${groupIndex}`}>
-              <div className="mb-7 flex items-center justify-between">
-                <span className="eyebrow text-[#9d6f3d]">{group.eyebrow}</span>
-                <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#dfcdb7] text-[#e2602c]"><Plus size={14} /></span>
-              </div>
-              <div className="grid gap-0 sm:grid-cols-2">
-                {group.items.map((item, index) => (
-                  <button key={item} onClick={() => scrollToId('contact')} className="group flex items-center justify-between border-t border-[#ebdfce] py-4 text-left text-[15px] font-semibold text-[#283932] transition-colors hover:text-[#e2602c]" data-testid={`button-product-${groupIndex}-${index}`}>
-                    <span>{item}</span><ArrowUpRight size={14} className="text-[#bda98e] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#e2602c]" />
-                  </button>
-                ))}
-              </div>
-            </div>
+            <CategoryCard
+              key={group.eyebrow}
+              eyebrow={group.eyebrow}
+              title={group.title}
+              description={group.description}
+              slogan={group.slogan}
+              image={group.image}
+              imageAlt={group.imageAlt}
+              offerings={group.items}
+              theme={group.theme}
+              delayMs={groupIndex * 90}
+              onSelectOffering={() => scrollToId('contact')}
+              testId={`group-ingredients-${groupIndex}`}
+            />
           ))}
         </div>
+
         <div className="mt-8 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="relative min-h-[310px] overflow-hidden rounded-2xl bg-[#e2602c] p-8 sm:p-11">
             <div className="absolute -right-16 -top-20 h-64 w-64 rounded-full border-[24px] border-[#f58242]/45" />
@@ -297,36 +336,92 @@ function Catalogue() {
 }
 
 function XtendraFeature() {
-  const claims = ['Prevents rancidity', 'Enhances shelf life', 'Reduces smoke during frying', 'Reduces oil absorption by 5–15%', 'Maintains oil quality by reducing FFA & PV levels'];
+  const benefits = [
+    { icon: Droplets, title: 'Extends', label: 'Oil life' },
+    { icon: Leaf, title: 'Preserves', label: 'Food quality' },
+    { icon: Sparkles, title: 'Reduces', label: 'Frying smoke' },
+  ];
+
   return (
-    <section className="relative overflow-hidden bg-[#e2602c] px-5 py-24 text-[#fff9ee] sm:px-8 lg:px-12 lg:py-32">
-      <div className="absolute -left-28 bottom-[-12rem] h-[38rem] w-[38rem] rounded-full border-[70px] border-[#f58242]/40" />
-      <div className="mx-auto grid max-w-[1320px] items-center gap-14 lg:grid-cols-[1fr_0.82fr] lg:gap-24">
-        <div className="relative z-10">
-          <div className="eyebrow text-[#ffe0a4]">Featured solution / fried-food producers</div>
-          <h2 className="mt-5 max-w-[600px] font-display text-6xl leading-[0.9] tracking-[-0.06em] sm:text-8xl" data-testid="heading-xtendra">Oil life up.<br /><span className="text-[#1e3d38]">Product quality</span> up.</h2>
-          <p className="mt-8 max-w-[490px] text-lg leading-7 text-[#ffe6c7]">XTENDRA 06 is an advanced natural anti-oxidant blend for fried-food manufacturers.</p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <div className="rounded-2xl bg-[#1e3d38] px-6 py-5">
-              <div className="font-display text-4xl leading-none">1 gm</div>
-              <div className="mt-2 text-[11px] font-bold uppercase tracking-[0.1em] text-[#c4d3c5]">per 1 kg cooking oil</div>
+    <section className="relative overflow-hidden bg-[#f8f2e8] px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
+      <div
+        className="pointer-events-none absolute -left-28 top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full bg-[#e95b28]/10"
+        aria-hidden
+      />
+
+      <div className="relative mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch lg:gap-16 xl:gap-20">
+        <div className="order-1">
+          <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#e95b28]">
+            Featured solution / fried-food producers
+          </p>
+
+          <h2
+            className="mt-4 max-w-[560px] font-display text-[clamp(2.75rem,5vw,4rem)] leading-[0.92] tracking-[-0.05em] text-[#173f3a]"
+            data-testid="heading-xtendra"
+          >
+            Oil life up.
+            <br />
+            <span className="text-[#e95b28]">Product quality</span> up.
+          </h2>
+
+          <p className="mt-5 max-w-[460px] text-[15px] leading-7 text-[#5f6b62] sm:text-[16px]">
+            XTENDRA 06 is an advanced natural anti-oxidant blend for fried-food manufacturers.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <div className="min-w-[150px] rounded-2xl bg-[#173f3a] px-5 py-4 text-[#fff9ee]">
+              <div className="font-display text-[1.75rem] leading-none tracking-[-0.03em] sm:text-[2rem]">1 gm</div>
+              <div className="mt-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[#c4d3c5] sm:text-[11px]">
+                Per kg cooking oil
+              </div>
             </div>
-            <div className="rounded-2xl border border-[#f7b070] px-6 py-5">
-              <div className="font-display text-4xl leading-none">75L–100L+</div>
-              <div className="mt-2 text-[11px] font-bold uppercase tracking-[0.1em] text-[#ffe1b7]">cooking oil producers</div>
+            <div className="min-w-[150px] rounded-2xl border border-[#e95b28] bg-[#fff9ee]/70 px-5 py-4 text-[#173f3a]">
+              <div className="font-display text-[1.75rem] leading-none tracking-[-0.03em] sm:text-[2rem]">75L–100L+</div>
+              <div className="mt-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[#6f7a72] sm:text-[11px]">
+                Producers served
+              </div>
             </div>
           </div>
-          <p className="mt-7 text-xs font-semibold text-[#ffe1b7]">Available in 1L / 5L / 25L cans</p>
+
+          <div className="mt-8 grid max-w-[480px] grid-cols-3 border-y border-[#e0d2bf] py-5">
+            {benefits.map((benefit, index) => {
+              const Icon = benefit.icon;
+              return (
+                <div
+                  key={benefit.label}
+                  className={`pr-3 ${index > 0 ? 'border-l border-[#e0d2bf] pl-3 sm:pl-5' : ''}`}
+                >
+                  <Icon size={16} className="text-[#e95b28]" strokeWidth={1.75} />
+                  <p className="mt-2 text-[12px] font-semibold leading-tight text-[#173f3a] sm:text-[13px]">
+                    {benefit.title}
+                  </p>
+                  <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#7a6a55]">
+                    {benefit.label}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+
+          <button
+            onClick={() => scrollToId('contact')}
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#e95b28] px-5 py-3.5 text-[15px] font-bold text-[#fff9ee] transition-colors hover:bg-[#d14f20]"
+            data-testid="button-xtendra-learn-more"
+          >
+            Learn More <ArrowRight size={15} />
+          </button>
+
+          <p className="mt-4 text-[12px] font-semibold text-[#7a6a55]">Available in 1L / 5L / 25L cans</p>
         </div>
-        <div className="relative z-10">
-          <div className="relative overflow-hidden rounded-[1.5rem_8rem_1.5rem_1.5rem] border-[8px] border-[#f7a060] shadow-[0_25px_60px_rgba(90,38,14,.25)]">
-            <img src="/generated/food.jpg" alt="Crisp fried food and cooking oil for the XTENDRA 06 solution" className="aspect-[0.72] w-full object-cover object-center" data-testid="img-xtendra-food" />
-          </div>
-          <div className="absolute -bottom-6 -left-6 max-w-[235px] rounded-xl bg-[#fff9ee] p-5 text-[#1e3d38] shadow-xl">
-            <div className="eyebrow text-[#e2602c]">Key benefits</div>
-            <ul className="mt-3 space-y-2">
-              {claims.slice(0, 3).map((claim) => <li key={claim} className="flex items-start gap-2 text-xs font-semibold"><Check size={14} className="mt-0.5 shrink-0 text-[#e2602c]" />{claim}</li>)}
-            </ul>
+
+        <div className="order-2 relative aspect-[4/5] w-full sm:aspect-[3/4] lg:aspect-auto lg:min-h-0">
+          <div className="overflow-hidden rounded-[1.5rem] border border-[#e5d6c2] shadow-[0_20px_50px_rgba(49,62,54,0.12)] lg:absolute lg:inset-0">
+            <img
+              src="/generated/xtendra-oil.jpg"
+              alt="Golden cooking oil and crispy fried snacks for the XTENDRA 06 solution"
+              className="h-full w-full object-cover object-center"
+              data-testid="img-xtendra-food"
+            />
           </div>
         </div>
       </div>
@@ -335,24 +430,69 @@ function XtendraFeature() {
 }
 
 function DairyFeature() {
+  const stats = [
+    { value: '0.35%', label: 'Dosage required' },
+    { value: 'Soft', label: 'Spongy paneer' },
+    { value: '18–20%', label: 'Yield improvement' },
+  ];
+
   return (
-    <section className="bg-[#f0e9d8] px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
-      <div className="mx-auto grid max-w-[1320px] items-center gap-14 lg:grid-cols-[0.9fr_1fr] lg:gap-24">
-        <div className="order-2 lg:order-1">
-          <div className="relative mx-auto max-w-[550px] overflow-hidden rounded-[8rem_1.5rem_1.5rem_1.5rem] border-[8px] border-[#fff9ee] shadow-[0_22px_45px_rgba(49,62,54,.14)]">
-            <img src="/generated/dairy.jpg" alt="Paneer, cheese, and yoghurt applications for EZENTIAL 4001 COAGULANT" className="aspect-[0.72] w-full object-cover object-center" data-testid="img-dairy-ingredients" />
+    <section className="relative overflow-hidden bg-[#f4eadb] px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
+      <div className="pointer-events-none absolute -right-24 bottom-[-8rem] h-[22rem] w-[22rem] rounded-full border-[42px] border-[#e4d4bc]/45" aria-hidden />
+
+      <div className="relative mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch lg:gap-16 xl:gap-20">
+        <div className="order-2 relative aspect-[4/5] w-full sm:aspect-[3/4] lg:order-1 lg:aspect-auto lg:min-h-0">
+          <div className="overflow-hidden rounded-[1.75rem] shadow-[0_20px_50px_rgba(49,62,54,0.12)] lg:absolute lg:inset-0">
+            <img
+              src="/generated/dairy-paneer.jpg"
+              alt="Fresh soft paneer cubes with milk for EZENTIAL 4001 COAGULANT"
+              className="h-full w-full object-cover object-center"
+              data-testid="img-dairy-ingredients"
+            />
           </div>
         </div>
+
         <div className="order-1 lg:order-2">
-          <div className="eyebrow flex items-center gap-3 text-[#e2602c]"><span className="h-px w-8 bg-[#e2602c]" /> Dairy solution</div>
-          <h2 className="mt-5 max-w-[580px] font-display text-6xl leading-[0.9] tracking-[-0.06em] text-[#1e3d38] sm:text-7xl" data-testid="heading-ezential">Soft, spongy paneer.<br /><span className="text-[#e2602c]">More yield.</span></h2>
-          <p className="mt-7 max-w-[480px] text-[16px] leading-7 text-[#5f6b62]">EZENTIAL 4001 COAGULANT is designed for paneer manufacturers who want consistency and production efficiency.</p>
-          <div className="mt-10 grid max-w-[530px] gap-px overflow-hidden rounded-2xl border border-[#d5c8b3] bg-[#d5c8b3] sm:grid-cols-3">
-            <div className="bg-[#fff9ee] p-5"><div className="font-display text-4xl text-[#e2602c]">0.35%</div><p className="mt-2 text-xs font-bold leading-4 text-[#53605a]">dosage required</p></div>
-            <div className="bg-[#fff9ee] p-5"><div className="font-display text-4xl text-[#e2602c]">Soft</div><p className="mt-2 text-xs font-bold leading-4 text-[#53605a]">spongy paneer</p></div>
-            <div className="bg-[#fff9ee] p-5"><div className="font-display text-4xl text-[#e2602c]">18–20%</div><p className="mt-2 text-xs font-bold leading-4 text-[#53605a]">yield improvement</p></div>
+          <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#e2602c]">Dairy solution</p>
+
+          <h2
+            className="mt-4 max-w-[560px] font-display text-[clamp(2.75rem,5vw,4rem)] leading-[0.92] tracking-[-0.05em] text-[#1e3d38]"
+            data-testid="heading-ezential"
+          >
+            Soft, spongy paneer.
+            <br />
+            <span className="text-[#e2602c]">More yield.</span>
+          </h2>
+
+          <p className="mt-3 text-[12px] font-bold uppercase tracking-[0.14em] text-[#8a7358]">
+            EZENTIAL 4001 COAGULANT
+          </p>
+
+          <p className="mt-5 max-w-[460px] text-[15px] leading-7 text-[#5f6b62] sm:text-[16px]">
+            EZENTIAL 4001 COAGULANT is designed for paneer manufacturers who want consistency and production efficiency.
+          </p>
+
+          <div className="mt-9 grid max-w-[520px] grid-cols-3 border-y border-[#d9c8b2] py-6">
+            {stats.map((stat, index) => (
+              <div
+                key={stat.label}
+                className={`pr-4 ${index > 0 ? 'border-l border-[#d9c8b2] pl-4 sm:pl-6' : ''}`}
+              >
+                <div className="font-display text-[1.75rem] leading-none tracking-[-0.03em] text-[#1e3d38] sm:text-[2rem]">
+                  {stat.value}
+                </div>
+                <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[#6f7a72] sm:text-[11px]">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
           </div>
-          <button onClick={() => scrollToId('contact')} className="mt-8 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[#1e3d38] transition-colors hover:text-[#e2602c]" data-testid="button-dairy-enquiry">
+
+          <button
+            onClick={() => scrollToId('contact')}
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#e2602c] px-5 py-3.5 text-[14px] font-bold text-[#fff9ee] transition-colors hover:bg-[#cb4c20]"
+            data-testid="button-dairy-enquiry"
+          >
             Talk about your dairy line <ArrowUpRight size={15} />
           </button>
         </div>
@@ -363,37 +503,37 @@ function DairyFeature() {
 
 function Applications() {
   return (
-    <section id="applications" className="bg-[#fff9ee] px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+    <section id="applications" className="bg-[#fff9ee] px-5 py-14 sm:px-8 lg:px-12 lg:py-16">
       <div className="mx-auto max-w-[1320px]">
-        <div className="grid items-end gap-8 md:grid-cols-[0.8fr_1.2fr]">
+        <div className="grid items-end gap-5 md:grid-cols-[0.8fr_1.2fr] lg:gap-6">
           <div>
-            <div className="eyebrow flex items-center gap-3 text-[#e2602c]"><span className="h-px w-8 bg-[#e2602c]" /> Built for the application</div>
-            <h2 className="mt-5 font-display text-5xl leading-[0.94] tracking-[-0.05em] text-[#1e3d38] sm:text-6xl" data-testid="heading-applications">A flavour for<br /><span className="text-[#e2602c]">every direction.</span></h2>
+            <div className="eyebrow text-[#e2602c]">Built for the application</div>
+            <h2 className="mt-4 font-display text-4xl leading-[0.94] tracking-[-0.05em] text-[#1e3d38] sm:text-5xl lg:text-[3.25rem]" data-testid="heading-applications">A flavour for<br /><span className="text-[#e2602c]">every direction.</span></h2>
           </div>
-          <p className="max-w-[455px] justify-self-end text-[16px] leading-7 text-[#66716b]">Flavour applications include the products people reach for every day — and the specialised formulations that help them get there.</p>
+          <p className="max-w-[455px] justify-self-end text-[15px] leading-7 text-[#66716b] lg:text-[16px]">Flavour applications include the products people reach for every day — and the specialised formulations that help them get there.</p>
         </div>
-        <div className="mt-14 grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
-          <div className="relative min-h-[530px] overflow-hidden rounded-[1.5rem_8rem_1.5rem_1.5rem] bg-[#dbe7df]">
+        <div className="mt-8 grid gap-6 lg:mt-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-7">
+          <div className="relative min-h-[360px] overflow-hidden rounded-[1.5rem_8rem_1.5rem_1.5rem] bg-[#dbe7df] lg:min-h-[420px]">
             <img src="/generated/flavours.jpg" alt="Fruits, spices, extracts, and flavour ingredients" className="absolute inset-0 h-full w-full object-cover object-center" data-testid="img-flavours-ingredients" />
-            <div className="absolute bottom-5 left-5 right-5 rounded-xl bg-[#1e3d38]/95 p-5 text-[#fff9ee]">
+            <div className="absolute bottom-5 left-5 right-5 rounded-xl bg-[#1e3d38]/95 p-4 text-[#fff9ee] lg:p-5">
               <p className="eyebrow text-[#e4c16e]">Our flavour range</p>
-              <p className="mt-2 font-display text-2xl leading-none">Liquid. Encapsulated. Powder.</p>
+              <p className="mt-2 font-display text-xl leading-none lg:text-2xl">Liquid. Encapsulated. Powder.</p>
             </div>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-2 sm:grid-cols-2 lg:gap-2.5">
             {flavourApplications.map((application, index) => (
-              <button key={application} onClick={() => scrollToId('contact')} className={`group flex min-h-[87px] items-center justify-between border-b border-[#ded2c1] px-1 text-left transition-colors hover:border-[#e2602c] ${index === 0 ? 'sm:border-t sm:pt-3' : ''}`} data-testid={`button-application-${index}`}>
-                <span className="flex items-center gap-4">
-                  <span className="font-display text-2xl text-[#d6aa58]">{String(index + 1).padStart(2, '0')}</span>
+              <button key={application} onClick={() => scrollToId('contact')} className={`group flex min-h-[64px] items-center justify-between border-b border-[#ded2c1] px-1 text-left transition-colors hover:border-[#e2602c] lg:min-h-[70px] ${index === 0 ? 'sm:border-t sm:pt-2' : ''}`} data-testid={`button-application-${index}`}>
+                <span className="flex items-center gap-3.5">
+                  <span className="font-display text-xl text-[#d6aa58] lg:text-2xl">{String(index + 1).padStart(2, '0')}</span>
                   <span className="text-sm font-bold text-[#2c4138]">{application}</span>
                 </span>
                 <ArrowUpRight size={16} className="text-[#a99070] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#e2602c]" />
               </button>
             ))}
-            <div className="col-span-full mt-6 rounded-2xl bg-[#f4eadb] p-7">
+            <div className="col-span-full mt-3 rounded-2xl bg-[#f4eadb] p-5 lg:mt-4 lg:p-6">
               <div className="flex items-start gap-4">
-                <FlaskConical className="mt-1 shrink-0 text-[#e2602c]" size={22} />
-                <div><p className="font-display text-2xl leading-none text-[#1e3d38]">Natural Extracts</p><p className="mt-2 text-sm leading-6 text-[#68736b]">For pharma & nutraceutical applications.</p></div>
+                <FlaskConical className="mt-1 shrink-0 text-[#e2602c]" size={20} />
+                <div><p className="font-display text-xl leading-none text-[#1e3d38] lg:text-2xl">Natural Extracts</p><p className="mt-2 text-sm leading-6 text-[#68736b]">For pharma & nutraceutical applications.</p></div>
               </div>
             </div>
           </div>
@@ -405,59 +545,261 @@ function Applications() {
 
 function Contact() {
   const [sent, setSent] = useState(false);
+
+  const valueProps = [
+    { icon: Leaf, label: 'Real ingredient solutions' },
+    { icon: FlaskConical, label: 'Expert technical support' },
+    { icon: Users, label: 'A partner in your growth' },
+  ];
+
+  const fieldShell =
+    'group relative mt-1.5 flex items-center rounded-lg border border-[#ddd0bc] bg-[#fffcf7]/80 transition-colors focus-within:border-[#e2602c] focus-within:bg-white';
+
   return (
-    <section id="contact" className="relative overflow-hidden bg-[#1e3d38] px-5 py-24 text-[#fff9ee] sm:px-8 lg:px-12 lg:py-28">
-      <div className="absolute right-[-8rem] top-[-14rem] h-[38rem] w-[38rem] rounded-full border-[75px] border-[#e4c16e]/15" />
-      <div className="mx-auto grid max-w-[1320px] gap-14 lg:grid-cols-[0.92fr_1.08fr] lg:gap-24">
-        <div className="relative z-10">
-          <div className="eyebrow text-[#e4c16e]">Let’s make better products</div>
-          <h2 className="mt-5 max-w-[530px] font-display text-6xl leading-[0.9] tracking-[-0.06em] sm:text-7xl" data-testid="heading-contact">Bring us the<br /><span className="text-[#e4c16e]">application.</span></h2>
-          <p className="mt-8 max-w-[430px] text-[15px] leading-7 text-[#c5d0c7]">Tell us what you are making and we will start with the ingredient that can make it better.</p>
-          <div className="mt-10 space-y-4 text-sm text-[#e0e7df]">
-            <a href="tel:+919483389387" className="flex items-center gap-3 transition-colors hover:text-[#e4c16e]" data-testid="link-contact-phone"><Phone size={16} className="text-[#e4c16e]" /> Ashita · +91 9483389387</a>
-            <a href="tel:+917019477940" className="flex items-center gap-3 transition-colors hover:text-[#e4c16e]" data-testid="link-contact-phone-secondary"><Phone size={16} className="text-[#e4c16e]" /> +91 70194 77940 / 099169 17517</a>
-            <p className="flex max-w-[420px] items-start gap-3 leading-6"><span className="mt-1 h-4 w-4 shrink-0 rounded-full border border-[#e4c16e]" /> #1963/B, BCCHS Layout, near Vajarahalli Metro station, Kanakapura Road, Bengaluru-560109.</p>
+    <section id="contact" className="contact-section relative overflow-hidden bg-[#152d2a] text-[#fff9ee]">
+      {/* Full-bleed ingredient photography — pinned flush to the viewport right edge */}
+      <div className="contact-photo pointer-events-none absolute inset-y-0 left-[38%] right-0 hidden overflow-hidden lg:block">
+        <img
+          src="/generated/contact-ingredients.jpg"
+          alt="Natural specialty ingredients, powders, grains, and botanical leaves"
+          className="h-full w-full object-cover object-[85%_center]"
+          data-testid="img-contact-ingredients"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#152d2a] from-0% via-[#152d2a]/50 via-18% to-transparent to-42%" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#152d2a]/45 via-transparent to-[#152d2a]/15" />
+      </div>
+
+      {/* Organic decorative arcs */}
+      <div className="pointer-events-none absolute -left-32 top-1/4 h-[28rem] w-[28rem] rounded-full border-[48px] border-[#1f3d38]/70" aria-hidden />
+      <div className="pointer-events-none absolute bottom-[-10rem] left-[18%] h-[22rem] w-[22rem] rounded-full bg-[#1a3531]" aria-hidden />
+      <div className="pointer-events-none absolute -right-20 top-[-8rem] h-[26rem] w-[26rem] rounded-full border-[56px] border-[#e4c16e]/10" aria-hidden />
+      <svg className="pointer-events-none absolute bottom-0 left-0 h-full w-[55%] text-[#1a3531]" viewBox="0 0 600 800" fill="none" aria-hidden>
+        <path d="M-40 120C80 40 220 80 280 220C360 420 120 480 40 620C-20 720 -80 760 -120 800" stroke="currentColor" strokeWidth="90" opacity="0.55" />
+        <path d="M80 700C180 640 260 560 300 460" stroke="#e4c16e" strokeWidth="1.25" opacity="0.35" />
+      </svg>
+
+      <div className="relative mx-auto grid max-w-[1320px] lg:grid-cols-[0.42fr_0.58fr]">
+        {/* LEFT — message & contact */}
+        <div className="relative z-10 flex flex-col px-5 py-10 sm:px-8 lg:px-10 lg:py-12 xl:pr-6">
+          <div className="reveal">
+            <span className="eyebrow text-[#e8d9b0]">Let’s make better products</span>
           </div>
+
+          <h2
+            className="reveal reveal-delay-1 mt-5 max-w-[480px] font-display text-[2.75rem] leading-[0.92] tracking-[-0.05em] sm:text-5xl lg:text-[3.5rem]"
+            data-testid="heading-contact"
+          >
+            Bring us the
+            <br />
+            <span className="text-[#e2602c]">application.</span>
+          </h2>
+
+          <p className="reveal reveal-delay-2 mt-5 max-w-[380px] text-[15px] leading-6 text-[#c5d0c7]">
+            Tell us what you are making and we will start with the ingredient that can make it better.
+          </p>
+
+          <div className="reveal reveal-delay-3 mt-7 space-y-3">
+            <a
+              href="tel:+919483389387"
+              className="group flex items-center gap-3 text-sm text-[#e8efe6] transition-colors hover:text-[#e4c16e]"
+              data-testid="link-contact-phone"
+            >
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#2f4f48] bg-[#1a3531] text-[#e4c16e] transition-colors group-hover:border-[#e4c16e]/50">
+                <Phone size={13} strokeWidth={1.75} />
+              </span>
+              Ashita · +91 9483389387
+            </a>
+            <a
+              href="tel:+917019477940"
+              className="group flex items-center gap-3 text-sm text-[#e8efe6] transition-colors hover:text-[#e4c16e]"
+              data-testid="link-contact-phone-secondary"
+            >
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#2f4f48] bg-[#1a3531] text-[#e4c16e] transition-colors group-hover:border-[#e4c16e]/50">
+                <Phone size={13} strokeWidth={1.75} />
+              </span>
+              +91 70194 77940 / 099169 17517
+            </a>
+            <p className="flex max-w-[400px] items-start gap-3 text-sm leading-5 text-[#d0dad3]">
+              <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#2f4f48] bg-[#1a3531] text-[#e4c16e]">
+                <MapPin size={13} strokeWidth={1.75} />
+              </span>
+              #1963/B, BCCHS Layout, near Vajarahalli Metro station, Kanakapura Road, Bengaluru–560109.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 border-t border-[#2a4540] pt-6 sm:grid-cols-3 lg:gap-3">
+            {valueProps.map(({ icon: Icon, label }) => (
+              <div key={label} className="contact-value-prop flex items-start gap-3 sm:flex-col sm:gap-2">
+                <Icon size={16} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[#e4c16e]" />
+                <p className="text-[10px] font-bold uppercase leading-4 tracking-[0.14em] text-[#c8d4cb]">{label}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-6 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#6f847c]">
+            From ingredients to a brighter tomorrow
+          </p>
         </div>
-        <div className="relative z-10 rounded-2xl bg-[#fff9ee] p-6 text-[#1e3d38] sm:p-9">
-          {sent ? (
-            <div className="flex min-h-[360px] flex-col items-center justify-center text-center">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#e4c16e]"><Check size={26} /></div>
-              <h3 className="mt-6 font-display text-4xl tracking-[-0.04em]">Message received.</h3>
-              <p className="mt-3 max-w-[300px] text-sm leading-6 text-[#68736b]">Ashita will be in touch to understand your application.</p>
-              <button onClick={() => setSent(false)} className="mt-8 text-xs font-bold uppercase tracking-[0.12em] text-[#e2602c]" data-testid="button-send-another">Send another message</button>
+
+        {/* RIGHT — form over photography */}
+        <div className="relative lg:min-h-full">
+          {/* Natural trusted global badge */}
+          <div className="absolute right-5 top-4 z-20 hidden items-center gap-2 lg:flex lg:right-8 lg:top-5">
+            <Leaf size={14} className="text-[#e4c16e]" strokeWidth={1.5} />
+            <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#e8efe6]/80">Natural · Trusted · Global</span>
+          </div>
+
+          {/* Mobile / tablet image strip */}
+          <div className="relative mx-5 mb-2 h-40 overflow-hidden rounded-2xl sm:mx-8 sm:h-48 lg:hidden">
+            <img
+              src="/generated/contact-ingredients.jpg"
+              alt="Natural specialty ingredients, powders, grains, and botanical leaves"
+              className="h-full w-full object-cover object-right"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#152d2a]/70 to-transparent" />
+          </div>
+
+          {/* Form card */}
+          <div className="relative z-10 px-5 pb-12 pt-3 sm:px-8 sm:pb-14 lg:flex lg:h-full lg:items-center lg:justify-start lg:px-8 lg:py-12 xl:pl-6 xl:pr-4">
+            <div className="contact-form-card w-full rounded-[1.5rem] border border-[#eadfce] bg-[#fff9ee] p-5 shadow-[0_28px_60px_-28px_rgba(10,28,24,0.55)] sm:p-6 lg:max-w-[460px] lg:p-7">
+              {sent ? (
+                <div className="flex min-h-[340px] flex-col items-center justify-center text-center text-[#1e3d38]">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#e4c16e]">
+                    <Check size={22} />
+                  </div>
+                  <h3 className="mt-5 font-display text-3xl tracking-[-0.04em]">Message received.</h3>
+                  <p className="mt-3 max-w-[300px] text-sm leading-6 text-[#68736b]">
+                    Ashita will be in touch to understand your application.
+                  </p>
+                  <button
+                    onClick={() => setSent(false)}
+                    className="mt-6 text-xs font-bold uppercase tracking-[0.12em] text-[#e2602c]"
+                    data-testid="button-send-another"
+                  >
+                    Send another message
+                  </button>
+                </div>
+              ) : (
+                <form
+                  onSubmit={(event) => {
+                    event.preventDefault();
+                    setSent(true);
+                  }}
+                  className="space-y-3.5 text-[#1e3d38]"
+                  data-testid="form-contact"
+                >
+                  <div>
+                    <h3 className="font-display text-[1.55rem] leading-none tracking-[-0.03em] text-[#243832] sm:text-[1.75rem]">
+                      Get in touch
+                    </h3>
+                    <p className="mt-2 text-[13px] leading-5 text-[#68736b]">
+                      Share a few details and our team will get back to you.
+                    </p>
+                  </div>
+
+                  <div>
+                    <label htmlFor="name" className="eyebrow text-[#8d6d4b]">
+                      Your name
+                    </label>
+                    <div className={fieldShell}>
+                      <input
+                        id="name"
+                        name="name"
+                        required
+                        placeholder="Name"
+                        className="w-full bg-transparent px-3.5 py-2.5 text-[14px] outline-none placeholder:text-[#ad9d89]"
+                        data-testid="input-name"
+                      />
+                      <User size={15} strokeWidth={1.5} className="mr-3 shrink-0 text-[#b5a48f]" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="company" className="eyebrow text-[#8d6d4b]">
+                      Company
+                    </label>
+                    <div className={fieldShell}>
+                      <input
+                        id="company"
+                        name="company"
+                        required
+                        placeholder="Company name"
+                        className="w-full bg-transparent px-3.5 py-2.5 text-[14px] outline-none placeholder:text-[#ad9d89]"
+                        data-testid="input-company"
+                      />
+                      <Building2 size={15} strokeWidth={1.5} className="mr-3 shrink-0 text-[#b5a48f]" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="eyebrow text-[#8d6d4b]">
+                      Work email
+                    </label>
+                    <div className={fieldShell}>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        placeholder="you@company.com"
+                        className="w-full bg-transparent px-3.5 py-2.5 text-[14px] outline-none placeholder:text-[#ad9d89]"
+                        data-testid="input-email"
+                      />
+                      <Mail size={15} strokeWidth={1.5} className="mr-3 shrink-0 text-[#b5a48f]" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="application" className="eyebrow text-[#8d6d4b]">
+                      What are you making?
+                    </label>
+                    <div className={`${fieldShell} items-start`}>
+                      <textarea
+                        id="application"
+                        name="application"
+                        required
+                        placeholder="Tell us about your product or application"
+                        rows={3}
+                        className="w-full resize-none bg-transparent px-3.5 py-2.5 text-[14px] outline-none placeholder:text-[#ad9d89]"
+                        data-testid="input-application"
+                      />
+                      <FileText size={15} strokeWidth={1.5} className="mr-3 mt-2.5 shrink-0 text-[#b5a48f]" />
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="group mt-0.5 flex h-[48px] w-full items-center justify-center gap-2 rounded-full bg-[#e2602c] text-sm font-bold text-[#fff9ee] shadow-[0_12px_28px_-12px_rgba(226,96,44,0.7)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#d45524] hover:shadow-[0_18px_36px_-14px_rgba(226,96,44,0.85)]"
+                    data-testid="button-submit-contact"
+                  >
+                    Start the conversation
+                    <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
+                  </button>
+
+                  <div className="flex flex-col gap-2 pt-0.5 text-[11px] text-[#8a7a68] sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+                    <span className="inline-flex items-center gap-1.5">
+                      <Lock size={12} strokeWidth={1.75} className="text-[#a89278]" />
+                      Your information is safe with us.
+                    </span>
+                    <span className="inline-flex items-center gap-1.5">
+                      <Leaf size={12} strokeWidth={1.75} className="text-[#a89278]" />
+                      Building better products together.
+                    </span>
+                  </div>
+                </form>
+              )}
             </div>
-          ) : (
-            <form onSubmit={(event) => { event.preventDefault(); setSent(true); }} className="space-y-6" data-testid="form-contact">
-              <div><label htmlFor="name" className="eyebrow text-[#8d6d4b]">Your name</label><input id="name" name="name" required placeholder="Name" className="mt-2 w-full border-b border-[#d7c8b6] bg-transparent py-3 text-lg outline-none placeholder:text-[#ad9d89] focus:border-[#e2602c]" data-testid="input-name" /></div>
-              <div><label htmlFor="company" className="eyebrow text-[#8d6d4b]">Company</label><input id="company" name="company" required placeholder="Company name" className="mt-2 w-full border-b border-[#d7c8b6] bg-transparent py-3 text-lg outline-none placeholder:text-[#ad9d89] focus:border-[#e2602c]" data-testid="input-company" /></div>
-              <div><label htmlFor="email" className="eyebrow text-[#8d6d4b]">Work email</label><input id="email" name="email" type="email" required placeholder="you@company.com" className="mt-2 w-full border-b border-[#d7c8b6] bg-transparent py-3 text-lg outline-none placeholder:text-[#ad9d89] focus:border-[#e2602c]" data-testid="input-email" /></div>
-              <div><label htmlFor="application" className="eyebrow text-[#8d6d4b]">What are you making?</label><textarea id="application" name="application" required placeholder="Tell us about your product or application" rows={3} className="mt-2 w-full resize-none border-b border-[#d7c8b6] bg-transparent py-3 text-lg outline-none placeholder:text-[#ad9d89] focus:border-[#e2602c]" data-testid="input-application" /></div>
-              <button type="submit" className="flex w-full items-center justify-center gap-2 rounded-full bg-[#e2602c] py-4 text-sm font-bold text-[#fff9ee] transition-transform hover:-translate-y-1" data-testid="button-submit-contact">Start the conversation <ArrowUpRight size={16} /></button>
-            </form>
-          )}
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function Footer() {
-  return (
-    <footer className="bg-[#152d2a] px-5 py-10 text-[#d6ded7] sm:px-8 lg:px-12">
-      <div className="mx-auto flex max-w-[1320px] flex-col gap-8 md:flex-row md:items-end md:justify-between">
-        <div><BrandWordmark light /><p className="mt-5 max-w-[280px] text-xs leading-5 text-[#96aaa0]">Ingredients That Make Better Products.</p></div>
-        <div className="flex flex-col gap-2 text-xs text-[#96aaa0] md:items-end"><span>Food · Dairy · Beverage</span><span>Pharmaceutical · Nutraceutical</span><span className="mt-2 text-[#e4c16e]">Bengaluru, India</span></div>
-      </div>
-      <div className="mx-auto mt-9 flex max-w-[1320px] justify-between border-t border-[#315149] pt-5 text-[10px] uppercase tracking-[0.12em] text-[#789087]"><span>© Avighna Speciality Ingredients Pvt Ltd</span><span>Application-first / Product-led</span></div>
-    </footer>
-  );
-}
-
 function Home() {
   return (
     <main>
-      <Header />
+      <SiteHeader />
       <Hero />
       <Solutions />
       <Catalogue />
@@ -465,7 +807,7 @@ function Home() {
       <DairyFeature />
       <Applications />
       <Contact />
-      <Footer />
+      <SiteFooter />
     </main>
   );
 }
@@ -475,6 +817,8 @@ function Router() {
     <RoutedErrorBoundary>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/companies/:slug" component={CompanyPage} />
         <Route component={NotFound} />
       </Switch>
     </RoutedErrorBoundary>

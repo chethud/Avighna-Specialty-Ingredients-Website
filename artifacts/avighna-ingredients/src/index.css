@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
@@ -121,6 +121,7 @@
 
 @layer utilities {
   .font-display { font-family: var(--app-font-serif); }
+  .font-script { font-family: 'Caveat', cursive; font-weight: 600; }
   .eyebrow { letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.68rem; font-weight: 700; }
   .text-balance { text-wrap: balance; }
   .noise::after {
@@ -131,6 +132,52 @@
     opacity: 0.16;
     mix-blend-mode: multiply;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+  }
+}
+
+.catalogue-soft-image {
+  mask-image:
+    radial-gradient(ellipse 86% 78% at 62% 68%, #000 28%, rgba(0, 0, 0, 0.55) 52%, transparent 78%),
+    linear-gradient(#000, #000);
+  -webkit-mask-image:
+    radial-gradient(ellipse 86% 78% at 62% 68%, #000 28%, rgba(0, 0, 0, 0.55) 52%, transparent 78%);
+  mask-composite: intersect;
+}
+
+.catalogue-image-blend {
+  background:
+    radial-gradient(ellipse 90% 84% at 58% 62%, transparent 28%, color-mix(in srgb, var(--blend) 55%, transparent) 58%, var(--blend) 86%),
+    linear-gradient(to top, var(--blend) 0%, transparent 34%),
+    linear-gradient(to left, var(--blend) 0%, transparent 30%),
+    linear-gradient(to bottom right, var(--blend) 0%, transparent 36%);
+  mix-blend-mode: normal;
+}
+
+.catalogue-visual-zone {
+  isolation: isolate;
+}
+
+.catalogue-card:hover .catalogue-parallax-img {
+  transform: scale(1.03);
+}
+
+.catalogue-parallax-img {
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .catalogue-parallax-img,
+  .catalogue-card {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .catalogue-card {
+    min-height: 0 !important;
+    height: auto !important;
   }
 }
 
@@ -150,4 +197,41 @@
   animation: line-grow 1s cubic-bezier(.2,.8,.2,1) both;
 }
 @keyframes line-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-25%); } }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.contact-form-card {
+  animation: rise-in 0.85s cubic-bezier(.2,.8,.2,1) 0.15s both;
+}
+
+.contact-photo img {
+  animation: contact-photo-drift 18s ease-in-out infinite alternate;
+}
+
+.contact-value-prop {
+  animation: rise-in 0.7s cubic-bezier(.2,.8,.2,1) both;
+}
+.contact-value-prop:nth-child(1) { animation-delay: 0.35s; }
+.contact-value-prop:nth-child(2) { animation-delay: 0.45s; }
+.contact-value-prop:nth-child(3) { animation-delay: 0.55s; }
+
+.contact-value-prop:hover svg {
+  transform: translateY(-2px);
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes contact-photo-drift {
+  from { transform: scale(1.05) translate3d(0, 0, 0); }
+  to { transform: scale(1.1) translate3d(-1.5%, 1%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-form-card,
+  .contact-photo img,
+  .contact-value-prop {
+    animation: none !important;
+    transform: none !important;
+  }
+}

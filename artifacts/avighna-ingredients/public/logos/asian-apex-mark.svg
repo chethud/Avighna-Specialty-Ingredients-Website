@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" role="img" aria-label="Asian Apex">
+  <!-- Two green leaves forming a U cradle -->
+  <path
+    fill="#7AC143"
+    d="M18 58c2-22 16-38 32-44-4 18-6 36-4 50 1 10-4 18-12 22-10-6-16-16-16-28Z"
+  />
+  <path
+    fill="#7AC143"
+    d="M82 58c-2-22-16-38-32-44 4 18 6 36 4 50-1 10 4 18 12 22 10-6 16-16 16-28Z"
+  />
+  <path
+    fill="#8ED14F"
+    d="M34 86c10 8 22 10 32 0-8 12-24 12-32 0Z"
+  />
+
+  <!-- Four colored circles -->
+  <circle cx="38" cy="34" r="12.5" fill="#6B6E72" />
+  <circle cx="62" cy="34" r="12.5" fill="#00AEEF" />
+  <circle cx="38" cy="58" r="12.5" fill="#E31C23" />
+  <circle cx="62" cy="58" r="12.5" fill="#F7D117" />
+</svg>
