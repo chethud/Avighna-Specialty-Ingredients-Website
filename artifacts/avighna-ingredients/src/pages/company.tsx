@@ -1,5 +1,6 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link, useRoute } from 'wouter';
+import { SiteFooter } from '@/components/site-footer';
 
 const companyPages: Record<
   string,
@@ -83,6 +84,7 @@ export default function CompanyPage() {
           </div>
         </div>
       </div>
+      <SiteFooter />
     </main>
   );
 }

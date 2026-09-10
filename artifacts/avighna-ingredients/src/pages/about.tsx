@@ -7,16 +7,14 @@ import {
   ChevronRight,
   Globe2,
   Handshake,
-  Instagram,
-  Linkedin,
   Menu,
   Network,
   Settings2,
   Users,
   X,
-  Youtube,
 } from 'lucide-react';
 import { BrandWordmark } from '@/components/brand-wordmark';
+import { SiteFooter } from '@/components/site-footer';
 
 type Company = {
   id: string;
@@ -289,86 +287,6 @@ function GroupHeader() {
   );
 }
 
-function GroupFooter() {
-  return (
-    <footer className="bg-[#063F38] text-[#E8EEEA]">
-      <div className="mx-auto grid page-container max-w-none gap-10 py-10 lg:grid-cols-[1.15fr_0.7fr_0.9fr_0.85fr_1fr] lg:gap-8 lg:py-12">
-        <div>
-          <div className="flex items-center gap-3">
-            <BrandWordmark light />
-          </div>
-          <p className="mt-4 max-w-[210px] text-[11px] font-bold uppercase leading-5 tracking-[0.14em] text-[#b7c7c1]">
-            Building Businesses
-            <br />
-            Creating Long-Term Value
-          </p>
-          <div className="mt-5 flex gap-2.5">
-            {[Linkedin, Instagram, Youtube].map((Icon, i) => (
-              <span
-                key={i}
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 text-[#c5d4ce] transition-colors hover:border-[#F26522] hover:text-[#F26522]"
-              >
-                <Icon size={13} />
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#C6A15B]">Quick Links</p>
-          <ul className="mt-4 space-y-2.5 text-[13.5px]">
-            {['About Avigna', 'Our Companies', 'Our Story', 'Our Vision', 'Contact'].map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#C6A15B]">Our Companies</p>
-          <ul className="mt-4 space-y-2.5 text-[13.5px]">
-            {companies.map((company) => (
-              <li key={company.id}>
-                <Link href={company.href} className="transition-colors hover:text-[#F26522]">
-                  {company.shortName}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#C6A15B]">Our Focus Areas</p>
-          <ul className="mt-4 space-y-2.5 text-[13.5px]">
-            {['Food & Beverage', 'Dairy', 'Pharma & Nutraceuticals', 'Industrial / Trading', 'Professional Services'].map(
-              (item) => (
-                <li key={item}>{item}</li>
-              ),
-            )}
-          </ul>
-        </div>
-
-        <div>
-          <p className="max-w-[230px] text-[1.85rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-white">
-            Natural Ingredients.
-            <br />
-            <span className="text-[#F26522]">Brighter Possibilities.</span>
-          </p>
-        </div>
-      </div>
-
-      <div className="border-t border-[#1a524a]">
-        <div className="mx-auto flex page-container max-w-none flex-col gap-3 py-3.5 text-[11px] uppercase tracking-[0.12em] text-[#9eb0a9] sm:flex-row sm:items-center sm:justify-between">
-          <span className="normal-case tracking-normal">© 2026 Avigna. All Rights Reserved.</span>
-          <span className="hidden md:inline">Food · Dairy · Beverage · Pharma · Nutraceutical</span>
-          <span className="inline-flex items-center gap-1.5 text-[#F26522]">
-            A Better Tomorrow <ArrowRight size={12} />
-          </span>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 export default function About() {
   return (
     <main className="bg-[#F6F0E4] font-[Manrope,ui-sans-serif,system-ui,sans-serif] text-[#17201D]">
@@ -596,8 +514,8 @@ export default function About() {
 
       {/* VISION */}
       <section id="vision" className="pb-12 lg:pb-14">
-        <div className="mx-auto page-container max-w-none overflow-hidden rounded-[1.35rem] bg-[#063F38]">
-          <div className="flex flex-col justify-center px-6 py-10 text-white sm:px-10 lg:px-12 lg:py-12">
+        <div className="mx-auto grid page-container max-w-none overflow-hidden rounded-[1.35rem] bg-[#063F38] lg:grid-cols-2 lg:bg-transparent">
+          <div className="flex flex-col justify-center px-6 py-10 text-white sm:px-10 lg:bg-[#063F38] lg:px-12 lg:py-12 xl:px-14">
             <Eyebrow light>Our Vision</Eyebrow>
             <h2
               className="mt-4 max-w-[440px] text-[clamp(2rem,3.6vw,2.85rem)] font-extrabold leading-[0.95] tracking-[-0.045em]"
@@ -617,10 +535,25 @@ export default function About() {
               Our Vision <ArrowRight size={15} />
             </button>
           </div>
+          <div className="relative hidden min-h-[360px] overflow-hidden lg:block">
+            <img
+              src="/generated/avigna-vision-premium.jpg"
+              alt="Avigna vision"
+              className="absolute inset-0 h-full w-full object-cover"
+              data-testid="img-avigna-vision"
+            />
+            <div
+              className="pointer-events-none absolute inset-y-0 left-0 w-[28%] bg-gradient-to-r from-[#063F38] via-[#063F38]/55 to-transparent"
+              aria-hidden
+            />
+            <p className="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 [writing-mode:vertical-rl] text-[10px] font-bold uppercase tracking-[0.28em] text-white/80 xl:block">
+              People · Planet · Progress · Together
+            </p>
+          </div>
         </div>
       </section>
 
-      <GroupFooter />
+      <SiteFooter />
     </main>
   );
 }
