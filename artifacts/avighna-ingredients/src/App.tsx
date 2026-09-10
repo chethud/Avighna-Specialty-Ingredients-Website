@@ -168,7 +168,7 @@ function Hero() {
   return (
     <section id="top" className="noise relative min-h-[760px] overflow-hidden bg-[#f4eadb] pt-32 lg:min-h-[820px] lg:pt-40">
       <div className="absolute -right-36 -top-40 h-[540px] w-[540px] rounded-full bg-[#e8bb68]/25 blur-3xl" />
-      <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-5 pb-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-12 lg:pb-28">
+      <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-5 pb-14 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-12 lg:pb-16">
         <div className="relative z-10 max-w-[620px]">
           <div className="reveal mb-7">
             <span className="eyebrow text-[#e2602c]">Ingredient solutions / Bengaluru</span>
@@ -232,7 +232,7 @@ function Solutions() {
   const [activeId, setActiveId] = useState('food');
   const active = industries.find((industry) => industry.id === activeId) ?? industries[0];
   return (
-    <section id="solutions" className="bg-[#1e3d38] px-5 py-16 text-[#fff9ee] sm:px-8 lg:px-12 lg:py-20">
+    <section id="solutions" className="bg-[#1e3d38] px-5 py-10 text-[#fff9ee] sm:px-8 lg:px-12 lg:py-12">
       <div className="mx-auto max-w-[1320px]">
         <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
           <div>
@@ -277,9 +277,9 @@ function Solutions() {
 
 function Catalogue() {
   return (
-    <section id="catalogue" className="bg-[#f7f0e4] px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
+    <section id="catalogue" className="bg-[#f7f0e4] px-5 py-10 sm:px-8 lg:px-12 lg:py-12">
       <div className="mx-auto max-w-[1320px]">
-        <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+        <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <div className="eyebrow text-[#e2602c]">Product catalogue</div>
             <h2 className="mt-4 max-w-[560px] font-display text-5xl leading-[0.95] tracking-[-0.05em] text-[#1e3d38] sm:text-6xl" data-testid="heading-catalogue">The building blocks<br /><span className="text-[#e2602c]">of better.</span></h2>
@@ -343,7 +343,7 @@ function XtendraFeature() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#f8f2e8] px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
+    <section className="relative overflow-hidden bg-[#f8f2e8] px-5 py-10 sm:px-8 lg:px-12 lg:py-12">
       <div
         className="pointer-events-none absolute -left-28 top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full bg-[#e95b28]/10"
         aria-hidden
@@ -437,7 +437,7 @@ function DairyFeature() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#f4eadb] px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
+    <section className="relative overflow-hidden bg-[#f4eadb] px-5 py-10 sm:px-8 lg:px-12 lg:py-12">
       <div className="pointer-events-none absolute -right-24 bottom-[-8rem] h-[22rem] w-[22rem] rounded-full border-[42px] border-[#e4d4bc]/45" aria-hidden />
 
       <div className="relative mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch lg:gap-16 xl:gap-20">
@@ -503,7 +503,7 @@ function DairyFeature() {
 
 function Applications() {
   return (
-    <section id="applications" className="bg-[#fff9ee] px-5 py-14 sm:px-8 lg:px-12 lg:py-16">
+    <section id="applications" className="bg-[#fff9ee] px-5 py-10 sm:px-8 lg:px-12 lg:py-12">
       <div className="mx-auto max-w-[1320px]">
         <div className="grid items-end gap-5 md:grid-cols-[0.8fr_1.2fr] lg:gap-6">
           <div>
@@ -512,7 +512,7 @@ function Applications() {
           </div>
           <p className="max-w-[455px] justify-self-end text-[15px] leading-7 text-[#66716b] lg:text-[16px]">Flavour applications include the products people reach for every day — and the specialised formulations that help them get there.</p>
         </div>
-        <div className="mt-8 grid gap-6 lg:mt-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-7">
+        <div className="mt-10 grid gap-5 lg:mt-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-7">
           <div className="relative min-h-[360px] overflow-hidden rounded-[1.5rem_8rem_1.5rem_1.5rem] bg-[#dbe7df] lg:min-h-[420px]">
             <img src="/generated/flavours.jpg" alt="Fruits, spices, extracts, and flavour ingredients" className="absolute inset-0 h-full w-full object-cover object-center" data-testid="img-flavours-ingredients" />
             <div className="absolute bottom-5 left-5 right-5 rounded-xl bg-[#1e3d38]/95 p-4 text-[#fff9ee] lg:p-5">
@@ -580,7 +580,7 @@ function Contact() {
 
       <div className="relative mx-auto grid max-w-[1320px] lg:grid-cols-[0.42fr_0.58fr]">
         {/* LEFT — message & contact */}
-        <div className="relative z-10 flex flex-col px-5 py-10 sm:px-8 lg:px-10 lg:py-12 xl:pr-6">
+        <div className="relative z-10 flex flex-col px-5 py-8 sm:px-8 lg:px-10 lg:py-10 xl:pr-6">
           <div className="reveal">
             <span className="eyebrow text-[#e8d9b0]">Let’s make better products</span>
           </div>
@@ -660,7 +660,7 @@ function Contact() {
           </div>
 
           {/* Form card */}
-          <div className="relative z-10 px-5 pb-12 pt-3 sm:px-8 sm:pb-14 lg:flex lg:h-full lg:items-center lg:justify-start lg:px-8 lg:py-12 xl:pl-6 xl:pr-4">
+          <div className="relative z-10 px-5 pb-10 pt-3 sm:px-8 sm:pb-10 lg:flex lg:h-full lg:items-center lg:justify-start lg:px-8 lg:py-10 xl:pl-6 xl:pr-4">
             <div className="contact-form-card w-full rounded-[1.5rem] border border-[#eadfce] bg-[#fff9ee] p-5 shadow-[0_28px_60px_-28px_rgba(10,28,24,0.55)] sm:p-6 lg:max-w-[460px] lg:p-7">
               {sent ? (
                 <div className="flex min-h-[340px] flex-col items-center justify-center text-center text-[#1e3d38]">

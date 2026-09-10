@@ -57,7 +57,7 @@ export function SiteFooter() {
         />
       </svg>
 
-      <div className="relative mx-auto max-w-[1260px] px-6 pt-10 sm:px-10 lg:px-20 lg:pt-12">
+      <div className="relative mx-auto max-w-[1260px] px-6 pt-8 sm:px-10 lg:px-20 lg:pt-10">
         <div className="grid items-start gap-8 md:grid-cols-2 lg:grid-cols-[1.2fr_0.55fr_0.95fr_0.55fr] lg:gap-0">
           <div className="lg:pr-10">
             <div className="w-[180px]">
@@ -158,7 +158,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-[#2d524b] pb-5 pt-4 lg:mt-10 lg:pb-5">
+        <div className="mt-6 border-t border-[#2d524b] pb-4 pt-4 lg:mt-8 lg:pb-4">
           <div className="flex flex-col gap-3 text-[11px] uppercase tracking-[0.12em] text-[#a9bbb4] sm:flex-row sm:items-center sm:justify-between sm:gap-4">
             <span className="max-w-[380px] normal-case tracking-normal text-[12px] text-[#a9bbb4]">
               © 2026 Avighna Speciality Ingredients Pvt Ltd. All Rights Reserved.

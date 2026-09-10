@@ -62,12 +62,12 @@ export default function CompanyPage() {
 
   return (
     <main className="min-h-screen bg-[#f5efe4] text-[#173f3a]">
-      <div className="mx-auto max-w-[1100px] px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
+      <div className="mx-auto max-w-[1100px] px-5 py-8 sm:px-8 lg:px-12 lg:py-10">
         <Link href="/about" className="inline-flex items-center gap-2 text-sm font-semibold text-[#66716b] transition-colors hover:text-[#ea632b]" data-testid="link-back-about">
           <ArrowLeft size={14} /> About Avigna
         </Link>
 
-        <div className="mt-8 overflow-hidden rounded-[1.75rem] border border-[#e2d5c3] bg-[#fff9ee] shadow-[0_20px_50px_rgba(49,62,54,0.08)]">
+        <div className="mt-6 overflow-hidden rounded-[1.75rem] border border-[#e2d5c3] bg-[#fff9ee] shadow-[0_20px_50px_rgba(49,62,54,0.08)]">
           <img src={company.image} alt={company.name} className="aspect-[16/8] w-full object-cover" data-testid="img-company-page" />
           <div className="p-7 sm:p-10">
             <p className="text-[11px] font-bold uppercase tracking-[0.16em]" style={{ color: company.accent }}>

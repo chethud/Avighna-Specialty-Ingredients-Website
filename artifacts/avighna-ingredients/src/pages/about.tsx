@@ -136,59 +136,22 @@ function CompanyMark({ company }: { company: Company }) {
 
 function HeroCollage() {
   return (
-    <div className="relative h-full min-h-[420px] w-full overflow-hidden bg-[#083B35] lg:absolute lg:inset-0 lg:min-h-0">
-      {/* Full-bleed collage — bleeds under text panel and soft-fades left */}
+    <div className="relative h-full min-h-[380px] w-full overflow-hidden bg-[#063F38] lg:absolute lg:inset-y-0 lg:left-[38%] lg:right-0 lg:min-h-0">
       <img
         src="/generated/avigna-hero-organic-v3.jpg"
         alt="Avigna group of four connected business worlds"
-        className="absolute inset-0 h-full w-full object-cover object-[68%_center] transition-transform duration-[18s] ease-out will-change-transform hover:scale-[1.03] lg:object-[72%_center]"
+        className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[18s] ease-out will-change-transform hover:scale-[1.02]"
         data-testid="img-avigna-hero"
       />
-
-      {/* Soft ivory curve accents */}
-      <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 1000 720" fill="none" aria-hidden>
-        <path
-          d="M120 80C280 20 420 90 500 200C600 340 720 400 780 560"
-          stroke="#F6F0E4"
-          strokeWidth="1.5"
-          opacity="0.35"
-        />
-        <path
-          d="M880 40C700 140 620 260 590 400C550 580 680 660 860 720"
-          stroke="#C6A15B"
-          strokeWidth="1.1"
-          opacity="0.4"
-        />
-      </svg>
-
-      {/* Soft blend: image fades into the left copy panel */}
+      {/* Soft left edge blend into the copy panel */}
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#063F38]/80 via-[#063F38]/30 to-transparent lg:hidden"
+        className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#063F38] to-transparent lg:w-32"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-0 hidden lg:block"
-        style={{
-          background:
-            'linear-gradient(90deg, #063F38 0%, #063F38 28%, rgba(6,63,56,0.92) 38%, rgba(6,63,56,0.55) 48%, rgba(6,63,56,0.18) 56%, transparent 64%)',
-        }}
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#063F38]/80 via-transparent to-transparent lg:hidden"
         aria-hidden
       />
-
-      <p className="pointer-events-none absolute right-5 top-10 hidden text-right text-[9px] font-semibold uppercase leading-[1.5] tracking-[0.28em] text-white/80 xl:block">
-        Diverse
-        <br />
-        Businesses
-        <br />
-        <br />
-        Stronger
-        <br />
-        Tomorrow
-      </p>
-
-      <p className="pointer-events-none absolute bottom-10 right-8 hidden -rotate-6 font-[Caveat,cursive] text-[1.55rem] tracking-wide text-white/90 xl:block">
-        Growth Through Partnerships
-      </p>
     </div>
   );
 }
@@ -290,7 +253,7 @@ function GroupHeader() {
 function GroupFooter() {
   return (
     <footer className="bg-[#063F38] text-[#E8EEEA]">
-      <div className="mx-auto grid max-w-[1400px] gap-10 px-5 py-14 sm:px-8 lg:grid-cols-[1.15fr_0.7fr_0.9fr_0.85fr_1fr] lg:gap-8 lg:px-12 lg:py-16">
+      <div className="mx-auto grid max-w-[1400px] gap-10 px-5 py-10 sm:px-8 lg:grid-cols-[1.15fr_0.7fr_0.9fr_0.85fr_1fr] lg:gap-8 lg:px-12 lg:py-12">
         <div>
           <div className="flex items-center gap-3">
             <img src="/brand-logo.png" alt="Avigna" className="h-11 w-11 object-contain" />
@@ -373,14 +336,14 @@ export default function About() {
     <main className="bg-[#F6F0E4] font-[Manrope,ui-sans-serif,system-ui,sans-serif] text-[#17201D]">
       <GroupHeader />
 
-      {/* HERO — full-bleed collage with soft blend into editorial copy */}
+      {/* HERO — fills first viewport under sticky header */}
       <section className="relative overflow-hidden bg-[#063F38] text-[#F6F0E4]">
-        <div className="relative mx-auto flex min-h-[600px] max-w-none flex-col lg:min-h-[640px] lg:block lg:h-[640px]">
-          <div className="relative z-10 flex w-full flex-col justify-center px-6 py-14 sm:px-10 lg:h-full lg:w-[46%] lg:px-12 xl:px-16">
-            <div className="w-full max-w-[420px]">
+        <div className="relative mx-auto flex min-h-[calc(100svh-72px)] max-w-none flex-col lg:block lg:h-[calc(100svh-72px)] lg:min-h-[560px]">
+          <div className="relative z-10 flex w-full flex-col justify-center bg-[#063F38] px-6 py-12 sm:px-10 lg:h-full lg:w-[42%] lg:max-w-none lg:bg-transparent lg:px-12 xl:w-[40%] xl:px-16">
+            <div className="w-full max-w-[440px]">
               <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#C6A15B]">Avigna Group</p>
               <h1
-                className="mt-5 font-['DM_Serif_Display',ui-serif,Georgia,serif] text-[clamp(3rem,5.8vw,4.85rem)] font-medium leading-[0.92] tracking-[-0.02em] text-[#F6F0E4]"
+                className="mt-5 font-['DM_Serif_Display',ui-serif,Georgia,serif] text-[clamp(2.75rem,5.2vw,4.5rem)] font-medium leading-[0.94] tracking-[-0.02em] text-[#F6F0E4]"
                 data-testid="heading-about-hero"
               >
                 One Group.
@@ -389,11 +352,11 @@ export default function About() {
                 <br />
                 <span className="text-[#F26522]">One Vision.</span>
               </h1>
-              <p className="mt-6 max-w-[420px] font-[Manrope,ui-sans-serif,system-ui,sans-serif] text-[15px] leading-[1.65] text-[#F6F0E4]/78 sm:text-[16px]">
+              <p className="mt-5 max-w-[420px] font-[Manrope,ui-sans-serif,system-ui,sans-serif] text-[15px] leading-[1.65] text-[#F6F0E4]/78 sm:text-[16px]">
                 Avigna brings together diverse businesses, expertise and capabilities under one group, creating long-term
                 value through focused businesses and strong partnerships.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-7 flex flex-wrap gap-3">
                 <button
                   onClick={() => scrollToId('companies')}
                   className="inline-flex h-11 items-center gap-2 rounded-full bg-[#F26522] px-5 text-[13px] font-bold text-white transition-colors hover:bg-[#de5518]"
@@ -417,7 +380,7 @@ export default function About() {
       </section>
 
       {/* ABOUT AVIGNA — text | principles | image (reference layout) */}
-      <section id="about-avigna" className="bg-[#F6F0E4] px-5 py-[4.75rem] sm:px-8 lg:px-12 lg:py-[5.25rem]">
+      <section id="about-avigna" className="bg-[#F6F0E4] px-5 py-12 sm:px-8 lg:px-12 lg:py-14">
         <div className="mx-auto grid max-w-[1400px] items-center gap-10 lg:grid-cols-[1.05fr_0.72fr_1.12fr] lg:gap-10 xl:gap-14">
           {/* Left: eyebrow, heading, body, CTA */}
           <div className="order-2 lg:order-1">
@@ -542,7 +505,7 @@ export default function About() {
       </section>
 
       {/* COMPANIES — one row of 4 equal cards */}
-      <section id="companies" className="px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
+      <section id="companies" className="px-5 py-12 sm:px-8 lg:px-12 lg:py-14">
         <div className="mx-auto max-w-[1400px]">
           <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <div>
@@ -579,7 +542,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4 xl:gap-5">
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4 xl:gap-5">
             {companies.map((company) => (
               <Link
                 key={company.id}
@@ -613,9 +576,9 @@ export default function About() {
       </section>
 
       {/* VISION — compact 50/50 banner */}
-      <section id="vision" className="px-5 pb-20 sm:px-8 lg:px-12 lg:pb-24">
+      <section id="vision" className="px-5 pb-12 sm:px-8 lg:px-12 lg:pb-14">
         <div className="mx-auto grid max-w-[1400px] overflow-hidden rounded-[1.35rem] lg:grid-cols-2">
-          <div className="flex flex-col justify-center bg-[#063F38] px-6 py-14 text-white sm:px-10 lg:px-12 lg:py-16">
+          <div className="flex flex-col justify-center bg-[#063F38] px-6 py-10 text-white sm:px-10 lg:px-12 lg:py-12">
             <Eyebrow light>Our Vision</Eyebrow>
             <h2
               className="mt-4 max-w-[440px] text-[clamp(2rem,3.6vw,2.85rem)] font-extrabold leading-[0.95] tracking-[-0.045em]"
