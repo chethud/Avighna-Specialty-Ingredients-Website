@@ -62,7 +62,7 @@ export default function CompanyPage() {
 
   return (
     <main className="min-h-screen bg-[#f5efe4] text-[#173f3a]">
-      <div className="mx-auto max-w-[1100px] px-5 py-8 sm:px-8 lg:px-12 lg:py-10">
+      <div className="mx-auto page-container max-w-none py-8 lg:py-10">
         <Link href="/about" className="inline-flex items-center gap-2 text-sm font-semibold text-[#66716b] transition-colors hover:text-[#ea632b]" data-testid="link-back-about">
           <ArrowLeft size={14} /> About Avigna
         </Link>

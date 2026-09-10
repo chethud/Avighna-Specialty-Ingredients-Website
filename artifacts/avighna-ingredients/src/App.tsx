@@ -166,11 +166,11 @@ function scrollToId(id: string) {
 
 function Hero() {
   return (
-    <section id="top" className="noise relative min-h-[760px] overflow-hidden bg-[#f4eadb] pt-32 lg:min-h-[820px] lg:pt-40">
+    <section id="top" className="noise relative min-h-[640px] overflow-hidden bg-[#f4eadb] pt-6 lg:min-h-[700px] lg:pt-8">
       <div className="absolute -right-36 -top-40 h-[540px] w-[540px] rounded-full bg-[#e8bb68]/25 blur-3xl" />
-      <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-5 pb-14 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-12 lg:pb-16">
-        <div className="relative z-10 max-w-[620px]">
-          <div className="reveal mb-7">
+      <div className="mx-auto grid page-container max-w-none items-center gap-10 pb-14 lg:grid-cols-[0.46fr_0.54fr] lg:gap-12 xl:gap-16 lg:pb-16">
+        <div className="relative z-10 max-w-[680px]">
+          <div className="reveal mb-5">
             <span className="eyebrow text-[#e2602c]">Ingredient solutions / Bengaluru</span>
           </div>
           <h1 className="reveal reveal-delay-1 font-display text-[clamp(4rem,8vw,7.7rem)] leading-[0.88] tracking-[-0.065em] text-[#1d2522]" data-testid="heading-hero">
@@ -194,13 +194,13 @@ function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto h-[570px] w-full max-w-[640px] lg:h-[625px]">
+        <div className="relative mx-auto h-[570px] w-full max-w-[760px] lg:h-[640px] lg:max-w-none">
           <div className="absolute right-0 top-0 h-[445px] w-[76%] overflow-hidden rounded-[10rem_1.5rem_1.5rem_1.5rem] border-[7px] border-[#fff4e4] shadow-[0_22px_50px_rgba(87,56,25,0.18)]">
             <img src="/generated/hero.jpg" alt="Specialty ingredients and finished product applications" className="h-full w-full object-cover object-right" data-testid="img-hero-ingredients" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#1a2a24]/90 via-[#1a2a24]/45 to-transparent" />
-            <div className="absolute bottom-[13.5rem] left-[38%] right-5 z-10 text-[#fff9ee] drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] lg:bottom-40">
-              <p className="eyebrow">Applications</p>
-              <p className="mt-1 font-display text-2xl leading-tight">Complete flavour systems</p>
+            <div className="absolute bottom-8 left-[38%] right-5 z-10 drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] lg:bottom-10">
+              <p className="eyebrow text-[#fff9ee]/85">Applications</p>
+              <p className="mt-1 font-display text-2xl leading-tight text-[#e2602c]">Complete flavour systems</p>
             </div>
           </div>
           <div className="absolute bottom-0 left-0 z-[1] h-[285px] w-[47%] overflow-hidden rounded-[1.5rem_5.5rem_1.5rem_1.5rem] border-[7px] border-[#f4eadb] shadow-[0_17px_35px_rgba(87,56,25,0.2)]">
@@ -232,8 +232,8 @@ function Solutions() {
   const [activeId, setActiveId] = useState('food');
   const active = industries.find((industry) => industry.id === activeId) ?? industries[0];
   return (
-    <section id="solutions" className="bg-[#1e3d38] px-5 py-10 text-[#fff9ee] sm:px-8 lg:px-12 lg:py-12">
-      <div className="mx-auto max-w-[1320px]">
+    <section id="solutions" className="bg-[#1e3d38] py-10 text-[#fff9ee] lg:py-12">
+      <div className="mx-auto page-container max-w-none">
         <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
           <div>
             <div className="eyebrow text-[#e4c16e]">What we solve</div>
@@ -277,8 +277,8 @@ function Solutions() {
 
 function Catalogue() {
   return (
-    <section id="catalogue" className="bg-[#f7f0e4] px-5 py-10 sm:px-8 lg:px-12 lg:py-12">
-      <div className="mx-auto max-w-[1320px]">
+    <section id="catalogue" className="bg-[#f7f0e4] py-10 lg:py-12">
+      <div className="mx-auto page-container max-w-none">
         <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <div className="eyebrow text-[#e2602c]">Product catalogue</div>
@@ -343,13 +343,13 @@ function XtendraFeature() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#f8f2e8] px-5 py-10 sm:px-8 lg:px-12 lg:py-12">
+    <section className="relative overflow-hidden bg-[#f8f2e8] py-10 lg:py-12">
       <div
         className="pointer-events-none absolute -left-28 top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full bg-[#e95b28]/10"
         aria-hidden
       />
 
-      <div className="relative mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch lg:gap-16 xl:gap-20">
+      <div className="relative mx-auto grid page-container max-w-none gap-10 lg:grid-cols-[0.48fr_0.52fr] lg:items-stretch lg:gap-12 xl:gap-16">
         <div className="order-1">
           <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#e95b28]">
             Featured solution / fried-food producers
@@ -437,10 +437,10 @@ function DairyFeature() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#f4eadb] px-5 py-10 sm:px-8 lg:px-12 lg:py-12">
+    <section className="relative overflow-hidden bg-[#f4eadb] py-10 lg:py-12">
       <div className="pointer-events-none absolute -right-24 bottom-[-8rem] h-[22rem] w-[22rem] rounded-full border-[42px] border-[#e4d4bc]/45" aria-hidden />
 
-      <div className="relative mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch lg:gap-16 xl:gap-20">
+      <div className="relative mx-auto grid page-container max-w-none gap-10 lg:grid-cols-[0.48fr_0.52fr] lg:items-stretch lg:gap-12 xl:gap-16">
         <div className="order-2 relative aspect-[4/5] w-full sm:aspect-[3/4] lg:order-1 lg:aspect-auto lg:min-h-0">
           <div className="overflow-hidden rounded-[1.75rem] shadow-[0_20px_50px_rgba(49,62,54,0.12)] lg:absolute lg:inset-0">
             <img
@@ -503,8 +503,8 @@ function DairyFeature() {
 
 function Applications() {
   return (
-    <section id="applications" className="bg-[#fff9ee] px-5 py-10 sm:px-8 lg:px-12 lg:py-12">
-      <div className="mx-auto max-w-[1320px]">
+    <section id="applications" className="bg-[#fff9ee] py-10 lg:py-12">
+      <div className="mx-auto page-container max-w-none">
         <div className="grid items-end gap-5 md:grid-cols-[0.8fr_1.2fr] lg:gap-6">
           <div>
             <div className="eyebrow text-[#e2602c]">Built for the application</div>
@@ -578,9 +578,9 @@ function Contact() {
         <path d="M80 700C180 640 260 560 300 460" stroke="#e4c16e" strokeWidth="1.25" opacity="0.35" />
       </svg>
 
-      <div className="relative mx-auto grid max-w-[1320px] lg:grid-cols-[0.42fr_0.58fr]">
+      <div className="relative mx-auto grid page-container max-w-none lg:grid-cols-[0.42fr_0.58fr]">
         {/* LEFT — message & contact */}
-        <div className="relative z-10 flex flex-col px-5 py-8 sm:px-8 lg:px-10 lg:py-10 xl:pr-6">
+        <div className="relative z-10 flex flex-col py-8 lg:px-2 lg:py-10 xl:pr-6">
           <div className="reveal">
             <span className="eyebrow text-[#e8d9b0]">Let’s make better products</span>
           </div>
@@ -660,8 +660,8 @@ function Contact() {
           </div>
 
           {/* Form card */}
-          <div className="relative z-10 px-5 pb-10 pt-3 sm:px-8 sm:pb-10 lg:flex lg:h-full lg:items-center lg:justify-start lg:px-8 lg:py-10 xl:pl-6 xl:pr-4">
-            <div className="contact-form-card w-full rounded-[1.5rem] border border-[#eadfce] bg-[#fff9ee] p-5 shadow-[0_28px_60px_-28px_rgba(10,28,24,0.55)] sm:p-6 lg:max-w-[460px] lg:p-7">
+          <div className="relative z-10 pb-10 pt-3 sm:pb-10 lg:flex lg:h-full lg:items-center lg:justify-start lg:py-10 xl:pl-2 xl:pr-0">
+            <div className="contact-form-card w-full rounded-[1.5rem] border border-[#eadfce] bg-[#fff9ee] p-5 shadow-[0_28px_60px_-28px_rgba(10,28,24,0.55)] sm:p-6 lg:max-w-[520px] lg:p-7">
               {sent ? (
                 <div className="flex min-h-[340px] flex-col items-center justify-center text-center text-[#1e3d38]">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#e4c16e]">

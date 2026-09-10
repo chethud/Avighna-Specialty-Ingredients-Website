@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm --filter @workspace/avighna-ingredients run build",
-  "outputDirectory": "artifacts/avighna-ingredients/dist/public",
+  "outputDirectory": "public",
   "installCommand": "pnpm install",
   "framework": null,
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]

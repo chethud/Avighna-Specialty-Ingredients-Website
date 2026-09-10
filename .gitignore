@@ -8,6 +8,11 @@ out-tsc
 .expo
 .expo-shared
 
+# Vite production output (Vercel); source static assets live in static/
+artifacts/avighna-ingredients/public
+artifacts/api-server/public
+/public
+
 # dependencies
 node_modules
 

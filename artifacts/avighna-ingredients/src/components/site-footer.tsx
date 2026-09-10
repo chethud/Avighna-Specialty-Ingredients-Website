@@ -57,9 +57,9 @@ export function SiteFooter() {
         />
       </svg>
 
-      <div className="relative mx-auto max-w-[1260px] px-6 pt-8 sm:px-10 lg:px-20 lg:pt-10">
-        <div className="grid items-start gap-8 md:grid-cols-2 lg:grid-cols-[1.2fr_0.55fr_0.95fr_0.55fr] lg:gap-0">
-          <div className="lg:pr-10">
+      <div className="relative mx-auto page-container max-w-none pt-8 lg:pt-10">
+        <div className="grid items-start gap-8 md:grid-cols-2 lg:grid-cols-[1.15fr_0.6fr_1fr_0.6fr] lg:gap-6 xl:gap-8">
+          <div className="lg:pr-4">
             <div className="w-[180px]">
               <BrandWordmark light />
             </div>
@@ -105,7 +105,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="lg:px-8">
+          <div className="lg:px-2">
             <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#d7a94d]">Explore</p>
             <div className="mt-2 h-px w-8 bg-[#d7a94d]" />
             <ul className="mt-4 space-y-3">
@@ -127,7 +127,7 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div className="lg:px-8">
+          <div className="lg:px-2">
             <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#d7a94d]">Industries we serve</p>
             <div className="mt-2 h-px w-8 bg-[#d7a94d]" />
             <ul className="mt-4 space-y-2.5">
@@ -140,8 +140,8 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div className="md:col-span-2 lg:col-span-1 lg:pl-8">
-            <p className="max-w-[190px] font-display text-[1.7rem] leading-[1.08] tracking-[-0.03em] lg:text-[1.85rem]">
+          <div className="md:col-span-2 lg:col-span-1 lg:pl-2">
+            <p className="max-w-[220px] font-display text-[1.7rem] leading-[1.08] tracking-[-0.03em] lg:text-[1.85rem]">
               <span className="text-[#f5efe4]">
                 Natural
                 <br />

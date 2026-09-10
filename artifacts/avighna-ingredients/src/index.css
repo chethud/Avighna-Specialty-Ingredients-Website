@@ -110,9 +110,10 @@
 
 @layer base {
   * { @apply border-border; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    overflow-x: hidden;
     background-image: radial-gradient(rgba(155, 116, 57, 0.07) 0.8px, transparent 0.8px);
     background-size: 18px 18px;
   }
@@ -120,6 +121,28 @@
 }
 
 @layer utilities {
+  /*
+   * Shared laptop/desktop content rail.
+   * ~40–50px gutters at 1366, ~50–60 at 1440, ~60–70 at 1536; max 1440px.
+   */
+  .page-container {
+    box-sizing: border-box;
+    width: min(1440px, calc(100% - 80px));
+    max-width: 1440px;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 1400px) {
+    .page-container {
+      width: min(1440px, calc(100% - 112px));
+    }
+  }
+
+  @media (min-width: 1500px) {
+    .page-container {
+      width: min(1440px, calc(100% - 128px));
+    }
+  }
   .font-display { font-family: var(--app-font-serif); }
   .font-script { font-family: 'Caveat', cursive; font-weight: 600; }
   .eyebrow { letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.68rem; font-weight: 700; }

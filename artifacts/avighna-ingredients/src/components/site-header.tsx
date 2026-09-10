@@ -28,14 +28,8 @@ export function SiteHeader() {
   const isHome = location === '/' || location === '';
 
   return (
-    <header
-      className={
-        isHome
-          ? 'absolute inset-x-0 top-0 z-30'
-          : 'sticky top-0 z-40 border-b border-[#e0d1bd]/60 bg-[#fff9ee]/95 backdrop-blur-md'
-      }
-    >
-      <div className="mx-auto flex max-w-[1320px] items-center gap-4 px-5 py-5 sm:px-8 lg:px-12">
+    <header className="sticky top-0 z-40 border-b border-[#e0d1bd]/60 bg-[#fff9ee]/95 backdrop-blur-md">
+      <div className="mx-auto flex page-container max-w-none items-center gap-4 py-4">
         {isHome ? (
           <button
             onClick={() => scrollToId('top')}
@@ -51,7 +45,7 @@ export function SiteHeader() {
           </Link>
         )}
 
-        <nav className="mx-auto hidden items-center gap-9 md:flex" aria-label="Main navigation">
+        <nav className="mx-auto hidden items-center gap-6 md:flex lg:gap-8 xl:gap-9" aria-label="Main navigation">
           <Link
             href="/about"
             className="text-[16px] font-semibold tracking-[-0.01em] text-[#3a4841] transition-colors hover:text-[#e2602c] lg:text-[17px]"
@@ -92,7 +86,7 @@ export function SiteHeader() {
 
       {open && (
         <nav
-          className="mx-4 rounded-2xl border border-[#e0d1bd] bg-[#fff9ee] p-2 shadow-xl md:hidden"
+          className="mx-4 mb-3 rounded-2xl border border-[#e0d1bd] bg-[#fff9ee] p-2 shadow-xl md:hidden"
           aria-label="Mobile navigation"
         >
           <Link

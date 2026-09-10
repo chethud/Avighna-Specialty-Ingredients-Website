@@ -1,7 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Link } from 'wouter';
 import {
-  ArrowLeft,
   ArrowRight,
   BarChart3,
   Building2,
@@ -136,20 +135,26 @@ function CompanyMark({ company }: { company: Company }) {
 
 function HeroCollage() {
   return (
-    <div className="relative h-full min-h-[380px] w-full overflow-hidden bg-[#063F38] lg:absolute lg:inset-y-0 lg:left-[38%] lg:right-0 lg:min-h-0">
+    <div className="relative h-full min-h-[380px] w-full overflow-hidden bg-[#063F38] lg:absolute lg:inset-0 lg:min-h-0">
+      {/* Full-bleed collage — bleeds under text panel, framed like the original layout */}
       <img
         src="/generated/avigna-hero-organic-v3.jpg"
         alt="Avigna group of four connected business worlds"
-        className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[18s] ease-out will-change-transform hover:scale-[1.02]"
+        className="absolute inset-0 h-full w-full object-cover object-[68%_center] transition-transform duration-[18s] ease-out will-change-transform hover:scale-[1.02] lg:object-[72%_center]"
         data-testid="img-avigna-hero"
       />
-      {/* Soft left edge blend into the copy panel */}
+
+      {/* Soft blend: image fades into the left copy panel */}
       <div
-        className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#063F38] to-transparent lg:w-32"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#063F38]/85 via-[#063F38]/35 to-transparent lg:hidden"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#063F38]/80 via-transparent to-transparent lg:hidden"
+        className="pointer-events-none absolute inset-0 hidden lg:block"
+        style={{
+          background:
+            'linear-gradient(90deg, #063F38 0%, #063F38 28%, rgba(6,63,56,0.92) 38%, rgba(6,63,56,0.55) 48%, rgba(6,63,56,0.18) 56%, transparent 64%)',
+        }}
         aria-hidden
       />
     </div>
@@ -183,7 +188,7 @@ function GroupHeader() {
         scrolled ? 'shadow-[0_6px_22px_rgba(23,32,29,0.05)]' : ''
       }`}
     >
-      <div className="mx-auto flex h-[72px] max-w-[1400px] items-center gap-4 px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto flex h-[72px] page-container max-w-none items-center gap-4">
         <Link href="/" className="flex shrink-0 items-center gap-2.5" data-testid="link-avigna-brand">
           <img src="/brand-logo.png" alt="Avigna" className="h-9 w-9 object-contain" />
           <div>
@@ -194,7 +199,7 @@ function GroupHeader() {
           </div>
         </Link>
 
-        <nav className="mx-auto hidden items-center gap-7 xl:flex" aria-label="About navigation">
+        <nav className="mx-auto hidden items-center gap-5 lg:gap-6 xl:gap-7 xl:flex" aria-label="About navigation">
           {nav.map((item) => (
             <button
               key={item.label}
@@ -253,7 +258,7 @@ function GroupHeader() {
 function GroupFooter() {
   return (
     <footer className="bg-[#063F38] text-[#E8EEEA]">
-      <div className="mx-auto grid max-w-[1400px] gap-10 px-5 py-10 sm:px-8 lg:grid-cols-[1.15fr_0.7fr_0.9fr_0.85fr_1fr] lg:gap-8 lg:px-12 lg:py-12">
+      <div className="mx-auto grid page-container max-w-none gap-10 py-10 lg:grid-cols-[1.15fr_0.7fr_0.9fr_0.85fr_1fr] lg:gap-8 lg:py-12">
         <div>
           <div className="flex items-center gap-3">
             <img src="/brand-logo.png" alt="Avigna" className="h-11 w-11 object-contain" />
@@ -319,7 +324,7 @@ function GroupFooter() {
       </div>
 
       <div className="border-t border-[#1a524a]">
-        <div className="mx-auto flex max-w-[1400px] flex-col gap-3 px-5 py-3.5 text-[11px] uppercase tracking-[0.12em] text-[#9eb0a9] sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
+        <div className="mx-auto flex page-container max-w-none flex-col gap-3 py-3.5 text-[11px] uppercase tracking-[0.12em] text-[#9eb0a9] sm:flex-row sm:items-center sm:justify-between">
           <span className="normal-case tracking-normal">© 2026 Avigna. All Rights Reserved.</span>
           <span className="hidden md:inline">Food · Dairy · Beverage · Pharma · Nutraceutical</span>
           <span className="inline-flex items-center gap-1.5 text-[#F26522]">
@@ -339,8 +344,8 @@ export default function About() {
       {/* HERO — fills first viewport under sticky header */}
       <section className="relative overflow-hidden bg-[#063F38] text-[#F6F0E4]">
         <div className="relative mx-auto flex min-h-[calc(100svh-72px)] max-w-none flex-col lg:block lg:h-[calc(100svh-72px)] lg:min-h-[560px]">
-          <div className="relative z-10 flex w-full flex-col justify-center bg-[#063F38] px-6 py-12 sm:px-10 lg:h-full lg:w-[42%] lg:max-w-none lg:bg-transparent lg:px-12 xl:w-[40%] xl:px-16">
-            <div className="w-full max-w-[440px]">
+          <div className="relative z-10 flex w-full flex-col justify-center px-5 py-12 sm:px-8 lg:h-full lg:w-[46%] lg:px-10 lg:pr-8 xl:px-12">
+            <div className="w-full max-w-[520px]">
               <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#C6A15B]">Avigna Group</p>
               <h1
                 className="mt-5 font-['DM_Serif_Display',ui-serif,Georgia,serif] text-[clamp(2.75rem,5.2vw,4.5rem)] font-medium leading-[0.94] tracking-[-0.02em] text-[#F6F0E4]"
@@ -380,20 +385,20 @@ export default function About() {
       </section>
 
       {/* ABOUT AVIGNA — text | principles | image (reference layout) */}
-      <section id="about-avigna" className="bg-[#F6F0E4] px-5 py-12 sm:px-8 lg:px-12 lg:py-14">
-        <div className="mx-auto grid max-w-[1400px] items-center gap-10 lg:grid-cols-[1.05fr_0.72fr_1.12fr] lg:gap-10 xl:gap-14">
+      <section id="about-avigna" className="bg-[#F6F0E4] py-12 lg:py-14">
+        <div className="mx-auto grid page-container max-w-none items-center gap-10 lg:grid-cols-[0.48fr_0.22fr_0.48fr] lg:gap-8 xl:gap-12">
           {/* Left: eyebrow, heading, body, CTA */}
           <div className="order-2 lg:order-1">
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#F26522]">About Avigna</p>
             <h2
-              className="mt-4 max-w-[440px] font-['DM_Serif_Display',ui-serif,Georgia,serif] text-[clamp(2.35rem,3.8vw,3.35rem)] font-medium leading-[1.02] tracking-[-0.02em] text-[#123E38]"
+              className="mt-4 max-w-[560px] font-['DM_Serif_Display',ui-serif,Georgia,serif] text-[clamp(2.35rem,3.8vw,3.35rem)] font-medium leading-[1.02] tracking-[-0.02em] text-[#123E38]"
               data-testid="heading-about-avigna"
             >
               Building Businesses.
               <br />
               Creating Long-Term Value.
             </h2>
-            <p className="mt-5 max-w-[440px] text-[15.5px] leading-[1.65] text-[#3d4a46]">
+            <p className="mt-5 max-w-[520px] text-[15.5px] leading-[1.65] text-[#3d4a46]">
               Avigna is the parent group that brings together four distinct companies with specialized expertise and a
               shared commitment to quality, reliability and long-term partnerships.
             </p>
@@ -460,7 +465,7 @@ export default function About() {
           aria-hidden
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#063F38] from-40% via-[#063F38]/88 to-[#063F38]/40" />
-        <div className="relative mx-auto max-w-[1400px] px-5 py-8 sm:px-8 lg:flex lg:h-[138px] lg:items-center lg:px-12 lg:py-0">
+        <div className="relative mx-auto page-container max-w-none py-8 lg:flex lg:h-[138px] lg:items-center lg:py-0">
           <div className="flex w-full flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
             <div className="min-w-0 flex-1">
               <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#C6A15B] lg:mb-3">
@@ -505,44 +510,21 @@ export default function About() {
       </section>
 
       {/* COMPANIES — one row of 4 equal cards */}
-      <section id="companies" className="px-5 py-12 sm:px-8 lg:px-12 lg:py-14">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
-            <div>
-              <Eyebrow>Our Companies</Eyebrow>
-              <h2
-                className="mt-3 max-w-[640px] text-[clamp(2.4rem,4.5vw,3.5rem)] font-extrabold leading-[0.94] tracking-[-0.05em] text-[#063F38]"
-                data-testid="heading-companies"
-              >
-                Four companies.
-                <br />
-                Four areas of expertise.
-              </h2>
-            </div>
-            <div className="flex items-center gap-4">
-              <p className="max-w-[220px] text-[14px] leading-6 text-[#5a6761] lg:text-right">
-                One shared commitment to building better businesses.
-              </p>
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#e5d8c4] text-[#063F38] transition-colors hover:border-[#F26522] hover:text-[#F26522]"
-                  aria-label="Previous"
-                >
-                  <ArrowLeft size={15} />
-                </button>
-                <button
-                  type="button"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#e5d8c4] text-[#063F38] transition-colors hover:border-[#F26522] hover:text-[#F26522]"
-                  aria-label="Next"
-                >
-                  <ArrowRight size={15} />
-                </button>
-              </div>
-            </div>
+      <section id="companies" className="py-12 lg:py-14">
+        <div className="mx-auto page-container max-w-none">
+          <div>
+            <Eyebrow>Our Companies</Eyebrow>
+            <h2
+              className="mt-3 max-w-[720px] text-[clamp(2.4rem,4.5vw,3.5rem)] font-extrabold leading-[0.94] tracking-[-0.05em] text-[#063F38]"
+              data-testid="heading-companies"
+            >
+              Four companies.
+              <br />
+              Four areas of expertise.
+            </h2>
           </div>
 
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4 xl:gap-5">
+          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
             {companies.map((company) => (
               <Link
                 key={company.id}
@@ -576,8 +558,8 @@ export default function About() {
       </section>
 
       {/* VISION — compact 50/50 banner */}
-      <section id="vision" className="px-5 pb-12 sm:px-8 lg:px-12 lg:pb-14">
-        <div className="mx-auto grid max-w-[1400px] overflow-hidden rounded-[1.35rem] lg:grid-cols-2">
+      <section id="vision" className="pb-12 lg:pb-14">
+        <div className="mx-auto grid page-container max-w-none overflow-hidden rounded-[1.35rem] lg:grid-cols-2">
           <div className="flex flex-col justify-center bg-[#063F38] px-6 py-10 text-white sm:px-10 lg:px-12 lg:py-12">
             <Eyebrow light>Our Vision</Eyebrow>
             <h2
