@@ -16,6 +16,7 @@ import {
   X,
   Youtube,
 } from 'lucide-react';
+import { BrandWordmark } from '@/components/brand-wordmark';
 
 type Company = {
   id: string;
@@ -172,6 +173,15 @@ function GroupHeader() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
   const nav = [
     { label: 'Home', action: () => { window.location.assign(`${import.meta.env.BASE_URL.replace(/\/$/, '')}/`); } },
     { label: 'About Us', action: () => scrollToId('about-avigna'), active: true },
@@ -183,75 +193,99 @@ function GroupHeader() {
   ];
 
   return (
-    <header
-      className={`sticky top-0 z-50 border-b border-[#e5d8c4]/50 bg-[#F6F0E4]/96 text-[#17201D] backdrop-blur-md transition-shadow ${
-        scrolled ? 'shadow-[0_6px_22px_rgba(23,32,29,0.05)]' : ''
-      }`}
-    >
-      <div className="mx-auto flex h-[72px] page-container max-w-none items-center gap-4">
-        <Link href="/" className="flex shrink-0 items-center gap-2.5" data-testid="link-avigna-brand">
-          <img src="/brand-logo.png" alt="Avigna" className="h-9 w-9 object-contain" />
-          <div>
-            <div className="text-[1.25rem] font-extrabold tracking-[-0.04em] text-[#063F38]">Avigna</div>
-            <div className="mt-0.5 hidden text-[7px] font-bold uppercase leading-[1.3] tracking-[0.13em] text-[#6d7872] sm:block">
-              Building Businesses · Creating Long-Term Value
-            </div>
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 border-b border-[#e5d8c4]/50 bg-[#F6F0E4]/96 text-[#17201D] backdrop-blur-md transition-shadow ${
+          scrolled ? 'shadow-[0_6px_22px_rgba(23,32,29,0.05)]' : ''
+        }`}
+      >
+        <div className="relative z-[60] mx-auto flex page-container max-w-none items-center gap-3 py-3 sm:gap-4 sm:py-4">
+          <Link href="/" className="shrink-0 transition-opacity hover:opacity-80" data-testid="link-avigna-brand">
+            <BrandWordmark />
+          </Link>
+
+          <nav className="mx-auto hidden items-center gap-5 lg:gap-6 xl:gap-7 xl:flex" aria-label="About navigation">
+            {nav.map((item) => (
+              <button
+                key={item.label}
+                onClick={item.action}
+                className={`relative text-[13px] font-semibold tracking-[-0.01em] transition-colors hover:text-[#F26522] ${
+                  item.active ? 'text-[#F26522]' : 'text-[#2f3b37]'
+                }`}
+                data-testid={`button-about-nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+              >
+                {item.label}
+                {item.active && <span className="absolute -bottom-1.5 left-0 h-[2px] w-full rounded-full bg-[#F26522]" />}
+              </button>
+            ))}
+          </nav>
+
+          <div className="ml-auto flex items-center gap-2 xl:ml-0">
+            <button
+              onClick={() => goHomeSection('contact')}
+              className="hidden items-center gap-2 rounded-full bg-[#F26522] px-5 py-2.5 text-[12.5px] font-bold text-white transition-colors hover:bg-[#de5518] md:inline-flex"
+              data-testid="button-about-lets-connect"
+            >
+              Let&apos;s Connect <ArrowRight size={13} />
+            </button>
+            <button
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#063F38] text-white xl:hidden"
+              onClick={() => setOpen(!open)}
+              aria-expanded={open}
+              aria-controls="about-mobile-menu"
+              aria-label={open ? 'Close navigation' : 'Open navigation'}
+              data-testid="button-about-mobile-menu"
+            >
+              {open ? <X size={17} /> : <Menu size={17} />}
+            </button>
           </div>
-        </Link>
-
-        <nav className="mx-auto hidden items-center gap-5 lg:gap-6 xl:gap-7 xl:flex" aria-label="About navigation">
-          {nav.map((item) => (
-            <button
-              key={item.label}
-              onClick={item.action}
-              className={`relative text-[13px] font-semibold tracking-[-0.01em] transition-colors hover:text-[#F26522] ${
-                item.active ? 'text-[#F26522]' : 'text-[#2f3b37]'
-              }`}
-              data-testid={`button-about-nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
-            >
-              {item.label}
-              {item.active && <span className="absolute -bottom-1.5 left-0 h-[2px] w-full rounded-full bg-[#F26522]" />}
-            </button>
-          ))}
-        </nav>
-
-        <div className="ml-auto flex items-center gap-2 xl:ml-0">
-          <button
-            onClick={() => goHomeSection('contact')}
-            className="hidden items-center gap-2 rounded-full bg-[#F26522] px-5 py-2.5 text-[12.5px] font-bold text-white transition-colors hover:bg-[#de5518] md:inline-flex"
-            data-testid="button-about-lets-connect"
-          >
-            Let&apos;s Connect <ArrowRight size={13} />
-          </button>
-          <button
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#063F38] text-white xl:hidden"
-            onClick={() => setOpen(!open)}
-            aria-label={open ? 'Close navigation' : 'Open navigation'}
-            data-testid="button-about-mobile-menu"
-          >
-            {open ? <X size={17} /> : <Menu size={17} />}
-          </button>
         </div>
-      </div>
 
-      {open && (
-        <nav className="border-t border-[#e5d8c4] bg-[#F6F0E4] px-4 py-2 xl:hidden" aria-label="Mobile about navigation">
-          {nav.map((item) => (
+        {open && (
+          <div className="fixed inset-0 z-50 xl:hidden" role="dialog" aria-modal="true" aria-label="Mobile navigation">
             <button
-              key={item.label}
-              onClick={() => {
-                item.action();
-                setOpen(false);
-              }}
-              className="flex w-full items-center justify-between rounded-xl px-3 py-3.5 text-left text-sm font-semibold"
+              type="button"
+              className="absolute inset-0 bg-[#063F38]/45 backdrop-blur-[2px]"
+              aria-label="Close navigation overlay"
+              onClick={() => setOpen(false)}
+            />
+            <nav
+              id="about-mobile-menu"
+              className="absolute inset-x-3 top-[5rem] max-h-[calc(100dvh-5.5rem)] overflow-y-auto rounded-2xl border border-[#e5d8c4] bg-[#F6F0E4] p-2 shadow-[0_24px_60px_rgba(23,32,29,0.22)] sm:top-[6rem] sm:max-h-[calc(100dvh-6.5rem)]"
+              aria-label="Mobile about navigation"
             >
-              {item.label}
-              <ChevronRight size={14} className="text-[#C6A15B]" />
-            </button>
-          ))}
-        </nav>
-      )}
-    </header>
+              {nav.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => {
+                    item.action();
+                    setOpen(false);
+                  }}
+                  className={`flex w-full items-center justify-between rounded-xl px-3 py-3.5 text-left text-sm font-semibold transition-colors hover:bg-[#efe6d6] ${
+                    item.active ? 'text-[#F26522]' : 'text-[#17201D]'
+                  }`}
+                >
+                  {item.label}
+                  <ChevronRight size={14} className="text-[#C6A15B]" />
+                </button>
+              ))}
+              <button
+                onClick={() => {
+                  goHomeSection('contact');
+                  setOpen(false);
+                }}
+                className="mt-1 flex w-full items-center justify-center gap-2 rounded-full bg-[#F26522] py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#de5518]"
+                data-testid="button-about-mobile-connect"
+              >
+                Let&apos;s Connect <ArrowRight size={14} />
+              </button>
+            </nav>
+          </div>
+        )}
+      </header>
+      {/* Spacer so fixed header does not cover page content */}
+      <div className="h-[80px] sm:h-[96px]" aria-hidden />
+    </>
   );
 }
 
@@ -261,8 +295,7 @@ function GroupFooter() {
       <div className="mx-auto grid page-container max-w-none gap-10 py-10 lg:grid-cols-[1.15fr_0.7fr_0.9fr_0.85fr_1fr] lg:gap-8 lg:py-12">
         <div>
           <div className="flex items-center gap-3">
-            <img src="/brand-logo.png" alt="Avigna" className="h-11 w-11 object-contain" />
-            <div className="text-[1.85rem] font-extrabold tracking-[-0.04em] text-white">Avigna</div>
+            <BrandWordmark light />
           </div>
           <p className="mt-4 max-w-[210px] text-[11px] font-bold uppercase leading-5 tracking-[0.14em] text-[#b7c7c1]">
             Building Businesses
@@ -343,7 +376,7 @@ export default function About() {
 
       {/* HERO — fills first viewport under sticky header */}
       <section className="relative overflow-hidden bg-[#063F38] text-[#F6F0E4]">
-        <div className="relative mx-auto flex min-h-[calc(100svh-72px)] max-w-none flex-col lg:block lg:h-[calc(100svh-72px)] lg:min-h-[560px]">
+        <div className="relative mx-auto flex min-h-[calc(100svh-4rem)] max-w-none flex-col lg:block lg:h-[calc(100svh-72px)] lg:min-h-[560px]">
           <div className="relative z-10 flex w-full flex-col justify-center px-5 py-12 sm:px-8 lg:h-full lg:w-[46%] lg:px-10 lg:pr-8 xl:px-12">
             <div className="w-full max-w-[520px]">
               <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#C6A15B]">Avigna Group</p>
@@ -412,7 +445,7 @@ export default function About() {
           </div>
 
           {/* Center: three principles — not cards */}
-          <div className="order-3 flex flex-row gap-6 overflow-x-auto border-t border-[#D8CFC0] pt-8 lg:order-2 lg:flex-col lg:gap-9 lg:overflow-visible lg:border-t-0 lg:border-l lg:pt-1 lg:pl-8 xl:pl-10">
+          <div className="order-3 grid grid-cols-3 gap-3 border-t border-[#D8CFC0] pt-8 sm:gap-5 lg:order-2 lg:flex lg:flex-col lg:gap-9 lg:border-t-0 lg:border-l lg:pt-1 lg:pl-8 xl:pl-10">
             {[
               { icon: Users, title: 'Who We Are', text: 'A parent group for specialized businesses.' },
               { icon: Settings2, title: 'What We Build', text: 'Focused companies with clear capabilities.' },
@@ -424,12 +457,16 @@ export default function About() {
             ].map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.title} className="min-w-[140px] flex-1 lg:min-w-0">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#F26522]/40 text-[#F26522]">
-                    <Icon size={18} strokeWidth={1.5} />
+                <div key={item.title} className="min-w-0">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[#F26522]/40 text-[#F26522] sm:h-11 sm:w-11">
+                    <Icon className="h-4 w-4 sm:h-[18px] sm:w-[18px]" strokeWidth={1.5} />
                   </div>
-                  <p className="mt-3.5 text-[11px] font-bold uppercase tracking-[0.14em] text-[#F26522]">{item.title}</p>
-                  <p className="mt-1.5 max-w-[200px] text-[13px] leading-6 text-[#5a6761]">{item.text}</p>
+                  <p className="mt-2.5 text-[9px] font-bold uppercase tracking-[0.1em] text-[#F26522] sm:mt-3.5 sm:text-[11px] sm:tracking-[0.14em]">
+                    {item.title}
+                  </p>
+                  <p className="mt-1 text-[11px] leading-5 text-[#5a6761] sm:mt-1.5 sm:max-w-[200px] sm:text-[13px] sm:leading-6">
+                    {item.text}
+                  </p>
                 </div>
               );
             })}
@@ -557,10 +594,10 @@ export default function About() {
         </div>
       </section>
 
-      {/* VISION — compact 50/50 banner */}
+      {/* VISION */}
       <section id="vision" className="pb-12 lg:pb-14">
-        <div className="mx-auto grid page-container max-w-none overflow-hidden rounded-[1.35rem] lg:grid-cols-2">
-          <div className="flex flex-col justify-center bg-[#063F38] px-6 py-10 text-white sm:px-10 lg:px-12 lg:py-12">
+        <div className="mx-auto page-container max-w-none overflow-hidden rounded-[1.35rem] bg-[#063F38]">
+          <div className="flex flex-col justify-center px-6 py-10 text-white sm:px-10 lg:px-12 lg:py-12">
             <Eyebrow light>Our Vision</Eyebrow>
             <h2
               className="mt-4 max-w-[440px] text-[clamp(2rem,3.6vw,2.85rem)] font-extrabold leading-[0.95] tracking-[-0.045em]"
@@ -579,17 +616,6 @@ export default function About() {
             >
               Our Vision <ArrowRight size={15} />
             </button>
-          </div>
-          <div className="relative min-h-[300px] lg:min-h-[360px]">
-            <img
-              src="/generated/avigna-vision-premium.jpg"
-              alt="Avigna vision"
-              className="absolute inset-0 h-full w-full object-cover"
-              data-testid="img-avigna-vision"
-            />
-            <p className="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 [writing-mode:vertical-rl] text-[10px] font-bold uppercase tracking-[0.28em] text-white/80 xl:block">
-              People · Planet · Progress · Together
-            </p>
           </div>
         </div>
       </section>

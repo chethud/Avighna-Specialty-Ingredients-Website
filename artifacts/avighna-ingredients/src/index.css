@@ -122,14 +122,27 @@
 
 @layer utilities {
   /*
-   * Shared laptop/desktop content rail.
-   * ~40–50px gutters at 1366, ~50–60 at 1440, ~60–70 at 1536; max 1440px.
+   * Shared content rail.
+   * Mobile/tablet: ~20–32px gutters.
+   * Laptop: ~40–50px at 1366, ~50–60 at 1440, ~60–70 at 1536; max 1440px.
    */
   .page-container {
     box-sizing: border-box;
-    width: min(1440px, calc(100% - 80px));
+    width: min(1440px, calc(100% - 40px));
     max-width: 1440px;
     margin-inline: auto;
+  }
+
+  @media (min-width: 768px) {
+    .page-container {
+      width: min(1440px, calc(100% - 64px));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .page-container {
+      width: min(1440px, calc(100% - 80px));
+    }
   }
 
   @media (min-width: 1400px) {

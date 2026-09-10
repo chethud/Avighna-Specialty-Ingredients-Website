@@ -166,53 +166,53 @@ function scrollToId(id: string) {
 
 function Hero() {
   return (
-    <section id="top" className="noise relative min-h-[640px] overflow-hidden bg-[#f4eadb] pt-6 lg:min-h-[700px] lg:pt-8">
+    <section id="top" className="noise relative overflow-hidden bg-[#f4eadb] pt-4 lg:min-h-[700px] lg:pt-8">
       <div className="absolute -right-36 -top-40 h-[540px] w-[540px] rounded-full bg-[#e8bb68]/25 blur-3xl" />
-      <div className="mx-auto grid page-container max-w-none items-center gap-10 pb-14 lg:grid-cols-[0.46fr_0.54fr] lg:gap-12 xl:gap-16 lg:pb-16">
+      <div className="mx-auto grid page-container max-w-none items-center gap-6 pb-10 lg:grid-cols-[0.46fr_0.54fr] lg:gap-12 xl:gap-16 lg:pb-16">
         <div className="relative z-10 max-w-[680px]">
-          <div className="reveal mb-5">
+          <div className="reveal mb-3 lg:mb-5">
             <span className="eyebrow text-[#e2602c]">Ingredient solutions / Bengaluru</span>
           </div>
-          <h1 className="reveal reveal-delay-1 font-display text-[clamp(4rem,8vw,7.7rem)] leading-[0.88] tracking-[-0.065em] text-[#1d2522]" data-testid="heading-hero">
+          <h1 className="reveal reveal-delay-1 font-display text-[clamp(2.75rem,11vw,7.7rem)] leading-[0.88] tracking-[-0.065em] text-[#1d2522]" data-testid="heading-hero">
             Ingredients<br />
             <span className="text-[#e2602c]">That Make</span><br />
             Better Products.
           </h1>
-          <p className="reveal reveal-delay-2 mt-8 max-w-[450px] text-[17px] leading-7 text-[#53605a]">
+          <p className="reveal reveal-delay-2 mt-5 max-w-[450px] text-[15px] leading-6 text-[#53605a] lg:mt-8 lg:text-[17px] lg:leading-7">
             A product-led partner for food, dairy, beverage, pharmaceutical, and nutraceutical manufacturers.
           </p>
-          <div className="reveal reveal-delay-3 mt-9 flex flex-wrap gap-3">
-            <button onClick={() => scrollToId('solutions')} className="group flex items-center gap-3 rounded-full bg-[#e2602c] px-6 py-4 text-sm font-bold text-[#fff9ee] transition-all hover:-translate-y-1 hover:bg-[#cb4c20]" data-testid="button-hero-solutions">
+          <div className="reveal reveal-delay-3 mt-6 flex flex-wrap gap-2.5 lg:mt-9 lg:gap-3">
+            <button onClick={() => scrollToId('solutions')} className="group flex items-center gap-3 rounded-full bg-[#e2602c] px-5 py-3.5 text-sm font-bold text-[#fff9ee] transition-all hover:-translate-y-1 hover:bg-[#cb4c20] lg:px-6 lg:py-4" data-testid="button-hero-solutions">
               Explore solutions <ArrowDownRight size={17} className="transition-transform group-hover:translate-y-0.5 group-hover:rotate-[-15deg]" />
             </button>
-            <button onClick={() => scrollToId('contact')} className="flex items-center gap-2 rounded-full border border-[#bfab92] px-6 py-4 text-sm font-bold text-[#1e3d38] transition-colors hover:border-[#e2602c] hover:text-[#e2602c]" data-testid="button-hero-contact">
+            <button onClick={() => scrollToId('contact')} className="flex items-center gap-2 rounded-full border border-[#bfab92] px-5 py-3.5 text-sm font-bold text-[#1e3d38] transition-colors hover:border-[#e2602c] hover:text-[#e2602c] lg:px-6 lg:py-4" data-testid="button-hero-contact">
               Start a conversation <Phone size={15} />
             </button>
           </div>
-          <div className="mt-12 flex items-center gap-6 border-t border-[#d9c7af] pt-5 text-xs font-semibold text-[#697069]">
+          <div className="mt-7 flex items-center gap-6 border-t border-[#d9c7af] pt-4 text-xs font-semibold text-[#697069] lg:mt-12 lg:pt-5">
             <span>Food</span><span className="h-1 w-1 rounded-full bg-[#e2602c]" /><span>Dairy</span><span className="h-1 w-1 rounded-full bg-[#e2602c]" /><span>Pharma</span><span className="h-1 w-1 rounded-full bg-[#e2602c]" />
           </div>
         </div>
 
-        <div className="relative mx-auto h-[570px] w-full max-w-[760px] lg:h-[640px] lg:max-w-none">
-          <div className="absolute right-0 top-0 h-[445px] w-[76%] overflow-hidden rounded-[10rem_1.5rem_1.5rem_1.5rem] border-[7px] border-[#fff4e4] shadow-[0_22px_50px_rgba(87,56,25,0.18)]">
+        <div className="relative mx-auto h-[380px] w-full max-w-[760px] sm:h-[480px] lg:h-[640px] lg:max-w-none">
+          <div className="absolute right-0 top-0 h-[78%] w-[76%] overflow-hidden rounded-[6rem_1.25rem_1.25rem_1.25rem] border-[5px] border-[#fff4e4] shadow-[0_22px_50px_rgba(87,56,25,0.18)] sm:rounded-[10rem_1.5rem_1.5rem_1.5rem] sm:border-[7px] lg:h-[445px]">
             <img src="/generated/hero.jpg" alt="Specialty ingredients and finished product applications" className="h-full w-full object-cover object-right" data-testid="img-hero-ingredients" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#1a2a24]/90 via-[#1a2a24]/45 to-transparent" />
-            <div className="absolute bottom-8 left-[38%] right-5 z-10 drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] lg:bottom-10">
+            <div className="absolute bottom-5 left-[30%] right-4 z-10 drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] sm:bottom-8 sm:left-[38%] sm:right-5 lg:bottom-10">
               <p className="eyebrow text-[#fff9ee]/85">Applications</p>
-              <p className="mt-1 font-display text-2xl leading-tight text-[#e2602c]">Complete flavour systems</p>
+              <p className="mt-1 font-display text-xl leading-tight text-[#e2602c] sm:text-2xl">Complete flavour systems</p>
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 z-[1] h-[285px] w-[47%] overflow-hidden rounded-[1.5rem_5.5rem_1.5rem_1.5rem] border-[7px] border-[#f4eadb] shadow-[0_17px_35px_rgba(87,56,25,0.2)]">
+          <div className="absolute bottom-0 left-0 z-[1] h-[48%] w-[47%] overflow-hidden rounded-[1.25rem_3.5rem_1.25rem_1.25rem] border-[5px] border-[#f4eadb] shadow-[0_17px_35px_rgba(87,56,25,0.2)] sm:rounded-[1.5rem_5.5rem_1.5rem_1.5rem] sm:border-[7px] lg:h-[285px]">
             <img src="/generated/food.jpg" alt="Crisp fried food and cooking oil" className="h-full w-full object-cover" data-testid="img-hero-food" />
           </div>
-          <div className="absolute bottom-20 right-[9%] flex h-28 w-28 rotate-6 flex-col items-center justify-center rounded-full bg-[#1e3d38] text-center text-[#fff9ee] shadow-lg">
-            <span className="font-display text-3xl leading-none">01</span>
-            <span className="mt-1 text-[9px] font-bold uppercase tracking-[0.12em]">speciality<br />partner</span>
+          <div className="absolute bottom-14 right-[6%] flex h-20 w-20 rotate-6 flex-col items-center justify-center rounded-full bg-[#1e3d38] text-center text-[#fff9ee] shadow-lg sm:bottom-20 sm:right-[9%] sm:h-28 sm:w-28">
+            <span className="font-display text-[1.25rem] leading-none tracking-[-0.02em] sm:text-[1.65rem]">No.1</span>
+            <span className="mt-0.5 text-[7px] font-bold uppercase tracking-[0.12em] sm:mt-1 sm:text-[9px]">speciality<br />partner</span>
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 flex h-12 items-center overflow-hidden border-y border-[#dfcdb7] bg-[#e9ddcb]">
+      <div className="relative flex h-10 items-center overflow-hidden border-y border-[#dfcdb7] bg-[#e9ddcb] lg:h-12">
         <div className="flex w-max animate-[marquee_28s_linear_infinite] whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.17em] text-[#51645b]">
           {[0, 1].map((copy) => (
             <div key={copy} className="flex items-center gap-8 px-4" aria-hidden={copy === 1 || undefined}>
@@ -232,38 +232,38 @@ function Solutions() {
   const [activeId, setActiveId] = useState('food');
   const active = industries.find((industry) => industry.id === activeId) ?? industries[0];
   return (
-    <section id="solutions" className="bg-[#1e3d38] py-10 text-[#fff9ee] lg:py-12">
+    <section id="solutions" className="bg-[#1e3d38] py-7 text-[#fff9ee] lg:py-12">
       <div className="mx-auto page-container max-w-none">
-        <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
+        <div className="grid gap-7 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
           <div>
             <div className="eyebrow text-[#e4c16e]">What we solve</div>
-            <h2 className="mt-5 max-w-[450px] font-display text-5xl leading-[0.98] tracking-[-0.05em] sm:text-6xl" data-testid="heading-solutions">Ingredients in.<br /><span className="text-[#e4c16e]">Better products</span> out.</h2>
-            <p className="mt-7 max-w-[390px] text-[15px] leading-7 text-[#c3d0c5]">The right ingredient changes everything downstream — from process performance to the product on the shelf.</p>
-            <div className="mt-10 flex flex-wrap gap-2">
+            <h2 className="mt-3 max-w-[450px] font-display text-[2.35rem] leading-[0.98] tracking-[-0.05em] sm:text-5xl lg:mt-5 lg:text-6xl" data-testid="heading-solutions">Ingredients in.<br /><span className="text-[#e4c16e]">Better products</span> out.</h2>
+            <p className="mt-4 max-w-[390px] text-[14px] leading-6 text-[#c3d0c5] lg:mt-7 lg:text-[15px] lg:leading-7">The right ingredient changes everything downstream — from process performance to the product on the shelf.</p>
+            <div className="mt-6 flex flex-wrap gap-2 lg:mt-10">
               {industries.map((industry) => (
-                <button key={industry.id} onClick={() => setActiveId(industry.id)} className={`rounded-full border px-4 py-3 text-xs font-bold transition-all ${activeId === industry.id ? 'border-[#e4c16e] bg-[#e4c16e] text-[#1e3d38]' : 'border-[#55726b] text-[#cfdbd0] hover:border-[#e4c16e] hover:text-[#e4c16e]'}`} data-testid={`button-solution-${industry.id}`}>
+                <button key={industry.id} onClick={() => setActiveId(industry.id)} className={`rounded-full border px-3.5 py-2.5 text-xs font-bold transition-all lg:px-4 lg:py-3 ${activeId === industry.id ? 'border-[#e4c16e] bg-[#e4c16e] text-[#1e3d38]' : 'border-[#55726b] text-[#cfdbd0] hover:border-[#e4c16e] hover:text-[#e4c16e]'}`} data-testid={`button-solution-${industry.id}`}>
                   {industry.label}
                 </button>
               ))}
             </div>
           </div>
-          <div className="relative grid gap-6 sm:grid-cols-[1fr_0.75fr]">
-            <div className="relative min-h-[415px] overflow-hidden rounded-[1.5rem_7rem_1.5rem_1.5rem] border border-[#547269]">
+          <div className="relative grid gap-4 sm:grid-cols-[1fr_0.75fr] sm:gap-6">
+            <div className="relative min-h-[240px] overflow-hidden rounded-[1.5rem_5rem_1.5rem_1.5rem] border border-[#547269] sm:min-h-[415px] sm:rounded-[1.5rem_7rem_1.5rem_1.5rem]">
               <img src={active.image} alt={active.label} className="absolute inset-0 h-full w-full object-cover transition-opacity duration-500" data-testid={`img-solution-${active.id}`} />
               <div className="absolute inset-0 bg-gradient-to-t from-[#102b28] via-transparent to-transparent" />
-              <div className="absolute bottom-7 left-7">
+              <div className="absolute bottom-5 left-5 sm:bottom-7 sm:left-7">
                 <span className="text-sm font-semibold">{active.label}</span>
               </div>
             </div>
-            <div className={`flex min-h-[415px] flex-col justify-between rounded-[1.5rem] bg-gradient-to-br ${active.accent} p-7 text-[#1e3d38]`}>
-              <div className="flex justify-between">
+            <div className={`flex flex-col gap-5 rounded-[1.5rem] bg-gradient-to-br ${active.accent} p-6 text-[#1e3d38] sm:min-h-[415px] sm:justify-between sm:gap-0 sm:p-7`}>
+              <div className="flex items-start justify-between gap-3">
                 <span className="eyebrow opacity-70">Application lens</span>
-                <span className="font-display text-5xl leading-none opacity-30">0{industries.findIndex((item) => item.id === active.id) + 1}</span>
+                <span className="font-display text-4xl leading-none opacity-30 sm:text-5xl">0{industries.findIndex((item) => item.id === active.id) + 1}</span>
               </div>
               <div>
-                <h3 className="font-display text-4xl leading-[0.98] tracking-[-0.04em]" data-testid={`heading-solution-${active.id}`}>{active.title}</h3>
-                <p className="mt-5 text-sm leading-6 opacity-80">{active.description}</p>
-                <button onClick={() => scrollToId('catalogue')} className="mt-7 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#e2602c]" data-testid="button-solution-catalogue">
+                <h3 className="font-display text-[2rem] leading-[0.98] tracking-[-0.04em] sm:text-4xl" data-testid={`heading-solution-${active.id}`}>{active.title}</h3>
+                <p className="mt-4 text-sm leading-6 opacity-80 sm:mt-5">{active.description}</p>
+                <button onClick={() => scrollToId('catalogue')} className="mt-5 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#e2602c] sm:mt-7" data-testid="button-solution-catalogue">
                   Browse ingredients <ArrowUpRight size={15} />
                 </button>
               </div>
@@ -277,17 +277,17 @@ function Solutions() {
 
 function Catalogue() {
   return (
-    <section id="catalogue" className="bg-[#f7f0e4] py-10 lg:py-12">
+    <section id="catalogue" className="bg-[#f7f0e4] py-7 lg:py-12">
       <div className="mx-auto page-container max-w-none">
-        <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div className="mb-6 flex flex-col justify-between gap-3 md:mb-8 md:flex-row md:items-end md:gap-4">
           <div>
             <div className="eyebrow text-[#e2602c]">Product catalogue</div>
-            <h2 className="mt-4 max-w-[560px] font-display text-5xl leading-[0.95] tracking-[-0.05em] text-[#1e3d38] sm:text-6xl" data-testid="heading-catalogue">The building blocks<br /><span className="text-[#e2602c]">of better.</span></h2>
+            <h2 className="mt-3 max-w-[560px] font-display text-[2.35rem] leading-[0.95] tracking-[-0.05em] text-[#1e3d38] sm:text-5xl lg:mt-4 lg:text-6xl" data-testid="heading-catalogue">The building blocks<br /><span className="text-[#e2602c]">of better.</span></h2>
           </div>
           <p className="max-w-[320px] text-sm leading-6 text-[#66716b]">A considered range for formulations that need to perform consistently at scale.</p>
         </div>
 
-        <div className="grid items-stretch gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-5">
+        <div className="grid items-stretch gap-3 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-5">
           {ingredientGroups.map((group, groupIndex) => (
             <CategoryCard
               key={group.eyebrow}
@@ -306,25 +306,25 @@ function Catalogue() {
           ))}
         </div>
 
-        <div className="mt-8 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="relative min-h-[310px] overflow-hidden rounded-2xl bg-[#e2602c] p-8 sm:p-11">
+        <div className="mt-6 grid gap-4 lg:mt-8 lg:gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="relative min-h-[220px] overflow-hidden rounded-2xl bg-[#e2602c] p-6 sm:min-h-[310px] sm:p-11">
             <div className="absolute -right-16 -top-20 h-64 w-64 rounded-full border-[24px] border-[#f58242]/45" />
             <div className="relative z-10 max-w-[420px]">
               <span className="eyebrow text-[#ffe4b2]">Product-led by nature</span>
-              <h3 className="mt-4 font-display text-4xl leading-[0.98] tracking-[-0.045em] text-[#fff9ee] sm:text-5xl">Start with the product you want to make.</h3>
-              <button onClick={() => scrollToId('contact')} className="mt-8 flex items-center gap-2 rounded-full bg-[#fff9ee] px-5 py-3 text-xs font-bold text-[#1e3d38] transition-transform hover:-translate-y-1" data-testid="button-catalogue-enquiry">
+              <h3 className="mt-3 font-display text-[1.85rem] leading-[0.98] tracking-[-0.045em] text-[#fff9ee] sm:mt-4 sm:text-4xl lg:text-5xl">Start with the product you want to make.</h3>
+              <button onClick={() => scrollToId('contact')} className="mt-5 flex items-center gap-2 rounded-full bg-[#fff9ee] px-5 py-3 text-xs font-bold text-[#1e3d38] transition-transform hover:-translate-y-1 sm:mt-8" data-testid="button-catalogue-enquiry">
                 Discuss an ingredient <ArrowUpRight size={14} />
               </button>
             </div>
           </div>
-          <div className="relative overflow-hidden rounded-2xl bg-[#dbe7df] p-8 sm:p-11">
-            <div className="absolute bottom-0 right-0 h-full w-[49%] overflow-hidden rounded-tl-[8rem]">
+          <div className="relative overflow-hidden rounded-2xl bg-[#dbe7df] p-6 sm:p-11">
+            <div className="absolute bottom-0 right-0 hidden h-full w-[49%] overflow-hidden rounded-tl-[8rem] sm:block">
               <img src="/generated/pharma.jpg" alt="Pharmaceutical and nutraceutical ingredients" className="h-full w-full object-cover object-right" data-testid="img-catalogue-pharma" />
             </div>
             <div className="relative z-10 max-w-[260px]">
               <span className="eyebrow text-[#547064]">Formulation support</span>
-              <h3 className="mt-4 font-display text-3xl leading-[1] tracking-[-0.04em] text-[#1e3d38]">Reliable ingredients for high-performance pharma products.</h3>
-              <button onClick={() => scrollToId('applications')} className="mt-7 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[#e2602c]" data-testid="button-catalogue-pharma">
+              <h3 className="mt-3 font-display text-[1.65rem] leading-[1] tracking-[-0.04em] text-[#1e3d38] sm:mt-4 sm:text-3xl">Reliable ingredients for high-performance pharma products.</h3>
+              <button onClick={() => scrollToId('applications')} className="mt-5 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[#e2602c] sm:mt-7" data-testid="button-catalogue-pharma">
                 See applications <ArrowUpRight size={14} />
               </button>
             </div>
@@ -343,20 +343,20 @@ function XtendraFeature() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#f8f2e8] py-10 lg:py-12">
+    <section className="relative overflow-hidden bg-[#f8f2e8] py-7 lg:py-12">
       <div
         className="pointer-events-none absolute -left-28 top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full bg-[#e95b28]/10"
         aria-hidden
       />
 
-      <div className="relative mx-auto grid page-container max-w-none gap-10 lg:grid-cols-[0.48fr_0.52fr] lg:items-stretch lg:gap-12 xl:gap-16">
-        <div className="order-1">
+      <div className="relative mx-auto grid page-container max-w-none gap-7 lg:grid-cols-[0.48fr_0.52fr] lg:items-stretch lg:gap-12 xl:gap-16">
+        <div className="order-1 min-w-0 w-full">
           <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#e95b28]">
             Featured solution / fried-food producers
           </p>
 
           <h2
-            className="mt-4 max-w-[560px] font-display text-[clamp(2.75rem,5vw,4rem)] leading-[0.92] tracking-[-0.05em] text-[#173f3a]"
+            className="mt-3 max-w-[560px] font-display text-[clamp(2.15rem,7vw,4rem)] leading-[0.92] tracking-[-0.05em] text-[#173f3a] lg:mt-4"
             data-testid="heading-xtendra"
           >
             Oil life up.
@@ -364,38 +364,40 @@ function XtendraFeature() {
             <span className="text-[#e95b28]">Product quality</span> up.
           </h2>
 
-          <p className="mt-5 max-w-[460px] text-[15px] leading-7 text-[#5f6b62] sm:text-[16px]">
+          <p className="mt-4 max-w-[460px] text-[14px] leading-6 text-[#5f6b62] sm:text-[16px] sm:leading-7 lg:mt-5">
             XTENDRA 06 is an advanced natural anti-oxidant blend for fried-food manufacturers.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <div className="min-w-[150px] rounded-2xl bg-[#173f3a] px-5 py-4 text-[#fff9ee]">
-              <div className="font-display text-[1.75rem] leading-none tracking-[-0.03em] sm:text-[2rem]">1 gm</div>
-              <div className="mt-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[#c4d3c5] sm:text-[11px]">
+          <div className="mt-5 flex flex-wrap gap-2.5 lg:mt-8 lg:gap-3">
+            <div className="min-w-[140px] rounded-2xl bg-[#173f3a] px-4 py-3.5 text-[#fff9ee] sm:min-w-[150px] sm:px-5 sm:py-4">
+              <div className="font-display text-[1.5rem] leading-none tracking-[-0.03em] sm:text-[2rem]">1 gm</div>
+              <div className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#c4d3c5] sm:mt-2 sm:text-[11px]">
                 Per kg cooking oil
               </div>
             </div>
-            <div className="min-w-[150px] rounded-2xl border border-[#e95b28] bg-[#fff9ee]/70 px-5 py-4 text-[#173f3a]">
-              <div className="font-display text-[1.75rem] leading-none tracking-[-0.03em] sm:text-[2rem]">75L–100L+</div>
-              <div className="mt-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[#6f7a72] sm:text-[11px]">
+            <div className="min-w-[140px] rounded-2xl border border-[#e95b28] bg-[#fff9ee]/70 px-4 py-3.5 text-[#173f3a] sm:min-w-[150px] sm:px-5 sm:py-4">
+              <div className="font-display text-[1.5rem] leading-none tracking-[-0.03em] sm:text-[2rem]">75L–100L+</div>
+              <div className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#6f7a72] sm:mt-2 sm:text-[11px]">
                 Producers served
               </div>
             </div>
           </div>
 
-          <div className="mt-8 grid max-w-[480px] grid-cols-3 border-y border-[#e0d2bf] py-5">
+          <div className="mt-5 grid w-full max-w-full grid-cols-3 gap-x-0 border-y border-[#e0d2bf] py-4 sm:max-w-[480px] lg:mt-8 lg:py-5">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
                 <div
                   key={benefit.label}
-                  className={`pr-3 ${index > 0 ? 'border-l border-[#e0d2bf] pl-3 sm:pl-5' : ''}`}
+                  className={`min-w-0 overflow-hidden ${index > 0 ? 'border-l border-[#e0d2bf] pl-2 sm:pl-5' : ''} ${
+                    index < benefits.length - 1 ? 'pr-2 sm:pr-3' : ''
+                  }`}
                 >
                   <Icon size={16} className="text-[#e95b28]" strokeWidth={1.75} />
-                  <p className="mt-2 text-[12px] font-semibold leading-tight text-[#173f3a] sm:text-[13px]">
+                  <p className="mt-2 text-[11px] font-semibold leading-tight text-[#173f3a] sm:text-[13px]">
                     {benefit.title}
                   </p>
-                  <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#7a6a55]">
+                  <p className="mt-1 break-words text-[9px] font-bold uppercase leading-snug tracking-[0.04em] text-[#7a6a55] sm:text-[10px] sm:tracking-[0.12em]">
                     {benefit.label}
                   </p>
                 </div>
@@ -414,7 +416,7 @@ function XtendraFeature() {
           <p className="mt-4 text-[12px] font-semibold text-[#7a6a55]">Available in 1L / 5L / 25L cans</p>
         </div>
 
-        <div className="order-2 relative aspect-[4/5] w-full sm:aspect-[3/4] lg:aspect-auto lg:min-h-0">
+        <div className="order-2 relative aspect-[16/11] w-full min-w-0 sm:aspect-[3/4] lg:aspect-auto lg:min-h-0">
           <div className="overflow-hidden rounded-[1.5rem] border border-[#e5d6c2] shadow-[0_20px_50px_rgba(49,62,54,0.12)] lg:absolute lg:inset-0">
             <img
               src="/generated/xtendra-oil.jpg"
@@ -437,11 +439,11 @@ function DairyFeature() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#f4eadb] py-10 lg:py-12">
+    <section className="relative overflow-hidden bg-[#f4eadb] py-7 lg:py-12">
       <div className="pointer-events-none absolute -right-24 bottom-[-8rem] h-[22rem] w-[22rem] rounded-full border-[42px] border-[#e4d4bc]/45" aria-hidden />
 
-      <div className="relative mx-auto grid page-container max-w-none gap-10 lg:grid-cols-[0.48fr_0.52fr] lg:items-stretch lg:gap-12 xl:gap-16">
-        <div className="order-2 relative aspect-[4/5] w-full sm:aspect-[3/4] lg:order-1 lg:aspect-auto lg:min-h-0">
+      <div className="relative mx-auto grid page-container max-w-none gap-7 lg:grid-cols-[0.48fr_0.52fr] lg:items-stretch lg:gap-12 xl:gap-16">
+        <div className="order-2 relative aspect-[16/11] w-full min-w-0 sm:aspect-[3/4] lg:order-1 lg:aspect-auto lg:min-h-0">
           <div className="overflow-hidden rounded-[1.75rem] shadow-[0_20px_50px_rgba(49,62,54,0.12)] lg:absolute lg:inset-0">
             <img
               src="/generated/dairy-paneer.jpg"
@@ -452,11 +454,11 @@ function DairyFeature() {
           </div>
         </div>
 
-        <div className="order-1 lg:order-2">
+        <div className="order-1 min-w-0 w-full lg:order-2">
           <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#e2602c]">Dairy solution</p>
 
           <h2
-            className="mt-4 max-w-[560px] font-display text-[clamp(2.75rem,5vw,4rem)] leading-[0.92] tracking-[-0.05em] text-[#1e3d38]"
+            className="mt-3 max-w-[560px] font-display text-[clamp(2.15rem,7vw,4rem)] leading-[0.92] tracking-[-0.05em] text-[#1e3d38] lg:mt-4"
             data-testid="heading-ezential"
           >
             Soft, spongy paneer.
@@ -472,16 +474,18 @@ function DairyFeature() {
             EZENTIAL 4001 COAGULANT is designed for paneer manufacturers who want consistency and production efficiency.
           </p>
 
-          <div className="mt-9 grid max-w-[520px] grid-cols-3 border-y border-[#d9c8b2] py-6">
+          <div className="mt-5 grid w-full max-w-full grid-cols-3 border-y border-[#d9c8b2] py-4 sm:max-w-[520px] lg:mt-9 lg:py-6">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className={`pr-4 ${index > 0 ? 'border-l border-[#d9c8b2] pl-4 sm:pl-6' : ''}`}
+                className={`min-w-0 overflow-hidden ${index > 0 ? 'border-l border-[#d9c8b2] pl-2 sm:pl-6' : ''} ${
+                  index < stats.length - 1 ? 'pr-2 sm:pr-4' : ''
+                }`}
               >
-                <div className="font-display text-[1.75rem] leading-none tracking-[-0.03em] text-[#1e3d38] sm:text-[2rem]">
+                <div className="font-display text-[1.15rem] leading-none tracking-[-0.03em] text-[#1e3d38] sm:text-[2rem]">
                   {stat.value}
                 </div>
-                <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[#6f7a72] sm:text-[11px]">
+                <p className="mt-2 break-words text-[9px] font-bold uppercase leading-snug tracking-[0.04em] text-[#6f7a72] sm:text-[11px] sm:tracking-[0.12em]">
                   {stat.label}
                 </p>
               </div>
@@ -503,17 +507,17 @@ function DairyFeature() {
 
 function Applications() {
   return (
-    <section id="applications" className="bg-[#fff9ee] py-10 lg:py-12">
+    <section id="applications" className="bg-[#fff9ee] py-7 lg:py-12">
       <div className="mx-auto page-container max-w-none">
-        <div className="grid items-end gap-5 md:grid-cols-[0.8fr_1.2fr] lg:gap-6">
+        <div className="grid items-end gap-4 md:grid-cols-[0.8fr_1.2fr] md:gap-5 lg:gap-6">
           <div>
             <div className="eyebrow text-[#e2602c]">Built for the application</div>
-            <h2 className="mt-4 font-display text-4xl leading-[0.94] tracking-[-0.05em] text-[#1e3d38] sm:text-5xl lg:text-[3.25rem]" data-testid="heading-applications">A flavour for<br /><span className="text-[#e2602c]">every direction.</span></h2>
+            <h2 className="mt-3 font-display text-[2.15rem] leading-[0.94] tracking-[-0.05em] text-[#1e3d38] sm:mt-4 sm:text-5xl lg:text-[3.25rem]" data-testid="heading-applications">A flavour for<br /><span className="text-[#e2602c]">every direction.</span></h2>
           </div>
-          <p className="max-w-[455px] justify-self-end text-[15px] leading-7 text-[#66716b] lg:text-[16px]">Flavour applications include the products people reach for every day — and the specialised formulations that help them get there.</p>
+          <p className="max-w-[455px] justify-self-end text-[14px] leading-6 text-[#66716b] lg:text-[16px] lg:leading-7">Flavour applications include the products people reach for every day — and the specialised formulations that help them get there.</p>
         </div>
-        <div className="mt-10 grid gap-5 lg:mt-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-7">
-          <div className="relative min-h-[360px] overflow-hidden rounded-[1.5rem_8rem_1.5rem_1.5rem] bg-[#dbe7df] lg:min-h-[420px]">
+        <div className="mt-7 grid gap-4 lg:mt-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-7">
+          <div className="relative min-h-[220px] overflow-hidden rounded-[1.5rem_5rem_1.5rem_1.5rem] bg-[#dbe7df] sm:min-h-[360px] sm:rounded-[1.5rem_8rem_1.5rem_1.5rem] lg:min-h-[420px]">
             <img src="/generated/flavours.jpg" alt="Fruits, spices, extracts, and flavour ingredients" className="absolute inset-0 h-full w-full object-cover object-center" data-testid="img-flavours-ingredients" />
             <div className="absolute bottom-5 left-5 right-5 rounded-xl bg-[#1e3d38]/95 p-4 text-[#fff9ee] lg:p-5">
               <p className="eyebrow text-[#e4c16e]">Our flavour range</p>
@@ -522,7 +526,7 @@ function Applications() {
           </div>
           <div className="grid gap-2 sm:grid-cols-2 lg:gap-2.5">
             {flavourApplications.map((application, index) => (
-              <button key={application} onClick={() => scrollToId('contact')} className={`group flex min-h-[64px] items-center justify-between border-b border-[#ded2c1] px-1 text-left transition-colors hover:border-[#e2602c] lg:min-h-[70px] ${index === 0 ? 'sm:border-t sm:pt-2' : ''}`} data-testid={`button-application-${index}`}>
+              <button key={application} onClick={() => scrollToId('contact')} className={`group flex min-h-[52px] items-center justify-between border-b border-[#ded2c1] px-1 text-left transition-colors hover:border-[#e2602c] lg:min-h-[70px] ${index === 0 ? 'sm:border-t sm:pt-2' : ''}`} data-testid={`button-application-${index}`}>
                 <span className="flex items-center gap-3.5">
                   <span className="font-display text-xl text-[#d6aa58] lg:text-2xl">{String(index + 1).padStart(2, '0')}</span>
                   <span className="text-sm font-bold text-[#2c4138]">{application}</span>
@@ -580,7 +584,7 @@ function Contact() {
 
       <div className="relative mx-auto grid page-container max-w-none lg:grid-cols-[0.42fr_0.58fr]">
         {/* LEFT — message & contact */}
-        <div className="relative z-10 flex flex-col py-8 lg:px-2 lg:py-10 xl:pr-6">
+        <div className="relative z-10 flex flex-col py-6 lg:px-2 lg:py-10 xl:pr-6">
           <div className="reveal">
             <span className="eyebrow text-[#e8d9b0]">Let’s make better products</span>
           </div>
@@ -660,10 +664,10 @@ function Contact() {
           </div>
 
           {/* Form card */}
-          <div className="relative z-10 pb-10 pt-3 sm:pb-10 lg:flex lg:h-full lg:items-center lg:justify-start lg:py-10 xl:pl-2 xl:pr-0">
+          <div className="relative z-10 pb-8 pt-2 sm:pb-10 lg:flex lg:h-full lg:items-center lg:justify-start lg:py-10 xl:pl-2 xl:pr-0">
             <div className="contact-form-card w-full rounded-[1.5rem] border border-[#eadfce] bg-[#fff9ee] p-5 shadow-[0_28px_60px_-28px_rgba(10,28,24,0.55)] sm:p-6 lg:max-w-[520px] lg:p-7">
               {sent ? (
-                <div className="flex min-h-[340px] flex-col items-center justify-center text-center text-[#1e3d38]">
+                <div className="flex min-h-[240px] flex-col items-center justify-center text-center text-[#1e3d38] sm:min-h-[340px]">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#e4c16e]">
                     <Check size={22} />
                   </div>

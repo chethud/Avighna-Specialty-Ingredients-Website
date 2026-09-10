@@ -70,10 +70,10 @@ export function CategoryCard({
 
   const visualMinClass =
     visualScale === 'prominent'
-      ? 'min-h-[168px] lg:min-h-0'
+      ? 'min-h-[112px] lg:min-h-0'
       : visualScale === 'balanced'
-        ? 'min-h-[132px] lg:min-h-0'
-        : 'min-h-[92px] lg:min-h-0';
+        ? 'min-h-[96px] lg:min-h-0'
+        : 'min-h-[72px] lg:min-h-0';
 
   const imageSizeClass =
     visualScale === 'prominent'
@@ -85,7 +85,7 @@ export function CategoryCard({
   return (
     <article
       ref={ref}
-      className={`catalogue-card group/card relative flex h-auto flex-col overflow-hidden rounded-[1.75rem] border p-6 shadow-[0_14px_34px_rgba(78,54,28,0.055)] transition-[opacity,transform,box-shadow] duration-700 ease-out hover:shadow-[0_20px_42px_rgba(78,54,28,0.1)] lg:h-full lg:min-h-[700px] ${theme.cardBg} ${theme.cardBorder} ${
+      className={`catalogue-card group/card relative flex h-auto flex-col overflow-hidden rounded-[1.5rem] border p-4 shadow-[0_14px_34px_rgba(78,54,28,0.055)] transition-[opacity,transform,box-shadow] duration-700 ease-out hover:shadow-[0_20px_42px_rgba(78,54,28,0.1)] sm:rounded-[1.75rem] sm:p-6 lg:h-full lg:min-h-[700px] ${theme.cardBg} ${theme.cardBorder} ${
         visible ? 'translate-y-0 opacity-100' : 'translate-y-7 opacity-0'
       }`}
       style={{ transitionDelay: `${delayMs}ms` }}
