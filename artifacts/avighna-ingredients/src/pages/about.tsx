@@ -23,7 +23,6 @@ type Company = {
   shortName: string;
   category: string;
   description: string;
-  image: string;
   accent: string;
   href: string;
   logo?: string;
@@ -39,7 +38,6 @@ const companies: Company[] = [
     category: 'Speciality Ingredients',
     description:
       'Specialty ingredient solutions for food, dairy, beverages, pharmaceuticals and nutraceuticals.',
-    image: '/generated/company-avighna-premium.jpg',
     accent: '#F26522',
     href: '/',
     logo: '/brand-logo.png',
@@ -52,7 +50,6 @@ const companies: Company[] = [
     shortName: 'Asian Apex',
     category: '[Business category to be verified]',
     description: '[Approved company description to be added.]',
-    image: '/generated/company-asian-apex-premium.jpg',
     accent: '#063F38',
     href: '/companies/asian-apex',
     logo: '/logos/asian-apex-mark.png',
@@ -66,7 +63,6 @@ const companies: Company[] = [
     category: 'Food & Pharma Raw Materials',
     description:
       'Food and pharma raw-material solutions supported by reliable supply, quality assurance and technical expertise.',
-    image: '/generated/company-ganesh-premium.jpg',
     accent: '#8B1E2D',
     href: '/companies/ganesh-inc',
     logo: '/logos/ganesh-inc-mark.png',
@@ -79,7 +75,6 @@ const companies: Company[] = [
     shortName: 'Atharva',
     category: '[Verified business category to be added]',
     description: '[Approved company description to be added.]',
-    image: '/generated/company-atharva-premium.jpg',
     accent: '#C41E26',
     href: '/companies/atharva-associates',
     logo: '/logos/atharva-mark.png',
@@ -103,32 +98,40 @@ function Eyebrow({ children, light = false }: { children: ReactNode; light?: boo
   );
 }
 
-function CompanyMark({ company }: { company: Company }) {
+function CompanyLogo({ company }: { company: Company }) {
   if (company.logo) {
-    const isSvg = company.logo.endsWith('.svg');
-    const darkChip = isSvg || company.logo.includes('-chip');
     return (
-      <span
-        className={`inline-flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full transition-transform duration-300 group-hover:scale-110 ${
-          darkChip ? 'bg-black' : ''
-        } ${isSvg ? 'p-1.5' : ''}`}
-      >
+      <span className="inline-flex h-14 w-[7.5rem] shrink-0 items-center justify-start">
         <img
           src={company.logo}
           alt={`${company.shortName} logo`}
-          className={`object-contain ${darkChip ? 'h-full w-full' : 'h-11 w-11'}`}
+          className="max-h-14 max-w-full object-contain object-left"
         />
       </span>
     );
   }
   return (
-    <div
-      className="flex h-11 w-11 items-center justify-center rounded-full border border-[#e6d9c6] bg-white text-[10px] font-extrabold tracking-[0.08em] transition-transform duration-300 group-hover:scale-110"
+    <span
+      className="inline-flex h-14 items-center text-[13px] font-extrabold tracking-[0.08em]"
       style={{ color: company.accent }}
       aria-label={`${company.shortName} mark`}
     >
       {company.logoMark}
-    </div>
+    </span>
+  );
+}
+
+function CardLeafMark() {
+  return (
+    <svg
+      className="pointer-events-none absolute bottom-3 right-3 h-16 w-16 text-[#C6A15B] opacity-[0.07]"
+      viewBox="0 0 64 64"
+      fill="currentColor"
+      aria-hidden
+    >
+      <path d="M48 8c-14 4-24 16-28 30-2 8 0 16 6 20 6 4 14 4 20-2 8-8 10-22 6-34-1-4-3-8-4-14z" />
+      <path d="M20 28c8 2 14 8 16 16" fill="none" stroke="currentColor" strokeWidth="1.2" opacity="0.7" />
+    </svg>
   );
 }
 
@@ -137,10 +140,10 @@ function HeroCollage() {
     <div className="relative h-full min-h-[380px] w-full overflow-hidden bg-[#063F38] lg:absolute lg:inset-0 lg:min-h-0">
       {/* Full-bleed collage — bleeds under text panel, framed like the original layout */}
       <img
-        src="/generated/avigna-hero-organic-v3.jpg"
-        alt="Avigna group of four connected business worlds"
+        src="/generated/avighna-hero-organic-v3.jpg"
+        alt="Avighna group of four connected business worlds"
         className="absolute inset-0 h-full w-full object-cover object-[68%_center] transition-transform duration-[18s] ease-out will-change-transform hover:scale-[1.02] lg:object-[72%_center]"
-        data-testid="img-avigna-hero"
+        data-testid="img-avighna-hero"
       />
 
       {/* Soft blend: image fades into the left copy panel */}
@@ -182,7 +185,7 @@ function GroupHeader() {
 
   const nav = [
     { label: 'Home', action: () => { window.location.assign(`${import.meta.env.BASE_URL.replace(/\/$/, '')}/`); } },
-    { label: 'About Us', action: () => scrollToId('about-avigna'), active: true },
+    { label: 'About Us', action: () => scrollToId('about-avighna'), active: true },
     { label: 'Our Companies', action: () => scrollToId('companies') },
     { label: 'Solutions', action: () => goHomeSection('solutions') },
     { label: 'Catalogue', action: () => goHomeSection('catalogue') },
@@ -198,7 +201,7 @@ function GroupHeader() {
         }`}
       >
         <div className="relative z-[60] mx-auto flex page-container max-w-none items-center gap-3 py-3 sm:gap-4 sm:py-4">
-          <Link href="/" className="shrink-0 transition-opacity hover:opacity-80" data-testid="link-avigna-brand">
+          <Link href="/" className="shrink-0 transition-opacity hover:opacity-80" data-testid="link-avighna-brand">
             <BrandWordmark />
           </Link>
 
@@ -287,6 +290,62 @@ function GroupHeader() {
   );
 }
 
+function CompaniesSection() {
+  return (
+    <section id="companies" className="relative overflow-hidden bg-[#F6F0E4] py-16 lg:py-[72px]">
+      <svg
+        className="pointer-events-none absolute -right-8 top-10 hidden h-48 w-48 text-[#C6A15B] opacity-[0.06] lg:block"
+        viewBox="0 0 160 160"
+        fill="currentColor"
+        aria-hidden
+      >
+        <path d="M120 20c-36 10-62 42-72 78-6 20 0 40 14 50s36 10 50-6c20-20 26-56 16-86-2-10-6-20-8-36z" />
+        <path d="M48 72c20 6 36 20 40 40" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.65" />
+      </svg>
+      <svg
+        className="pointer-events-none absolute bottom-6 right-[18%] hidden h-36 w-36 text-[#C6A15B] opacity-[0.05] lg:block"
+        viewBox="0 0 160 160"
+        fill="currentColor"
+        aria-hidden
+      >
+        <path d="M30 110c24-28 58-44 96-40-10 34-36 60-70 70-14 4-26-4-26-30z" />
+      </svg>
+
+      <div className="mx-auto w-[min(1440px,calc(100%-40px))] max-w-none md:w-[min(1440px,calc(100%-64px))] lg:w-[min(1440px,calc(100%-70px))]">
+        <div className="max-w-[920px]">
+          <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#F26522]">Our Companies</p>
+          <h2
+            className="mt-3 text-[clamp(1.85rem,3.4vw,3rem)] font-extrabold leading-[1.05] tracking-[-0.04em] text-[#063F38]"
+            data-testid="heading-companies"
+          >
+            Group of Companies — Your One-Stop Solution, Dedicated to the Entire FMCG Industry.
+          </h2>
+        </div>
+
+        <div className="mt-10 grid grid-cols-2 items-stretch gap-3 sm:gap-[22px] lg:grid-cols-4">
+          {companies.map((company) => (
+            <Link
+              key={company.id}
+              href={company.href}
+              className="group relative flex h-full flex-col rounded-[18px] border border-[#E2D8C8] bg-[#FBF8F1] p-4 shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-[3px] hover:border-[#d4c7b4] hover:shadow-[0_14px_36px_rgba(0,0,0,0.06)] sm:p-6"
+              data-testid={`card-${company.id}`}
+            >
+              <CardLeafMark />
+              <div className="relative">
+                <CompanyLogo company={company} />
+              </div>
+
+              <h3 className="relative mt-4 text-[0.95rem] font-bold leading-snug tracking-[-0.02em] text-[#063F38] sm:mt-5 sm:text-[1.15rem]">
+                {company.name}
+              </h3>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function About() {
   return (
     <main className="bg-[#F6F0E4] font-[Manrope,ui-sans-serif,system-ui,sans-serif] text-[#17201D]">
@@ -297,7 +356,7 @@ export default function About() {
         <div className="relative mx-auto flex min-h-[calc(100svh-4rem)] max-w-none flex-col lg:block lg:h-[calc(100svh-72px)] lg:min-h-[560px]">
           <div className="relative z-10 flex w-full flex-col justify-center px-5 py-12 sm:px-8 lg:h-full lg:w-[46%] lg:px-10 lg:pr-8 xl:px-12">
             <div className="w-full max-w-[520px]">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#C6A15B]">Avigna Group</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#C6A15B]">Avighna Group</p>
               <h1
                 className="mt-5 font-['DM_Serif_Display',ui-serif,Georgia,serif] text-[clamp(2.75rem,5.2vw,4.5rem)] font-medium leading-[0.94] tracking-[-0.02em] text-[#F6F0E4]"
                 data-testid="heading-about-hero"
@@ -309,7 +368,7 @@ export default function About() {
                 <span className="text-[#F26522]">One Vision.</span>
               </h1>
               <p className="mt-5 max-w-[420px] font-[Manrope,ui-sans-serif,system-ui,sans-serif] text-[15px] leading-[1.65] text-[#F6F0E4]/78 sm:text-[16px]">
-                Avigna brings together diverse businesses, expertise and capabilities under one group, creating long-term
+                Avighna brings together diverse businesses, expertise and capabilities under one group, creating long-term
                 value through focused businesses and strong partnerships.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
@@ -321,7 +380,7 @@ export default function About() {
                   Meet Our Companies <ArrowRight size={14} />
                 </button>
                 <button
-                  onClick={() => scrollToId('about-avigna')}
+                  onClick={() => scrollToId('about-avighna')}
                   className="inline-flex h-11 items-center gap-2 rounded-full border border-white/35 px-5 text-[13px] font-bold text-[#F6F0E4] transition-colors hover:border-[#F26522]"
                   data-testid="button-our-story"
                 >
@@ -335,29 +394,29 @@ export default function About() {
         </div>
       </section>
 
-      {/* ABOUT AVIGNA — text | principles | image (reference layout) */}
-      <section id="about-avigna" className="bg-[#F6F0E4] py-12 lg:py-14">
+      {/* ABOUT AVIGHNA — text | principles | image (reference layout) */}
+      <section id="about-avighna" className="bg-[#F6F0E4] py-12 lg:py-14">
         <div className="mx-auto grid page-container max-w-none items-center gap-10 lg:grid-cols-[0.48fr_0.22fr_0.48fr] lg:gap-8 xl:gap-12">
           {/* Left: eyebrow, heading, body, CTA */}
           <div className="order-2 lg:order-1">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#F26522]">About Avigna</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#F26522]">About Avighna</p>
             <h2
               className="mt-4 max-w-[560px] font-['DM_Serif_Display',ui-serif,Georgia,serif] text-[clamp(2.35rem,3.8vw,3.35rem)] font-medium leading-[1.02] tracking-[-0.02em] text-[#123E38]"
-              data-testid="heading-about-avigna"
+              data-testid="heading-about-avighna"
             >
               Building Businesses.
               <br />
               Creating Long-Term Value.
             </h2>
             <p className="mt-5 max-w-[520px] text-[15.5px] leading-[1.65] text-[#3d4a46]">
-              Avigna is the parent group that brings together four distinct companies with specialized expertise and a
+              Avighna is the parent group that brings together four distinct companies with specialized expertise and a
               shared commitment to quality, reliability and long-term partnerships.
             </p>
             <button
               onClick={() => scrollToId('companies')}
               className="group mt-8 inline-flex items-center gap-2 rounded-full border border-[#F26522] px-5 py-2.5 text-[12px] font-bold uppercase tracking-[0.12em] text-[#F26522] transition-colors hover:bg-[#F26522] hover:text-white"
             >
-              Learn More About Avigna
+              Learn More About Avighna
               <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
             </button>
           </div>
@@ -394,10 +453,10 @@ export default function About() {
           <div className="relative order-1 lg:order-3">
             <div className="overflow-hidden rounded-[20px]">
               <img
-                src="/generated/avigna-about-building.jpg"
-                alt="About Avigna"
+                src="/generated/avighna-about-building.jpg"
+                alt="About Avighna"
                 className="h-[260px] w-full object-cover sm:h-[340px] lg:h-[430px]"
-                data-testid="img-avigna-about"
+                data-testid="img-avighna-about"
               />
             </div>
             <div className="pointer-events-none absolute inset-y-4 right-0 flex w-11 items-center justify-center rounded-l-lg bg-[#F6F0E4]/85 sm:w-12">
@@ -411,10 +470,10 @@ export default function About() {
         </div>
       </section>
 
-      {/* AVIGNA AT A GLANCE — compact deep-green strip */}
+      {/* AVIGHNA AT A GLANCE — compact deep-green strip */}
       <section className="relative overflow-hidden bg-[#063F38]">
         <img
-          src="/generated/avigna-glance-landscape-v2.jpg"
+          src="/generated/avighna-glance-landscape-v2.jpg"
           alt=""
           className="pointer-events-none absolute inset-y-0 right-0 h-full w-[46%] object-cover opacity-[0.38]"
           aria-hidden
@@ -424,7 +483,7 @@ export default function About() {
           <div className="flex w-full flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
             <div className="min-w-0 flex-1">
               <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#C6A15B] lg:mb-3">
-                Avigna at a Glance
+                Avighna at a Glance
               </p>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
                 {[
@@ -464,53 +523,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* COMPANIES — one row of 4 equal cards */}
-      <section id="companies" className="py-12 lg:py-14">
-        <div className="mx-auto page-container max-w-none">
-          <div>
-            <Eyebrow>Our Companies</Eyebrow>
-            <h2
-              className="mt-3 max-w-[720px] text-[clamp(2.4rem,4.5vw,3.5rem)] font-extrabold leading-[0.94] tracking-[-0.05em] text-[#063F38]"
-              data-testid="heading-companies"
-            >
-              Four companies.
-              <br />
-              Four areas of expertise.
-            </h2>
-          </div>
-
-          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-            {companies.map((company) => (
-              <Link
-                key={company.id}
-                href={company.href}
-                className="group flex h-full flex-col overflow-hidden rounded-[18px] border border-[#e8dccb] bg-[#FBF8F1] shadow-[0_10px_32px_rgba(23,32,29,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(23,32,29,0.08)]"
-                data-testid={`card-${company.id}`}
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={company.image}
-                    alt={company.name}
-                    className="h-[180px] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#063F38]/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <div className="flex items-start justify-between gap-2">
-                    <CompanyMark company={company} />
-                    <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#F26522]">{company.number}</span>
-                  </div>
-                  <h3 className="mt-3.5 text-[1.05rem] font-extrabold leading-snug tracking-[-0.025em] text-[#063F38]">
-                    {company.name}
-                  </h3>
-                  <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#F26522]">{company.category}</p>
-                  <p className="mt-2.5 flex-1 text-[12.5px] leading-5 text-[#5a6761]">{company.description}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* COMPANIES — editorial four-card portfolio */}
+      <CompaniesSection />
 
       {/* VISION */}
       <section id="vision" className="pb-12 lg:pb-14">
@@ -537,10 +551,10 @@ export default function About() {
           </div>
           <div className="relative hidden min-h-[360px] overflow-hidden lg:block">
             <img
-              src="/generated/avigna-vision-premium.jpg"
-              alt="Avigna vision"
+              src="/generated/avighna-vision-premium.jpg"
+              alt="Avighna vision"
               className="absolute inset-0 h-full w-full object-cover"
-              data-testid="img-avigna-vision"
+              data-testid="img-avighna-vision"
             />
             <div
               className="pointer-events-none absolute inset-y-0 left-0 w-[28%] bg-gradient-to-r from-[#063F38] via-[#063F38]/55 to-transparent"

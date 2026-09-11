@@ -54,7 +54,7 @@ export default function CompanyPage() {
         <div className="text-center">
           <h1 className="font-display text-4xl">Company not found</h1>
           <Link href="/about" className="mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-[#ea632b]">
-            <ArrowLeft size={14} /> Back to About Avigna
+            <ArrowLeft size={14} /> Back to About Avighna
           </Link>
         </div>
       </main>
@@ -65,14 +65,14 @@ export default function CompanyPage() {
     <main className="min-h-screen bg-[#f5efe4] text-[#173f3a]">
       <div className="mx-auto page-container max-w-none py-8 lg:py-10">
         <Link href="/about" className="inline-flex items-center gap-2 text-sm font-semibold text-[#66716b] transition-colors hover:text-[#ea632b]" data-testid="link-back-about">
-          <ArrowLeft size={14} /> About Avigna
+          <ArrowLeft size={14} /> About Avighna
         </Link>
 
         <div className="mt-6 overflow-hidden rounded-[1.75rem] border border-[#e2d5c3] bg-[#fff9ee] shadow-[0_20px_50px_rgba(49,62,54,0.08)]">
           <img src={company.image} alt={company.name} className="aspect-[16/8] w-full object-cover" data-testid="img-company-page" />
           <div className="p-7 sm:p-10">
             <p className="text-[11px] font-bold uppercase tracking-[0.16em]" style={{ color: company.accent }}>
-              Avigna Group Company
+              Avighna Group Company
             </p>
             <h1 className="mt-4 font-display text-[clamp(2rem,4vw,3.4rem)] leading-[0.95] tracking-[-0.045em]" data-testid="heading-company-page">
               {company.name}

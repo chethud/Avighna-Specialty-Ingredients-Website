@@ -279,12 +279,9 @@ function Catalogue() {
   return (
     <section id="catalogue" className="bg-[#f7f0e4] py-7 lg:py-12">
       <div className="mx-auto page-container max-w-none">
-        <div className="mb-6 flex flex-col justify-between gap-3 md:mb-8 md:flex-row md:items-end md:gap-4">
-          <div>
-            <div className="eyebrow text-[#e2602c]">Product catalogue</div>
-            <h2 className="mt-3 max-w-[560px] font-display text-[2.35rem] leading-[0.95] tracking-[-0.05em] text-[#1e3d38] sm:text-5xl lg:mt-4 lg:text-6xl" data-testid="heading-catalogue">The building blocks<br /><span className="text-[#e2602c]">of better.</span></h2>
-          </div>
-          <p className="max-w-[320px] text-sm leading-6 text-[#66716b]">A considered range for formulations that need to perform consistently at scale.</p>
+        <div className="mb-6 md:mb-8">
+          <div className="eyebrow text-[#e2602c]">Product catalogue</div>
+          <h2 className="mt-3 max-w-[560px] font-display text-[2.35rem] leading-[0.95] tracking-[-0.05em] text-[#1e3d38] sm:text-5xl lg:mt-4 lg:text-6xl" data-testid="heading-catalogue">The building blocks<br /><span className="text-[#e2602c]">of better.</span></h2>
         </div>
 
         <div className="grid items-stretch gap-3 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-5">
