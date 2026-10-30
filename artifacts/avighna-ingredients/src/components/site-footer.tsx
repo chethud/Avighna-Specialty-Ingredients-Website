@@ -1,4 +1,5 @@
 import { ArrowRight, Instagram, Linkedin, MapPin, Phone, Youtube } from 'lucide-react';
+import { Link } from 'wouter';
 import { BrandWordmark } from '@/components/brand-wordmark';
 
 function scrollToSection(id: string) {
@@ -13,7 +14,6 @@ function scrollToSection(id: string) {
 
 export function SiteFooter() {
   const exploreLinks = [
-    { label: 'Solutions', id: 'solutions' },
     { label: 'Catalogue', id: 'catalogue' },
     { label: 'Applications', id: 'applications' },
     { label: 'Contact', id: 'contact' },
@@ -33,7 +33,7 @@ export function SiteFooter() {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-[#123b36] text-[#f5efe4]">
+    <footer className="relative overflow-hidden bg-[#082F2B] text-[#f5efe4]">
       <div className="pointer-events-none absolute -left-24 top-[-6rem] hidden h-[22rem] w-[22rem] rounded-full border-[48px] border-[#1a4741]/80 md:block" aria-hidden />
       <div className="pointer-events-none absolute -right-20 bottom-[-8rem] hidden h-[24rem] w-[24rem] rounded-full border-[56px] border-[#e4c16e]/10 md:block" aria-hidden />
       <div className="pointer-events-none absolute bottom-[-4rem] left-[35%] hidden h-[16rem] w-[16rem] rounded-full bg-[#0e2f2b]/70 md:block" aria-hidden />
@@ -91,16 +91,29 @@ export function SiteFooter() {
             className="mt-3 inline-flex items-center gap-2 text-[14px] font-medium text-[#f5efe4]"
             data-testid="link-footer-phone-mobile"
           >
-            <Phone size={14} className="text-[#ea632b]" strokeWidth={1.85} />
+            <Phone size={14} className="text-[#F4511E]" strokeWidth={1.85} />
             +91 94833 89387
           </a>
 
           <p className="mt-2 flex items-start gap-2 text-[12px] leading-5 text-[#a9bbb4]">
-            <MapPin size={13} className="mt-0.5 shrink-0 text-[#ea632b]" strokeWidth={1.85} />
+            <MapPin size={13} className="mt-0.5 shrink-0 text-[#F4511E]" strokeWidth={1.85} />
             Bengaluru · Kanakapura Road
           </p>
 
           <div className="mt-4 flex flex-wrap gap-2">
+            <Link
+              href="/about"
+              className="rounded-full border border-[#3a5f57] px-3 py-1.5 text-[12px] font-semibold text-[#f5efe4]"
+            >
+              About
+            </Link>
+            <Link
+              href="/solutions"
+              className="rounded-full border border-[#3a5f57] px-3 py-1.5 text-[12px] font-semibold text-[#f5efe4]"
+              data-testid="button-footer-nav-mobile-solutions"
+            >
+              Solutions
+            </Link>
             {exploreLinks.map((link) => (
               <button
                 key={link.id}
@@ -135,16 +148,16 @@ export function SiteFooter() {
               <div className="mt-4 space-y-3">
                 <a
                   href="tel:+919483389387"
-                  className="group flex items-center gap-3 text-[15px] text-[#f5efe4] transition-colors hover:text-[#ea632b]"
+                  className="group flex items-center gap-3 text-[15px] text-[#f5efe4] transition-colors hover:text-[#F4511E]"
                   data-testid="link-footer-phone"
                 >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ea632b] text-[#f5efe4]">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F4511E] text-[#f5efe4]">
                     <Phone size={13} strokeWidth={1.85} />
                   </span>
                   +91 94833 89387
                 </a>
                 <p className="flex max-w-[290px] items-start gap-3 text-[14px] leading-6 text-[#a9bbb4]">
-                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ea632b] text-[#f5efe4]">
+                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F4511E] text-[#f5efe4]">
                     <MapPin size={13} strokeWidth={1.85} />
                   </span>
                   #1963/B, BCCHS Layout, near Vajarahalli Metro, Kanakapura Road, Bengaluru–560109.
@@ -159,7 +172,7 @@ export function SiteFooter() {
                       key={social.label}
                       href={social.href}
                       aria-label={social.label}
-                      className="flex h-9 w-9 items-center justify-center rounded-full border border-[#3a5f57] text-[#c8d6cf] transition-all hover:-translate-y-0.5 hover:border-[#ea632b]/60 hover:text-[#ea632b]"
+                      className="flex h-9 w-9 items-center justify-center rounded-full border border-[#3a5f57] text-[#c8d6cf] transition-all hover:-translate-y-0.5 hover:border-[#F4511E]/60 hover:text-[#F4511E]"
                       data-testid={`link-footer-social-${social.label.toLowerCase()}`}
                     >
                       <Icon size={14} strokeWidth={1.6} />
@@ -173,11 +186,30 @@ export function SiteFooter() {
               <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#d7a94d]">Explore</p>
               <div className="mt-2 h-px w-8 bg-[#d7a94d]" />
               <ul className="mt-4 space-y-3">
+                <li>
+                  <Link
+                    href="/about"
+                    className="group inline-flex items-center gap-2 text-[15px] font-medium text-[#f5efe4] transition-all hover:translate-x-0.5 hover:text-[#F4511E]"
+                  >
+                    About
+                    <ArrowRight size={13} className="text-[#d7a94d] transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/solutions"
+                    className="group inline-flex items-center gap-2 text-[15px] font-medium text-[#f5efe4] transition-all hover:translate-x-0.5 hover:text-[#F4511E]"
+                    data-testid="button-footer-nav-solutions"
+                  >
+                    Solutions
+                    <ArrowRight size={13} className="text-[#d7a94d] transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                </li>
                 {exploreLinks.map((link) => (
                   <li key={link.id}>
                     <button
                       onClick={() => scrollToSection(link.id)}
-                      className="group inline-flex items-center gap-2 text-[15px] font-medium text-[#f5efe4] transition-all hover:translate-x-0.5 hover:text-[#ea632b]"
+                      className="group inline-flex items-center gap-2 text-[15px] font-medium text-[#f5efe4] transition-all hover:translate-x-0.5 hover:text-[#F4511E]"
                       data-testid={`button-footer-nav-${link.id}`}
                     >
                       {link.label}
@@ -197,7 +229,7 @@ export function SiteFooter() {
               <ul className="mt-4 space-y-2.5">
                 {industriesServed.map((industry) => (
                   <li key={industry} className="flex items-start gap-2.5 text-[14px] leading-5 text-[#f5efe4]/90">
-                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#ea632b]" />
+                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#F4511E]" />
                     <span>{industry}</span>
                   </li>
                 ))}
@@ -212,13 +244,13 @@ export function SiteFooter() {
                   ingredients.
                 </span>
                 <br />
-                <span className="text-[#ea632b]">
+                <span className="text-[#F4511E]">
                   Brighter
                   <br />
                   possibilities.
                 </span>
               </p>
-              <div className="mt-3 h-px w-10 bg-[#ea632b]" />
+              <div className="mt-3 h-px w-10 bg-[#F4511E]" />
             </div>
           </div>
 

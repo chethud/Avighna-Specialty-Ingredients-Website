@@ -135,34 +135,6 @@ function CardLeafMark() {
   );
 }
 
-function HeroCollage() {
-  return (
-    <div className="relative h-full min-h-[380px] w-full overflow-hidden bg-[#063F38] lg:absolute lg:inset-0 lg:min-h-0">
-      {/* Full-bleed collage — bleeds under text panel, framed like the original layout */}
-      <img
-        src="/generated/avighna-hero-organic-v3.jpg"
-        alt="Avighna group of four connected business worlds"
-        className="absolute inset-0 h-full w-full object-cover object-[68%_center] transition-transform duration-[18s] ease-out will-change-transform hover:scale-[1.02] lg:object-[72%_center]"
-        data-testid="img-avighna-hero"
-      />
-
-      {/* Soft blend: image fades into the left copy panel */}
-      <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#063F38]/85 via-[#063F38]/35 to-transparent lg:hidden"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 hidden lg:block"
-        style={{
-          background:
-            'linear-gradient(90deg, #063F38 0%, #063F38 28%, rgba(6,63,56,0.92) 38%, rgba(6,63,56,0.55) 48%, rgba(6,63,56,0.18) 56%, transparent 64%)',
-        }}
-        aria-hidden
-      />
-    </div>
-  );
-}
-
 function GroupHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -187,7 +159,7 @@ function GroupHeader() {
     { label: 'Home', action: () => { window.location.assign(`${import.meta.env.BASE_URL.replace(/\/$/, '')}/`); } },
     { label: 'About Us', action: () => scrollToId('about-avighna'), active: true },
     { label: 'Our Companies', action: () => scrollToId('companies') },
-    { label: 'Solutions', action: () => goHomeSection('solutions') },
+    { label: 'Solutions', action: () => window.location.assign(`${import.meta.env.BASE_URL.replace(/\/$/, '')}/solutions`) },
     { label: 'Catalogue', action: () => goHomeSection('catalogue') },
     { label: 'Applications', action: () => goHomeSection('applications') },
     { label: 'Contact', action: () => goHomeSection('contact') },
@@ -351,49 +323,6 @@ export default function About() {
     <main className="bg-[#F6F0E4] font-[Manrope,ui-sans-serif,system-ui,sans-serif] text-[#17201D]">
       <GroupHeader />
 
-      {/* HERO — fills first viewport under sticky header */}
-      <section className="relative overflow-hidden bg-[#063F38] text-[#F6F0E4]">
-        <div className="relative mx-auto flex min-h-[calc(100svh-4rem)] max-w-none flex-col lg:block lg:h-[calc(100svh-72px)] lg:min-h-[560px]">
-          <div className="relative z-10 flex w-full flex-col justify-center px-5 py-12 sm:px-8 lg:h-full lg:w-[46%] lg:px-10 lg:pr-8 xl:px-12">
-            <div className="w-full max-w-[520px]">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#C6A15B]">Avighna Group</p>
-              <h1
-                className="mt-5 font-['DM_Serif_Display',ui-serif,Georgia,serif] text-[clamp(2.75rem,5.2vw,4.5rem)] font-medium leading-[0.94] tracking-[-0.02em] text-[#F6F0E4]"
-                data-testid="heading-about-hero"
-              >
-                One Group.
-                <br />
-                Four Businesses.
-                <br />
-                <span className="text-[#F26522]">One Vision.</span>
-              </h1>
-              <p className="mt-5 max-w-[420px] font-[Manrope,ui-sans-serif,system-ui,sans-serif] text-[15px] leading-[1.65] text-[#F6F0E4]/78 sm:text-[16px]">
-                Avighna brings together diverse businesses, expertise and capabilities under one group, creating long-term
-                value through focused businesses and strong partnerships.
-              </p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <button
-                  onClick={() => scrollToId('companies')}
-                  className="inline-flex h-11 items-center gap-2 rounded-full bg-[#F26522] px-5 text-[13px] font-bold text-white transition-colors hover:bg-[#de5518]"
-                  data-testid="button-meet-companies"
-                >
-                  Meet Our Companies <ArrowRight size={14} />
-                </button>
-                <button
-                  onClick={() => scrollToId('about-avighna')}
-                  className="inline-flex h-11 items-center gap-2 rounded-full border border-white/35 px-5 text-[13px] font-bold text-[#F6F0E4] transition-colors hover:border-[#F26522]"
-                  data-testid="button-our-story"
-                >
-                  Our Story <ArrowRight size={14} />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <HeroCollage />
-        </div>
-      </section>
-
       {/* ABOUT AVIGHNA — text | principles | image (reference layout) */}
       <section id="about-avighna" className="bg-[#F6F0E4] py-12 lg:py-14">
         <div className="mx-auto grid page-container max-w-none items-center gap-10 lg:grid-cols-[0.48fr_0.22fr_0.48fr] lg:gap-8 xl:gap-12">
@@ -408,10 +337,20 @@ export default function About() {
               <br />
               Creating Long-Term Value.
             </h2>
-            <p className="mt-5 max-w-[520px] text-[15.5px] leading-[1.65] text-[#3d4a46]">
-              Avighna is the parent group that brings together four distinct companies with specialized expertise and a
-              shared commitment to quality, reliability and long-term partnerships.
-            </p>
+            <div className="mt-5 max-w-[520px] space-y-4 text-[15.5px] leading-[1.65] text-[#3d4a46]">
+              <p>
+                Built on 40+ years of industrial experience, our journey began in 2014 with a vision to create
+                innovative, solution-driven specialty ingredients for the Food &amp; Beverage industry.
+              </p>
+              <p>
+                From humble beginnings, we have evolved into a trusted partner for the FMCG industry, delivering
+                clean-label, cost-effective and value-added solutions.
+              </p>
+              <p>
+                Today, we are proud to help leading brands build and maintain their taste, quality and identity — one
+                innovative solution at a time.
+              </p>
+            </div>
             <button
               onClick={() => scrollToId('companies')}
               className="group mt-8 inline-flex items-center gap-2 rounded-full border border-[#F26522] px-5 py-2.5 text-[12px] font-bold uppercase tracking-[0.12em] text-[#F26522] transition-colors hover:bg-[#F26522] hover:text-white"
