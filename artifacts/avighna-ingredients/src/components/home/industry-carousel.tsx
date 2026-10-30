@@ -225,6 +225,11 @@ export function IndustryCarousel() {
   const step = cardWidth + gap;
   const offset = layered ? 0 : index * step;
   const groupRight = layered ? cardWidth * 3 - overlap * 2 : cardWidth;
+  // Desktop: rotate order so Next/Prev move the fan without clones.
+  // Mobile: keep fixed order and slide with translateX.
+  const visibleCards = layered
+    ? Array.from({ length: count }, (_, i) => cards[(index + i) % count])
+    : cards;
 
   return (
     <div
@@ -252,16 +257,22 @@ export function IndustryCarousel() {
           className="flex items-start motion-safe:transition-transform motion-safe:duration-500"
           style={{ transform: `translateX(-${offset}px)` }}
         >
-          {cards.map((card, cardIndex) => (
+          {visibleCards.map((card, cardIndex) => (
             <div
               key={card.id}
-              className="shrink-0"
+              className="shrink-0 motion-safe:transition-[opacity,transform] motion-safe:duration-400"
               style={{
                 zIndex: cardIndex + 1,
                 marginRight: layered && cardIndex < count - 1 ? -overlap : layered ? 0 : gap,
               }}
             >
-              <IndustryCardView card={card} width={cardWidth} layered={layered} edge={cardIndex === 0} active={cardIndex === index} />
+              <IndustryCardView
+                card={card}
+                width={cardWidth}
+                layered={layered}
+                edge={cardIndex === 0}
+                active={layered ? cardIndex === 0 : cardIndex === index}
+              />
             </div>
           ))}
         </div>
@@ -269,14 +280,14 @@ export function IndustryCarousel() {
 
       {layered && (
         <>
-          <button type="button" onClick={() => go(-1)} aria-label="Previous industry" className={`${controlButton} absolute left-0 top-[46%] z-20 -translate-y-1/2`}>
+          <button type="button" onClick={() => go(-1)} aria-label="Previous industry" className={`${controlButton} absolute left-0 top-[46%] z-30 -translate-y-1/2`}>
             <ChevronLeft size={18} />
           </button>
           <button
             type="button"
             onClick={() => go(1)}
             aria-label="Next industry"
-            className={`${controlButton} absolute top-[46%] z-20 -translate-x-full -translate-y-1/2`}
+            className={`${controlButton} absolute top-[46%] z-30 -translate-x-full -translate-y-1/2`}
             style={{ left: groupRight }}
           >
             <ChevronRight size={18} />
